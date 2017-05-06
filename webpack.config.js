@@ -1,13 +1,33 @@
 const path = require('path');
+
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractHtml = new ExtractTextPlugin('[name].html');
 
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
-    disable: process.env.NODE_ENV === "development"
+  filename: "[name].css",
+  // filename: "[name].[contenthash].css",
+  // disable: process.env.NODE_ENV === "development"
 });
 
 const config = {
-  entry: './app/index.js',
+  stats: {
+    // assets: false,
+    // colors: true,
+    // version: false,
+    // hash: true,
+    // timings: true,
+    // chunks: false,
+    // chunkModules: false
+  },
+
+  entry: {
+    index: [
+      path.resolve(__dirname, 'index.pug'),
+      path.resolve(__dirname, 'app/index.js'),
+      path.resolve(__dirname, 'app/main.scss')
+    ]
+    // path.resolve(__dirname, 'app/main.scss'),
+  },
 
   devtool: "cheap-module-eval-source-map",
 
@@ -32,6 +52,19 @@ const config = {
           {
             loader: 'eslint-loader'
           }]
+      },
+      {
+        test: /\.pug$/,
+        use: extractHtml.extract({
+          use: [
+            {
+              loader: 'html-loader'
+            },
+            {
+              loader: 'pug-html-loader'
+            }
+          ]
+        })
       },
       {
         test: /\.scss$/,
@@ -62,6 +95,7 @@ const config = {
   },
 
   plugins: [
+    extractHtml,
     extractSass
   ],
 
@@ -79,10 +113,10 @@ const config = {
 
 // Check if build is running in production mode, then change the sourcemap type
 if (process.env.NODE_ENV === "production") {
-  config.devtool = ""; // No sourcemap for production
+  // No sourcemap for production
+  config.devtool = "";
 
   // Add more configuration for production here like
-  // SASS & CSS loaders
   // Offline plugin
   // Etc,
 }

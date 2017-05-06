@@ -1,4 +1,4 @@
-import "./main.scss";
+// import "./main.scss";
 
 async function asyncTimeout(delay = 10) {
   return await new Promise((resolve) => {
