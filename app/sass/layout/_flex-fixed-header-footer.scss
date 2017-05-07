@@ -1,0 +1,29 @@
+body {
+  height: 100vh;
+}
+
+.l-containerWraper {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .l-headerContainer {
+    background-color: #b3b3b3;
+    padding: 15px 0 15px 0;
+  }
+
+  .l-mainContainer {
+    flex: 1;
+
+    overflow-y: auto;
+    background-color: tomato;
+    padding: 15px 0 15px 0;
+  }
+
+  .l-footerContainer {
+    background-color: #b3b3b3;
+    padding: 15px 0 15px 0;
+  }
+}
