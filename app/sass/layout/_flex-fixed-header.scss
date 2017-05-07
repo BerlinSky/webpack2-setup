@@ -1,0 +1,44 @@
+body {
+  height: 100vh;
+}
+
+.l-containerWraper {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .l-headerContainer {
+    background-color: #3b3b3b;
+    color: #fff;
+    padding: 15px 0 15px 0;
+  }
+
+  .l-mainContainer {
+    background-color: yellow;
+
+    flex: 1;
+
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0 0 0 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .l-mainContent {
+      flex: 1;
+
+      padding: 15px 0 15px 0;
+      background-color: tomato;
+    }
+
+    .l-footerContainer {
+      background-color: #3b3b3b;
+      color: #fff;
+      padding: 15px 0 15px 0;
+    }
+  }
+}
