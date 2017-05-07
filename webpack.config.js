@@ -61,7 +61,9 @@ const config = {
               loader: 'html-loader'
             },
             {
-              loader: 'pug-html-loader'
+              loader: 'pug-html-loader', options: {
+                'pretty': false
+              }
             }
           ]
         })
