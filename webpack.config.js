@@ -21,10 +21,15 @@ const config = {
   },
 
   entry: {
+    main: [
+      path.resolve(__dirname, 'app/main.scss'),
+      // path.resolve(__dirname, 'app/index.js')
+    ],
     index: [
-      path.resolve(__dirname, 'index.pug'),
-      path.resolve(__dirname, 'app/index.js'),
-      path.resolve(__dirname, 'app/main.scss')
+      path.resolve(__dirname, 'app/pages/index.pug'),
+    ],
+    service: [
+      path.resolve(__dirname, 'app/pages/service.pug'),
     ]
     // path.resolve(__dirname, 'app/main.scss'),
   },
@@ -33,8 +38,8 @@ const config = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    sourceMapFilename: 'bundle.map',
+    filename: '[name].js',
+    sourceMapFilename: '[name].map'
   },
 
   module: {
@@ -42,7 +47,8 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{
+        use: [
+          {
             loader: 'babel-loader',
             options: {
               presets: ['es2015', 'es2017'],
@@ -51,7 +57,8 @@ const config = {
           },
           {
             loader: 'eslint-loader'
-          }]
+          }
+        ]
       },
       {
         test: /\.pug$/,
