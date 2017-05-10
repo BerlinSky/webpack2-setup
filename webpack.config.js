@@ -22,44 +22,25 @@ const config = {
 
   entry: {
     main: [
-      path.resolve(__dirname, 'app/main.scss'),
-      // path.resolve(__dirname, 'app/index.js')
+      path.resolve(__dirname, 'app/main.scss')
     ],
     index: [
-      path.resolve(__dirname, 'app/pages/index.pug'),
+      path.resolve(__dirname, 'app/pages/index.pug')
     ],
     service: [
-      path.resolve(__dirname, 'app/pages/service.pug'),
+      path.resolve(__dirname, 'app/pages/service.pug')
     ]
-    // path.resolve(__dirname, 'app/main.scss'),
   },
 
   devtool: "cheap-module-eval-source-map",
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
-    sourceMapFilename: '[name].map'
+    filename: '[name].js'
   },
 
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015', 'es2017'],
-              plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
-            }
-          },
-          {
-            loader: 'eslint-loader'
-          }
-        ]
-      },
       {
         test: /\.pug$/,
         use: extractHtml.extract({
