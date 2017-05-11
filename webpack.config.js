@@ -18,7 +18,8 @@ const extractJsVendor = new webpack.optimize.CommonsChunkPlugin({
 const extractJsCommon = new webpack.optimize.CommonsChunkPlugin({
   name: "main",
   minChunks: Infinity,
-  chunks: ["index", "service"]
+  chunks: ["index", "service"],
+  sourceMap: true
 })
 
 const config = {
@@ -48,16 +49,20 @@ const config = {
     ]
   },
 
-  devtool: "cheap-module-eval-source-map",
-
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
-    // filename: 'bundle.js'
+    filename: '[name].js',
+    sourceMapFilename: '[name].js.map'
   },
 
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ["source-map-loader"],
+        enforce: "pre"
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -137,7 +142,7 @@ const config = {
 // Check if build is running in production mode, then change the sourcemap type
 if (process.env.NODE_ENV === "production") {
   // No sourcemap for production
-  // config.devtool = "";
+  config.devtool = "";
 
   // Add more configuration for production here like
   // Offline plugin
