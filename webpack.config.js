@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractHtml = new ExtractTextPlugin('[name].html');
@@ -8,6 +9,17 @@ const extractSass = new ExtractTextPlugin({
   // filename: "[name].[contenthash].css",
   // disable: process.env.NODE_ENV === "development"
 });
+
+const extractJsVendor = new webpack.optimize.CommonsChunkPlugin({
+  name: "vendor",
+  minChunks: Infinity
+});
+
+const extractJsCommon = new webpack.optimize.CommonsChunkPlugin({
+  name: "main",
+  minChunks: Infinity,
+  chunks: ["index", "service"]
+})
 
 const config = {
   stats: {
@@ -24,18 +36,16 @@ const config = {
     vendor: [
       'jquery', 'ramda'
     ],
-    // main: [
-    //   path.resolve(__dirname, 'app/main.scss')
-    // ],
-    index: [
-      path.resolve(__dirname, 'app/pages/index.pug'),
+    main: [
       path.resolve(__dirname, 'app/main.scss'),
-      path.resolve(__dirname, 'app/index.js')
+      path.resolve(__dirname, 'app/main.js')
     ],
-    // service: [
-    //   path.resolve(__dirname, 'app/pages/service.pug'),
-    //   path.resolve(__dirname, 'app/service.js')
-    // ]
+    index: [
+      path.resolve(__dirname, 'app/pages/index.pug')
+    ],
+    service: [
+      path.resolve(__dirname, 'app/pages/service.pug')
+    ]
   },
 
   devtool: "cheap-module-eval-source-map",
@@ -107,7 +117,9 @@ const config = {
 
   plugins: [
     extractHtml,
-    extractSass
+    extractSass,
+    extractJsVendor,
+    extractJsCommon
   ],
 
   devServer: {
@@ -125,7 +137,7 @@ const config = {
 // Check if build is running in production mode, then change the sourcemap type
 if (process.env.NODE_ENV === "production") {
   // No sourcemap for production
-  config.devtool = "";
+  // config.devtool = "";
 
   // Add more configuration for production here like
   // Offline plugin
