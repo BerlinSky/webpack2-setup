@@ -1,6 +1,6 @@
 const path = require('path');
-
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 const extractHtml = new ExtractTextPlugin('[name].html');
 
 const extractSass = new ExtractTextPlugin({
@@ -21,15 +21,21 @@ const config = {
   },
 
   entry: {
-    main: [
-      path.resolve(__dirname, 'app/main.scss')
+    vendor: [
+      'jquery', 'ramda'
     ],
+    // main: [
+    //   path.resolve(__dirname, 'app/main.scss')
+    // ],
     index: [
-      path.resolve(__dirname, 'app/pages/index.pug')
+      path.resolve(__dirname, 'app/pages/index.pug'),
+      path.resolve(__dirname, 'app/main.scss'),
+      path.resolve(__dirname, 'app/index.js')
     ],
-    service: [
-      path.resolve(__dirname, 'app/pages/service.pug')
-    ]
+    // service: [
+    //   path.resolve(__dirname, 'app/pages/service.pug'),
+    //   path.resolve(__dirname, 'app/service.js')
+    // ]
   },
 
   devtool: "cheap-module-eval-source-map",
@@ -37,10 +43,25 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
+    // filename: 'bundle.js'
   },
 
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'es2017'],
+              plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
+            }
+          },
+          {
+            loader: 'eslint-loader'
+          }]
+      },
       {
         test: /\.pug$/,
         use: extractHtml.extract({
