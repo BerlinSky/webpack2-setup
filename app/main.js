@@ -1,16 +1,6 @@
 import $ from 'jquery';
-
-async function asyncTimeout(delay = 10) {
-  return await new Promise((resolve) => {
-    setTimeout(() => resolve('OK'), delay);
-  });
-}
-
-const asyncResult = () => asyncTimeout().then( x => {
-  console.log(x);
-});
+import { selectArtistInfo } from './use-ramda/001-simple-object';
 
 $(function () {
-  console.log('here');
-  asyncResult();
+  selectArtistInfo();
 });
