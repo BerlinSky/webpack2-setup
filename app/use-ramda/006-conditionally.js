@@ -8,13 +8,13 @@ const systemConfig2 = {
   env: "staging"
 }
 
-// const systemConfig3 = {
-//   env: "preprod"
-// } 
+const systemConfig3 = {
+  env: "preprod"
+} 
 
-// const systemConfig4 = {
-//   env: "production"
-// }
+const systemConfig4 = {
+  env: "production"
+}
 
 const debugCrazy = (x) => {
   console.log("Increase log level to the maximum.", x);
@@ -24,7 +24,18 @@ const logAccess = (x) => {
   console.log("Log user access.", x);
 }
 
+const removeLogs = (x) => {
+  console.log("Clean up all logs.", x);
+}
+
+const connectDB = (x) => {
+  console.log("Connecting to database.", x);
+}
+
 const isDevEnv = R.propEq('env', 'development');
+const isStagingEnv = R.propEq('env', 'staging');
+const isPreprodEnv = R.propEq('env', 'preprod');
+const isProdEnv = R.propEq('env', 'production');
 
 export const checkSystemConfig = () => {
   // ifElse
@@ -51,4 +62,17 @@ export const checkSystemConfig = () => {
   console.info('action 4 ========')
   action4(systemConfig1);
   action4(systemConfig2);
+
+  const actions5 = R.cond([
+    [isDevEnv, R.curry(debugCrazy)],
+    [isStagingEnv, R.curry(removeLogs)],
+    [isPreprodEnv, R.curry(connectDB)],
+    [isProdEnv, R.curry(logAccess)]
+  ]);
+
+  console.info('action 5 ========')
+  actions5(systemConfig1);
+  actions5(systemConfig2);
+  actions5(systemConfig3);
+  actions5(systemConfig4);
 }
