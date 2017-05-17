@@ -7,12 +7,15 @@ import { getUniqueAlbumYearWithLog } from './use-ramda/005-debug-with-tap';
 import { checkSystemConfig } from './use-ramda/006-conditionally';
 import { getJustArtistName } from './use-ramda/007-try-catch';
 import { getSubsetArtist } from './use-ramda/008-array-filter3';
+import { getAlbumOfYear } from './use-ramda/009-array-filter4';
 
 $(function () {
+  getAlbumOfYear();
+
   getSubsetArtist();
   
   getJustArtistName();
-  
+
   checkSystemConfig();
 
   getArtistAlbumTitle();
