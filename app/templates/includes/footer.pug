@@ -1,14 +1,14 @@
+mixin linkItem(tolink, name)
+  li
+    a(href=`${tolink}` target="") #{name}
+
 .l-footerContainer.contentFooterContainer
   .footerPanel.footerPanel--links
     .footerPanel__item.footerPanel__item--default
       ul
-        li
-          a(href="/help" target="") Help
-        li
-          a(href="/help" target="") Newsletter
-        li
-          a(href="/help" target="") Terms of Use
-        li
-          a(href="/help" target="") Privacy Policy
+        +linkItem("/help", "Help")
+        +linkItem("/news", "Newsletter")
+        +linkItem("/terms", "Terms of Use")
+        +linkItem("/policy", "Privacy Policy")
 
     .footerPanel__item.footerPanel__item--copyright Copyright © 2017 This Web Site
