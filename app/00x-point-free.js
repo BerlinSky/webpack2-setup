@@ -23,8 +23,8 @@ const albums = [
   }
 ]
 
-const albumsOfYear = R.find(R.propEq('year', "2009"));
+const albumsOfYear = R.useWith(R.find, [R.propEq('year'), R.identity]);
 
-export const getAlbumOfYear = () => {
-  console.log(albumsOfYear(albums));
+export const getAlbumOfYearPointFree = () => {
+  console.log(albumsOfYear("2010", albums));
 }
