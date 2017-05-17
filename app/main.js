@@ -10,6 +10,8 @@ import { getSubsetArtist } from './use-ramda/008-array-filter3';
 import { getAlbumOfYear } from './use-ramda/009-array-filter4';
 
 $(function () {
+  testBox();
+  
   getAlbumOfYear();
 
   getSubsetArtist();
