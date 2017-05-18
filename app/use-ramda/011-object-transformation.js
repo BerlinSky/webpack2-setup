@@ -65,8 +65,3 @@ export const artistInfoChanged = () => {
   const update = R.set(lens, 'South Africa', artist1);
   console.log('artistInfoChanged:update', update);
 }
-
-
-
-
-
