@@ -26,7 +26,8 @@ app.get('/', function(req, res) {
 
 app.get('/:username', function(req, res) {
   var username = req.params.username;
-  res.send(username);
+  res.render('user', { username: username })
+  // res.send(username);
 })
 
 app.get('/service', function(req, res) {

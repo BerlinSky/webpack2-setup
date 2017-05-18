@@ -1,0 +1,20 @@
+doctype html
+html(lang='eng')
+  head
+    title User Page
+    style(type='text/css')
+      |  * {
+      |    font-family: Helvetica, Arial, sans-serif;
+      | }
+      | div {
+      |   display: flex;
+      |   align-items: center;
+      |   padding: 1em;
+      |   font-size: 1.2em;
+      | }
+      | div a {
+      |   padding-left: 0.5em;
+      | }
+  body
+    h1= username
+    img(src="/profilepics/" + username + "_lg.jpg" alt="")
