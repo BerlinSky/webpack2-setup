@@ -4,19 +4,20 @@ html(lang='eng')
     title User List
     style(type='text/css')
       |  * {
-      | font-family: Helvetica, Arial, sans-serif;
+      |    font-family: Helvetica, Arial, sans-serif;
       | }
       | div {
-      | display: flex;
-      | align-items: center;
-      | padding: 1em;
-      | font-size: 1.2em;
+      |   display: flex;
+      |   align-items: center;
+      |   padding: 1em;
+      |   font-size: 1.2em;
       | }
       | div a {
-      | padding-left: 0.5em;
+      |   padding-left: 0.5em;
       | }
   body
-    ul
-      each user in users
-        li
-          a(href='/' + user.username)= user.name.full
+    each user in users
+      div
+        img(src="/profilepics/" + user.username + "_sm.jpg" alt="")
+        a(href='/' + user.username)= user.name.full
+

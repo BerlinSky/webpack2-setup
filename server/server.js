@@ -18,7 +18,7 @@ fs.readFile(path.resolve(__dirname, './data/users.json'), {encoding: 'utf8'}, fu
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use('/profilepics', express.static('images'))
+app.use('/profilepics', express.static(path.join(__dirname, 'images')))
 
 app.get('/', function(req, res) {
   res.render('index', { users: users });
