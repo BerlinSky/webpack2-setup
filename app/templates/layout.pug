@@ -1,7 +1,10 @@
 doctype html
 html
   head
+    block pageTitle
+
     include includes/head
+
   body
     .l-containerWraper
       include includes/header
@@ -9,7 +12,7 @@ html
       .l-mainContainer
         .l-mainContent
 
-          block content
+          block pageContent
 
         include includes/footer
 
