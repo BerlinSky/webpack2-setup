@@ -56,6 +56,16 @@ export const artistInfoMerged = () => {
   console.log('artistInfo', info);
 }
 
+export const artistInfoChanged = () => {
+  const lens = R.lensProp('country');
+
+  const info = R.view(lens, artist1);
+  console.log('artistInfoChanged:info', info);
+  
+  const update = R.set(lens, 'South Africa', artist1);
+  console.log('artistInfoChanged:update', update);
+}
+
 
 
 
