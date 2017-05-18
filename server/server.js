@@ -6,7 +6,7 @@ var path = require('path');
 
 var users = []
 
-fs.readFile(path.resolve(__dirname, './server/data/users.json'), {encoding: 'utf8'}, function(err, data) {
+fs.readFile(path.resolve(__dirname, './data/users.json'), {encoding: 'utf8'}, function(err, data) {
   if (err) throw err
 
   JSON.parse(data).forEach(function(user) {
@@ -15,8 +15,10 @@ fs.readFile(path.resolve(__dirname, './server/data/users.json'), {encoding: 'utf
   })
 })
 
-app.set('views', path.join(__dirname, '/server/views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use('/profilepics', express.static('images'))
 
 app.get('/', function(req, res) {
   res.render('index', { users: users });
