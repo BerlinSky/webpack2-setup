@@ -1,3 +1,29 @@
 @import "sass/base/all-base";
 @import "sass/layout/all-layouts";
 @import "sass/modules/all-modules";
+
+// Test section:
+#wrapper {
+  background-color: wheat;
+  width: 100%;
+
+  .cp_header {
+    background-color: yellowgreen;
+    width: 100%;
+  }
+
+  .cp_banner_full_width {
+    background-color: seagreen;
+    width: 100%;
+  }
+
+  #cp-main-content {
+    background-color: paleturquoise;
+    width: 100%;
+  }
+
+  .cp_footer {
+    background-color: violet;
+    width: 100%;
+  }
+}

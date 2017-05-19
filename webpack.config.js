@@ -33,6 +33,8 @@ const config = {
     // chunkModules: false
   },
 
+  context: __dirname,
+
   entry: {
     vendor: [
       'jquery', 'ramda'
@@ -46,6 +48,9 @@ const config = {
     ],
     service: [
       path.resolve(__dirname, 'app/pages/service.pug')
+    ],
+    paper: [
+      path.resolve(__dirname, 'app/pages/paper.pug')
     ]
   },
 
