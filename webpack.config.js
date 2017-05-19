@@ -86,7 +86,10 @@ const config = {
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html', options: {
+          root: path.resolve(__dirname, 'public'),
+          attrs: ['img:src', 'link:href']
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
@@ -101,7 +104,7 @@ const config = {
             },
             {
               loader: 'pug-html-loader', options: {
-                'pretty': false
+                'basedir': path.resolve(__dirname, '/')
               }
             }
           ]
@@ -137,6 +140,10 @@ const config = {
 
   plugins: [
     extractHtml,
+    new HtmlWebpackPlugin({
+      // template: 'src/index.html'
+      filename: '[name].html'
+    }),
     extractSass,
     extractJsVendor,
     extractJsCommon
