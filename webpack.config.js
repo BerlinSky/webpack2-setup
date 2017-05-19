@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const extractHtml = new ExtractTextPlugin('[name].html');
 
@@ -82,6 +83,14 @@ const config = {
           {
             loader: 'eslint-loader'
           }]
+      },
+      {
+        test: /\.html$/,
+        loader: 'html'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        loader: 'file?name=assets/[name].[hash].[ext]'
       },
       {
         test: /\.pug$/,
