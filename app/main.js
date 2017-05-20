@@ -8,8 +8,9 @@ import { checkSystemConfig } from './use-ramda/006-conditionally';
 import { getJustArtistName } from './use-ramda/007-try-catch';
 import { getSubsetArtist } from './use-ramda/008-array-filter3';
 import { getAlbumOfYear } from './use-ramda/009-array-filter4';
-
 import { artistInfoTransformed, artistInfoMerged, artistInfoChanged } from './use-ramda/011-object-transformation';
+
+import { compareOutputs } from './use-ramda/012-point-free2';
 
 $(function () {
 
@@ -31,4 +32,7 @@ $(function () {
   selectArtistInfo();
   filterArtistList();
   getUniqueAlbumYear();
+
+  console.clear();
+  compareOutputs();
 });
