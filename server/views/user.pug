@@ -40,15 +40,39 @@ html(lang='eng')
       |   display: none;
       | }
   body
-    h1= username
-    img(src="/profilepics/" + username + "_lg.jpg" alt="")
-
     .nav
       a(href="/") Back to Users List
 
     .pic
-      img(src="/profilepics/{{user.username}}_med.jpg")
+      img(src='/profilepics/' + user.username + '_med.jpg')
       p
         a(href="#" onclick="edit()") Edit
         a(href="#" onclick="del()") Delete
         
+    h1= user.name.full
+    dl
+      dt Street
+      dd.view= address.street
+      dd.edit
+        input(id="street" type="text" value="{{address.street}}")
+      br
+      dt City
+      dd.view= address.city
+      dd.edit
+        input(id="city" type="text" value="{{address.city}}")
+      br
+      dt State
+      dd.view= address.state
+      dd.edit
+        input(id="state" type="text" value="{{address.state}}")
+      br
+      dt Zip
+      dd.view= address.zip
+      dd.edit
+        input(id="zip" type="text" value="{{address.zip}}")
+      br
+      dt
+      dd.edit
+        input(type="submit" value="Save" onclick="save()")
+        input("submit" value="Cancel" onclick="cancel()")
+    
