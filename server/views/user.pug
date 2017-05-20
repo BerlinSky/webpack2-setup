@@ -2,43 +2,8 @@ doctype html
 html(lang='eng')
   head
     title User Page
-    style(type='text/css')
-      |  * {
-      |    font-family: Helvetica, Arial, sans-serif;
-      | }
-      | div {
-      |   display: flex;
-      |   align-items: center;
-      |   padding: 1em;
-      |   font-size: 1.2em;
-      | }
-      | div a {
-      |   padding-left: 0.5em;
-      | }
-      | div.nav {
-      | |   float: left;
-      |   width: 100%;
-      |   height: 100px;
-      | }
-      | img {
-      |   padding-right: 2em;
-      | }
-      | input {
-      |   font-size: 1em;
-      | }
-      | dt {
-      |   font-weight: bolder;
-      |   display: inline-block;
-      |   width: 4em;
-      | }
-      | dd {
-      |   display: inline-block;
-      |   margin-left: 0;
-      |   line-height: 1.5;
-      | }
-      | .edit {
-      |   display: none;
-      | }
+    link(rel="stylesheet" href="/styles/user.css")
+
   body
     .nav
       a(href="/") Back to Users List

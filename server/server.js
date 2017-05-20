@@ -41,7 +41,9 @@ app.get('/favicon.ico', function(req, res) {
   res.end()
 })
 
+app.use('/styles', express.static(path.join(__dirname, 'styles')))
 app.use('/profilepics', express.static(path.join(__dirname, 'images')))
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
@@ -65,8 +67,6 @@ app.get('/:username', function (req, res) {
   console.log("username", username);
 
   var user = getUser(username)
-  console.log("user", user);
-
   res.render('user', {
     user: user,
     address: user.location
