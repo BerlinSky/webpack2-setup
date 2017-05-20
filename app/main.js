@@ -11,6 +11,7 @@ import { getAlbumOfYear } from './use-ramda/009-array-filter4';
 import { artistInfoTransformed, artistInfoMerged, artistInfoChanged } from './use-ramda/011-object-transformation';
 
 import { compareOutputs } from './use-ramda/012-point-free2';
+import { moveElements } from './use-ramda/013-point-free3';
 
 $(function () {
 
@@ -33,6 +34,8 @@ $(function () {
   filterArtistList();
   getUniqueAlbumYear();
 
-  console.clear();
   compareOutputs();
+
+  console.clear();
+  moveElements()
 });

@@ -53,6 +53,8 @@ export const compareOutputs = () => {
 
   // const fromSameCountry = R.converge(R.equals, [thisArtistFrom, thatArtistFrom])
   const fromSameCountry = R.converge(R.equals, [thisArtistFrom, anotherArtistFrom])
-  
+
   console.log('fromSameCountry', fromSameCountry(artists));
+
+  // whole idea is to convert if (a === b) to 
 }
