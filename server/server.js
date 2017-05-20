@@ -19,7 +19,7 @@ fs.readFile(path.resolve(__dirname, './data/users.json'), {encoding: 'utf8'}, fu
 })
 
 function getUserFilePath(username) {
-  return path.join(__dirname, 'users', username) + '.json';
+  return path.join(__dirname, 'data', 'users', username) + '.json';
 }
 // function getUserFilePath (username) {
 //   return path.join(__dirname, 'users', username) + '.json'
@@ -50,9 +50,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
   var users = []
-  fs.readdir('users', function (err, files) {
+  var dir = path.join(__dirname, 'data', 'users');
+  fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
-      fs.readFile(path.join(__dirname, 'users', file), {encoding: 'utf8'}, function (err, data) {
+      fs.readFile(path.join(__dirname, 'data', 'users', file), {encoding: 'utf8'}, function (err, data) {
         var user = JSON.parse(data)
         user.name.full = _.startCase(user.name.first + ' ' + user.name.last)
         users.push(user)
