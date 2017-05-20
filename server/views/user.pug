@@ -4,6 +4,9 @@ html(lang='eng')
     title User Page
     link(rel="stylesheet" href="/styles/user.css")
 
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(src='/scripts/user.js')
+
   body
     .nav
       a(href="/") Back to Users List
@@ -19,25 +22,25 @@ html(lang='eng')
       dt Street
       dd.view= address.street
       dd.edit
-        input(id="street" type="text" value="{{address.street}}")
+        input(id="street" type="text" value=address.street)
       br
       dt City
       dd.view= address.city
       dd.edit
-        input(id="city" type="text" value="{{address.city}}")
+        input(id="city" type="text" value=address.city)
       br
       dt State
       dd.view= address.state
       dd.edit
-        input(id="state" type="text" value="{{address.state}}")
+        input(id="state" type="text" value=address.state)
       br
       dt Zip
       dd.view= address.zip
       dd.edit
-        input(id="zip" type="text" value="{{address.zip}}")
+        input(id="zip" type="text" value=address.zip)
       br
       dt
       dd.edit
         input(type="submit" value="Save" onclick="save()")
-        input("submit" value="Cancel" onclick="cancel()")
+        input(type="submit" value="Cancel" onclick="cancel()")
     

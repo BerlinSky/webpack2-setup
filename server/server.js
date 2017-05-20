@@ -41,7 +41,8 @@ app.get('/favicon.ico', function(req, res) {
   res.end()
 })
 
-app.use('/styles', express.static(path.join(__dirname, 'styles')))
+app.use('/scripts', express.static(path.join(__dirname, 'public', 'scripts')))
+app.use('/styles', express.static(path.join(__dirname, 'public', 'styles')))
 app.use('/profilepics', express.static(path.join(__dirname, 'images')))
 
 app.use(bodyParser.urlencoded({ extended: true }));
