@@ -38,7 +38,9 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "body-parser": "1.17.2",
     "express": "4.15.3",
+    "lodash": "4.17.4",
     "pug": "2.0.0-rc.1"
   }
 }
