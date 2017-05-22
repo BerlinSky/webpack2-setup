@@ -4,8 +4,9 @@ var app = express()
 var fs = require('fs')
 var path = require('path');
 var _ = require('lodash');
-
 var bodyParser = require('body-parser');
+
+var helpers = require('./helpers');
 
 var users = []
 
@@ -18,9 +19,9 @@ fs.readFile(path.resolve(__dirname, './data/users.json'), {encoding: 'utf8'}, fu
   })
 })
 
-function getUserFilePath(username) {
-  return path.join(__dirname, 'data', 'users', username) + '.json';
-}
+// function getUserFilePath(username) {
+//   return path.join(__dirname, 'data', 'users', username) + '.json';
+// }
 
 function getUser(username) {
   var user = JSON.parse(fs.readFileSync(getUserFilePath(username), { encoding: 'utf8'}))
@@ -32,7 +33,7 @@ function getUser(username) {
 }
 
 function verifyUser (req, res, next) {
-  var fp = getUserFilePath(req.params.username)
+  var fp = helpers.getUserFilePath(req.params.username)
 
   fs.exists(fp, function (yes) {
     if (yes) {
@@ -43,24 +44,24 @@ function verifyUser (req, res, next) {
   })
 }
 
-function saveUser (username, data) {
-  var fp = getUserFilePath(username)
-  fs.unlinkSync(fp) // delete the file
-  fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
-}
+// function saveUser (username, data) {
+//   var fp = getUserFilePath(username)
+//   fs.unlinkSync(fp) // delete the file
+//   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
+// }
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-app.get('/favicon.ico', function(req, res) {
-  res.end()
-})
 
 app.use('/scripts', express.static(path.join(__dirname, 'public', 'scripts')))
 app.use('/styles', express.static(path.join(__dirname, 'public', 'styles')))
 app.use('/profilepics', express.static(path.join(__dirname, 'images')))
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/favicon.ico', function(req, res) {
+  res.end()
+})
 
 app.get('/', function (req, res) {
   var users = []
@@ -83,7 +84,7 @@ app.get('*.json', function (req, res) {
 
 app.get('/data/:username', function (req, res) {
   var username = req.params.username
-  var user = getUser(username)
+  var user = helpers.getUser(username)
   res.json(user)
 })
 
