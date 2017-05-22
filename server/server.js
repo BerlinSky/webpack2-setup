@@ -67,9 +67,6 @@ app.get('/', function (req, res) {
 
 app.get('/:username', function (req, res) {
   var username = req.params.username
-
-  console.log("username", username);
-
   var user = getUser(username)
   res.render('user', {
     user: user,
@@ -79,9 +76,6 @@ app.get('/:username', function (req, res) {
 
 app.put('/:username', function (req, res) {
   var username = req.params.username
-
-  console.log("username", username);
-  
   var user = getUser(username)
   user.location = req.body
   saveUser(username, user)
