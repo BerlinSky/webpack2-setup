@@ -21,9 +21,6 @@ fs.readFile(path.resolve(__dirname, './data/users.json'), {encoding: 'utf8'}, fu
 function getUserFilePath(username) {
   return path.join(__dirname, 'data', 'users', username) + '.json';
 }
-// function getUserFilePath (username) {
-//   return path.join(__dirname, 'users', username) + '.json'
-// }
 
 function getUser(username) {
   var user = JSON.parse(fs.readFileSync(getUserFilePath(username), { encoding: 'utf8'}))
@@ -32,6 +29,12 @@ function getUser(username) {
     user.location[key] = _.startCase(user.location[key])
   })
   return user;
+}
+
+function saveUser (username, data) {
+  var fp = getUserFilePath(username)
+  fs.unlinkSync(fp) // delete the file
+  fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
 }
 
 app.set('views', path.join(__dirname, 'views'));
@@ -76,6 +79,9 @@ app.get('/:username', function (req, res) {
 
 app.put('/:username', function (req, res) {
   var username = req.params.username
+
+  console.log("username", username);
+  
   var user = getUser(username)
   user.location = req.body
   saveUser(username, user)

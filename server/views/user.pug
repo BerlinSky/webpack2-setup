@@ -5,7 +5,6 @@ html(lang='eng')
     link(rel="stylesheet" href="/styles/user.css")
 
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-    script(src='/scripts/user.js')
 
   body
     .nav
@@ -15,7 +14,7 @@ html(lang='eng')
       img(src='/profilepics/' + user.username + '_med.jpg')
       p
         a(href="#" onclick="edit()") Edit
-        a(href="#" onclick="del()") Delete
+        a(href="#" id=deleteBtn data-user=userName onclick='del("' + user.username + '")') Delete
         
     h1= user.name.full
     dl
@@ -43,4 +42,8 @@ html(lang='eng')
       dd.edit
         input(type="submit" value="Save" onclick="save()")
         input(type="submit" value="Cancel" onclick="cancel()")
+
+    script
+      include ../public/scripts/user.js 
+        
     
