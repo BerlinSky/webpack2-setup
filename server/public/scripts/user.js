@@ -8,8 +8,8 @@ function cancel () {
   $('.edit').hide()
 }
 
-function save () {
-  $.ajax('/' + user.username, {
+function save (userName) {
+  $.ajax('/' + userName, {
     method: 'PUT',
     data: {
       street: $('#street').val(),
@@ -25,8 +25,6 @@ function save () {
 }
 
 function del (userName) {
-  console.log('user.username', userName);
-
   $.ajax('/' + userName, {
     method: 'DELETE',
     complete: function () {
@@ -34,5 +32,3 @@ function del (userName) {
     }
   })
 }
-
-// console.log('inside user.js');

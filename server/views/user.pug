@@ -40,10 +40,8 @@ html(lang='eng')
       br
       dt
       dd.edit
-        input(type="submit" value="Save" onclick="save()")
+        input(type="submit" value="Save" onclick='save("' + user.username + '")')
         input(type="submit" value="Cancel" onclick="cancel()")
 
     script
       include ../public/scripts/user.js 
-        
-    
