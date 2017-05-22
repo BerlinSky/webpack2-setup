@@ -31,6 +31,18 @@ function getUser(username) {
   return user;
 }
 
+function verifyUser (req, res, next) {
+  var fp = getUserFilePath(req.params.username)
+
+  fs.exists(fp, function (yes) {
+    if (yes) {
+      next()
+    } else {
+      res.redirect('/error/' + req.params.username)
+    }
+  })
+}
+
 function saveUser (username, data) {
   var fp = getUserFilePath(username)
   fs.unlinkSync(fp) // delete the file
@@ -65,7 +77,26 @@ app.get('/', function (req, res) {
   })
 })
 
-app.get('/:username', function (req, res) {
+app.get('*.json', function (req, res) {
+  res.download(path.join(__dirname, 'data', 'users') + req.path)
+})
+
+app.get('/data/:username', function (req, res) {
+  var username = req.params.username
+  var user = getUser(username)
+  res.json(user)
+})
+
+app.get('/error/:username', function (req, res) {
+  res.status(404).send('No user named ' + req.params.username + ' found')
+})
+
+app.all('/:username', function (req, res, next) {
+  console.log(req.method, 'for', req.params.username)
+  next()
+})
+
+app.get('/:username', verifyUser, function (req, res) {
   var username = req.params.username
   var user = getUser(username)
   res.render('user', {
