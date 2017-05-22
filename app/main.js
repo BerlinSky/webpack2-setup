@@ -13,6 +13,8 @@ import { artistInfoTransformed, artistInfoMerged, artistInfoChanged } from './us
 import { compareOutputs } from './use-ramda/012-point-free2';
 import { moveElements } from './use-ramda/013-point-free3';
 
+import { someArtists } from './use-ramda/014-array-filter5';
+
 $(function () {
 
   artistInfoTransformed();
@@ -37,5 +39,7 @@ $(function () {
   compareOutputs();
 
   console.clear();
-  moveElements()
+  moveElements();
+
+  someArtists();
 });
