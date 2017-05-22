@@ -15,6 +15,8 @@ import { moveElements } from './use-ramda/013-point-free3';
 
 import { someArtists } from './use-ramda/014-array-filter5';
 
+import { artistStreams } from './use-ramda/015-promise';
+
 $(function () {
 
   artistInfoTransformed();
@@ -42,4 +44,6 @@ $(function () {
   moveElements();
 
   someArtists();
+
+  artistStreams();
 });
