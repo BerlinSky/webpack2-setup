@@ -19,9 +19,9 @@ fs.readFile(path.resolve(__dirname, './data/users.json'), {encoding: 'utf8'}, fu
   })
 })
 
-// function getUserFilePath(username) {
-//   return path.join(__dirname, 'data', 'users', username) + '.json';
-// }
+function getUserFilePath(username) {
+  return path.join(__dirname, 'data', 'users', username) + '.json';
+}
 
 function getUser(username) {
   var user = JSON.parse(fs.readFileSync(getUserFilePath(username), { encoding: 'utf8'}))
@@ -33,7 +33,7 @@ function getUser(username) {
 }
 
 function verifyUser (req, res, next) {
-  var fp = helpers.getUserFilePath(req.params.username)
+  var fp = getUserFilePath(req.params.username)
 
   fs.exists(fp, function (yes) {
     if (yes) {
@@ -44,11 +44,11 @@ function verifyUser (req, res, next) {
   })
 }
 
-// function saveUser (username, data) {
-//   var fp = getUserFilePath(username)
-//   fs.unlinkSync(fp) // delete the file
-//   fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
-// }
+function saveUser (username, data) {
+  var fp = getUserFilePath(username)
+  fs.unlinkSync(fp) // delete the file
+  fs.writeFileSync(fp, JSON.stringify(data, null, 2), {encoding: 'utf8'})
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
