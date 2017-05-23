@@ -52,6 +52,9 @@ const config = {
     ],
     parallax: [
       path.resolve(__dirname, 'app/pages/parallax.pug')
+    ],
+    scrolling: [
+      path.resolve(__dirname, 'app/pages/scrolling.pug')
     ]
   },
 

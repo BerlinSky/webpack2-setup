@@ -1,5 +1,7 @@
 import $ from 'jquery';
-import Parallax from 'parallax-js'
+
+// Need this workaround: adding "main": "source/parallax.js" in package.json of this package
+import Parallax from 'parallax-js';
 
 $(function () {
   console.log('main');

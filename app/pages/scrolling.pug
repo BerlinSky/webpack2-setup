@@ -1,0 +1,39 @@
+
+doctype html
+
+html
+  head
+  meta(charset="utf-8")
+  meta(name="description" content="")
+  meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+  meta(name="apple-mobile-web-app-capable" content="yes")
+
+  title Parallax 
+
+  link(href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900')
+  
+  link(rel="stylesheet" href="main.css")
+
+  body
+    #wrapper
+      header.cp_header
+        .cp-navigation-row
+          | Inside site navigation
+
+      #cp-main-content
+        .scene
+          .layer(data-depth="1.00")
+            img(src="/public/images/layer1.png")
+          .layer(data-depth="0.80")
+            img(src="/public/images/layer2.png")
+          .layer(data-depth="0.60")
+            img(src="/public/images/layer3.png")
+          .layer(data-depth="0.40")
+            img(src="/public/images/layer4.png")
+          .layer(data-depth="0.20")
+            img(src="/public/images/layer5.png")
+          .layer(data-depth="0.00")
+            img(src="/public/images/layer6.png")
+
+      footer.cp_footer
+        | Footer section
