@@ -18,8 +18,34 @@
   }
 
   #cp-main-content {
-    background-color: paleturquoise;
+    // background-color: paleturquoise;
+    $color-green: #00ffaa;
+    $color-background: #111;
+    $color-text: #555;
+    background: $color-background;
+    color: $color-text;
+    font-size: 18px;
     width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .scene {
+      margin: 0;
+      padding: 0;
+    }
+
+    @for $i from 1 through 6 {
+      .layer:nth-child(#{$i}) {
+        opacity: #{0.15 * $i};
+
+        button {
+          transform: rotate(#{180 - 30 * $i}deg)
+        }
+      }
+    }
   }
 
   .cp_footer {
