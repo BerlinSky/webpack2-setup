@@ -1,13 +1,11 @@
 import $ from 'jquery';
 // import { allRamdaExamples } from './use-ramda/000-all-ramda';
 
-import { getArtistCountryFromList } from './use-js-basic/001-js-map'
-import { getArtistCountryFromList2 } from './use-js-basic/002-js-filter'
+import { allRamdaExamples } from './use-js-basic/000-all-js-basic'
 
 $(function () {
   // allRamdaExamples();
 
   console.clear();
-  getArtistCountryFromList();
-  getArtistCountryFromList2();
+  allRamdaExamples();
 });
