@@ -31,19 +31,11 @@ const artists = [
   }
 ]
 
-const getArtistCountry = (artists) => {
-  const result = [];
+const getArtistCountry = (artists) => artists
+  .filter(artist => artist.country === 'England')
+  .map(artist => artist.country);
 
-  // forEach is an asynchronous operation
-  // whereas "for" is synchronous
-  artists.forEach(function(artist){
-    result.push(artist.country);
-  })
-
-  return result;
-}
-
-export const getArtistCountryFromList3 = () => {
+export const getArtistCountryFromList4 = () => {
   const list = getArtistCountry(artists);
   console.log('artistCountryList2', list);
 }
