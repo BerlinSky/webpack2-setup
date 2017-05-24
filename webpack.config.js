@@ -38,7 +38,7 @@ const config = {
 
   entry: {
     vendor: [
-      'jquery', 'parallax-js'
+      'jquery'
     ],
     main: [
       path.resolve(__dirname, 'app/main.scss'),
@@ -55,6 +55,9 @@ const config = {
     ],
     parallax2: [
       path.resolve(__dirname, 'app/pages/parallax-2.pug')
+    ],
+    parallax3: [
+      path.resolve(__dirname, 'app/pages/parallax-3.pug')
     ],
     scrolling: [
       path.resolve(__dirname, 'app/pages/scrolling.pug')
