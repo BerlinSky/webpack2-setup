@@ -5,9 +5,10 @@
 ### Inject CSS 
 
 #### Steps
-1 Update package.json 
+1. Install css-loader and style-loader as DEV dependencies
   ```
-  "build:dev": "webpack-dev-server",
+  npm i css-loader -D
+  npm i style-loader -D
   ```
 2. Update webpack.config.js
 3. Create 'app\css' folder
@@ -25,4 +26,8 @@
     padding: 50px;
     border: 1px solid green;
   }
+  ```
+1 Update package.json 
+  ```
+  "build:dev": "webpack-dev-server",
   ```
