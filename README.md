@@ -11,8 +11,9 @@
 ### Add support for html templating
 ### Add support for images 
 ### Add support for pug 
+### add support for pug (option #2)
 
-### Next up: add support for pug (option #2)
+### Next up: use webpack validator
 
 ### Steps:
 1. Update webpack.config.js to use 'html-loader' and "pug-html-loader'
