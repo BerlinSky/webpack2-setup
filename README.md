@@ -7,27 +7,11 @@
 ### Add support for babel preset 2017
 ### Add JS source-map
 
-### Next up: customize port and start webpack-dev-server
+### Next up: Customize port and start webpack-dev-server with "npm start"
 
 
 ### Steps:
 1. Update webpack.config.js
   ```
- {
-    loader: 'babel-loader',
-    options: {
-      presets: ['es2015', 'es2017'],
-      plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
-    }
-  },
+ devtool: "cheap-module-eval-source-map",
   ```
-2. Create a new JS file, "use-async.js" 
-3. Import and invoke the aync method in index.js
-4. Run "npm" to install babel plugins and preset
-  ```
-  npm i babel-preset-es2017 -D
-  npm i babel-plugin-transform-class-properties -D
-  npm i babel-plugin-transform-decorators-legacy -D
-  npm i babel-plugin-transform-object-rest-spread -D
-  npm i babel-plugin-transform-runtime -D
-  ``
