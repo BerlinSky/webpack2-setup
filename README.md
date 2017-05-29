@@ -27,7 +27,8 @@
     border: 1px solid green;
   }
   ```
-1 Update package.json 
+6 Update package.json 
   ```
   "build:dev": "webpack-dev-server",
   ```
+7. Make sure that no <link> in the index.htm.  CSS will be injected.
