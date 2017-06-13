@@ -14,12 +14,19 @@
 ### Next up: add support for pug 
 
 ### Steps:
-1. Update webpack.config.js to use 'html-loader' and "file-loader'
-2. Install the html and file loaders
+1. Off the latest branch, create a new git branch: images
+2. Switch to the new branch
+3. Create a new folder under app: "images"
+4. Add the attached png file to the "app/images" folder
+5. Update the index.html to use the image file. 
+6. Launch the dev-server with "npm start" to see the "red" failure state
+
+7. Install the html and file loaders (see the package.json attached)
 ```
 npm i file-loader -D
 npm i html-loader -D
 ```
-3. Create an image folder
-4. Add an image to the "image" folder
-4. Restart the web-dev server to test html with image
+
+8. Update webpack.config.js (attached) to use 'html-loader' and "file-loader'
+
+9. Restart the dev-server to test html with image (the green state)
