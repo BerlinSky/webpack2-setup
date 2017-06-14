@@ -12,29 +12,16 @@
 ### Add support for images 
 ### Add support for pug 
 ### Add application favicon 
-### Add Webpack Tree Shaking
+### Add Webpack Tree Shaking (use { modules: false } on babel-2015 preset)
 
 ### Next up: add support for pug (option #2)
 ### Next up: add support for multiple files
 ### Next up: add support for production
 
-
 ### Steps:
-1. Update webpack.config.js 
-```
-[ 'es2015', { modules: false } ],
-```
-
-2. Add an extra function in helper.js
-```
-export const extraOnTheTree = () => {
-  console.log('I can let it go.');
-}
-```
-3. The new function is never imported / used
-
-4. Run "npm start" to see it is being labeled as "unused" in the compiled JS file
-```
-unused harmony export extraOnTheTree
-```
-5. Rum "npm run build" to verify that the function is removed from the compiled JS file
+1. Create a new branch: tree-shaking
+2. Build the app 
+3. Note down the bundle.js file size from the Dev-Tool / Network tab (Red state)
+4. Compare the webpack.config to make the change
+5. Build the app again
+6. Note down the bundle.js file size from the Dev-Tool / Network tab (Green state)
