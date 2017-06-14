@@ -59,6 +59,12 @@ const tsRules = {
     },
     {
       loader: 'ts-loader'
+    },
+    {
+      loader: 'tslint-loader',
+      options: {
+        'tsConfigFile': 'tsconfig.json'
+      }
     }
   ]
 }
