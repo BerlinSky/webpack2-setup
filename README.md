@@ -25,3 +25,8 @@
 4. Compare the webpack.config to make the change
 5. Build the app again
 6. Note down the bundle.js file size from the Dev-Tool / Network tab (Green state)
+
+7. The key is in this line
+```
+ [ 'es2015', { modules: false } ],
+ ```
