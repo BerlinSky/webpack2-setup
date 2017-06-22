@@ -38,4 +38,27 @@
   },
 ```
 
+1. Create a new branch catche-busting
+2. Switch to the new branch
+3. Run "git branch" to confirm the correct branch
+4. Update webpack.config 
+  a. Update webpack.config.js 
+  ```
+    const extractPlugin = new ExtractTextPlugin({
+      filename: 'main.[chunkhash].css'
+    });
+  ```
 
+  b. Update webpack.config.js 
+  ```
+  output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.[chunkhash].js',
+      // publicPath: '/dist'
+    },
+  ```
+5. Install text-plugin
+```
+  npm i -D extract-text-webpack-plugin
+```
+6. Start server to test
