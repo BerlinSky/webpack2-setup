@@ -41,7 +41,8 @@ module.exports = {
     filename: 'bundle.js',
     // publicPath: '/dist'
   },
-  devtool: "cheap-module-eval-source-map",
+  // devtool: "cheap-module-eval-source-map",
+  devtool: "",
   module: {
     rules: [
       {
@@ -53,6 +54,7 @@ module.exports = {
             options: {
               presets:  [
                 [ 'es2015', { modules: false } ],
+                // [ 'es2015' ],
                 [ 'es2017' ]
               ],
               plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
@@ -131,5 +133,8 @@ module.exports = {
       aggregateTimeout: 300,
       poll: 1000
     }
+  },
+  stats: { 
+    verbose: true
   }
 };
