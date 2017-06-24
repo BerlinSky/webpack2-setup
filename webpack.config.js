@@ -121,13 +121,13 @@ module.exports = {
       favicon: 'app/favicon.png',
       template: 'app/index.pug',
       filename: 'index.html',
-      chunnk: ['index']
+      chunk: ['index']
     }),
     new HtmlWebpackPlugin({
       favicon: 'app/favicon.png',
       template: 'app/service.pug',
       filename: 'service.html',
-      chunnk: ['index']
+      chunk: ['index']
     }),
     minifyPlugin
   ],
