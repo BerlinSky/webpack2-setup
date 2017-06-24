@@ -22,20 +22,11 @@
 
 
 ### Steps:
-1. Update webpack.config.js 
-```
-  const extractPlugin = new ExtractTextPlugin({
-    filename: 'main.[chunkhash].css'
-  });
-```
+1. Create a new branch prod-and-dev
+2. Update package.json
+3. Update webpack.js
+4. Run "npm start" to observe the source map in the DEV build
+5. Build the app to observe the source map in the production build
 
-2. Update webpack.config.js 
-```
- output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[chunkhash].js',
-    // publicPath: '/dist'
-  },
-```
 
 

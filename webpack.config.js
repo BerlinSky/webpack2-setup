@@ -38,7 +38,8 @@ module.exports = (env = {}) => {
     },
 
     devtool: (() => {
-      return (isProduction) ? 'hidden-source-map' : 'cheap-module-eval-source-map'
+      // return (isProduction) ? 'hidden-source-map' : 'cheap-module-eval-source-map'
+      return (isProduction) ? 'source-map' : 'cheap-module-eval-source-map'
     })(),
 
     module: {
