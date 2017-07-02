@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const extractPlugin = new ExtractTextPlugin({
+const mainCssExtractPlugin = new ExtractTextPlugin({
   filename: 'main.[chunkhash].css'
 });
 
@@ -36,7 +36,8 @@ const entryConfig = {
   //   path.resolve(__dirname, 'app/sass/main.scss')
   // ],
   app: [
-    path.resolve(__dirname, 'app/ts/main.ts')
+    path.resolve(__dirname, 'app/ts/main.ts'),
+    path.resolve(__dirname, 'app/sass/main.scss')
   ]
 }
 
@@ -82,6 +83,35 @@ const tsRules = {
     //   }
     // }
   ]
+}
+
+const sassRulesForMain = {
+  test: /\.scss$/,
+  exclude: /node_modules/,
+  exclude: path.resolve(__dirname, 'app', 'ts'),
+
+  use: mainCssExtractPlugin.extract({
+    use: [
+      { 
+        loader: "css-loader",
+        options: {
+          sourceMap: true
+        } 
+      }, 
+      { 
+        loader: "postcss-loader",
+        options: {
+          sourceMap: 'inline'
+        } 
+      }, 
+      { 
+        loader: "sass-loader", 
+        options: {
+          sourceMap: true
+        }
+      }
+    ]
+  })
 }
 
 const sassRulesForComponent = {
@@ -179,7 +209,7 @@ module.exports = (env = {}) => {
     })(),
 
     module: {
-      rules: [ tsRules, jsRules, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
+      rules: [ tsRules, jsRules, sassRulesForComponent, sassRulesForMain, htmlRules, pugRules, fontRules, imageRules ]
     },
 
     resolve: {
@@ -187,7 +217,7 @@ module.exports = (env = {}) => {
     },
 
     plugins: [
-      extractPlugin,
+      mainCssExtractPlugin,
       providerPlugin,
       cleanWebPackPlugin,
       minifyPlugin,
