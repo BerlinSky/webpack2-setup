@@ -8,6 +8,9 @@ const extractPlugin = new ExtractTextPlugin({
   filename: 'main.[chunkhash].css'
 });
 
+const cssExtractPlugin = new ExtractTextPlugin({
+});
+
 const providerPlugin = new webpack.ProvidePlugin({
   $: 'jquery',
   jQuery: 'jquery'
@@ -17,20 +20,21 @@ const cleanWebPackPlugin = new CleanWebpackPlugin(['dist'])
 
 const babelOptions = {
   presets:  [
-    [ 'es2015', { modules: false } ],
-    [ 'es2017' ]
+    // [ 'es2015', { modules: false } ],
+    [ 'es2015' ],
+    // [ 'es2017' ]
   ],
-  plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
+  // plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
 }
 
 const entryConfig = {
   // vendor: ['jquery'],
   'vendor': [path.resolve(__dirname, 'app/ts/vendor.ts')],
   'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')],
-  index: [
-    path.resolve(__dirname, 'app/index.js'),
-    path.resolve(__dirname, 'app/sass/main.scss')
-  ],
+  // index: [
+  //   path.resolve(__dirname, 'app/index.js'),
+  //   path.resolve(__dirname, 'app/sass/main.scss')
+  // ],
   app: [
     path.resolve(__dirname, 'app/ts/main.ts')
   ]
@@ -38,7 +42,8 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: '[name].js'
+  filename: '[name].js',
+  chunkFilename: '[id].chunk.js'
 }
 
 const jsRules = {
@@ -59,10 +64,10 @@ const tsRules = {
   test: /\.ts(x?)$/,
   exclude: /node_modules/,
   use: [
-    {
-      loader: 'babel-loader',
-      options: babelOptions
-    },
+    // {
+    //   loader: 'babel-loader',
+    //   options: babelOptions
+    // },
     {
       // loader: 'ts-loader',
       loader: 'awesome-typescript-loader'
@@ -79,16 +84,19 @@ const tsRules = {
   ]
 }
 
-const sassRules = {
+const sassRulesForComponent = {
   test: /\.scss$/,
-  exclude: /node_modules/,
-  use: extractPlugin.extract({
+  // exclude: /node_modules/,
+  include: path.resolve(__dirname, 'app', 'ts'),
+
+  use: cssExtractPlugin.extract({
     use: [
       { 
-        loader: "css-loader",
-        options: {
-          sourceMap: true
-        } 
+        loader: 'raw-loader'
+        // loader: "css-loader",
+        // options: {
+        //   sourceMap: true
+        // } 
       }, 
       { 
         loader: "postcss-loader",
@@ -171,7 +179,7 @@ module.exports = (env = {}) => {
     })(),
 
     module: {
-      rules: [ tsRules, jsRules, sassRules, htmlRules, pugRules, fontRules, imageRules ]
+      rules: [ tsRules, jsRules, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
     },
 
     resolve: {
@@ -182,26 +190,40 @@ module.exports = (env = {}) => {
       extractPlugin,
       providerPlugin,
       cleanWebPackPlugin,
+      minifyPlugin,
 
       new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename: 'vendor.js'
+        // name: 'vendor',
+        // filename: 'vendor.js'
+        name: ['app', 'vendor', 'polyfills']
       }),
+
+      // new HtmlWebpackPlugin({
+      //   favicon: 'app/favicon.png',
+      //   template: 'app/index.pug',
+      //   filename: 'index.html',
+      //   chunk: ['index']
+      // }),
+      // new HtmlWebpackPlugin({
+      //   favicon: 'app/favicon.png',
+      //   template: 'app/service.pug',
+      //   filename: 'service.html',
+      //   chunk: ['index']
+      // }),
+
+      // Workaround for angular/angular#11580
+      new webpack.ContextReplacementPlugin(
+        // The (\\|\/) piece accounts for path separators in *nix and Windows
+        /angular(\\|\/)core(\\|\/)@angular/,
+        path.resolve(__dirname, 'app/ts'),
+        {} // a map of your routes
+      ),
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
-        template: 'app/index.pug',
-        filename: 'index.html',
-        chunk: ['index']
-      }),
-      new HtmlWebpackPlugin({
-        favicon: 'app/favicon.png',
-        template: 'app/service.pug',
-        filename: 'service.html',
-        chunk: ['index']
-      }),
+        template: 'app/index.html'
+      })
 
-      minifyPlugin
     ],
 
     devServer: {

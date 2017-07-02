@@ -39,12 +39,23 @@
 3. Add "app/app.component.ts"
 4. Add "app/app.component.html"
 5. Add "app/app.component.scss"
+  a. Install raw-loader"
+  b. Update webpack.config.js
 6. Add "app/app.component.
-7. TDDO: Change ts-loader to awesome-typescript-loader
+7. Change ts-loader to awesome-typescript-loader
   a. Replace with awesome-typescript-loader in webpack.config.js
   b. Uninstall ts-loader
 8. TODO: Change css to scss // import '../assets/css/styles.css';
 9. Update bg-config.json to target "dist"
 10. Add angular2-template-loader
 11. Remove "tslint-loader" from webpack.config.js
-
+12. Update the webpack conmmom chunk
+    ```
+    name: ['app', 'vendor', 'polyfills']
+    ```
+13. Update the template to html
+    ```
+    new HtmlWebpackPlugin({
+      template: 'add/index.html'
+    })
+    ```
