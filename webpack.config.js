@@ -59,12 +59,15 @@ const tsRules = {
       options: babelOptions
     },
     {
-      loader: 'ts-loader'
+      loader: 'ts-loader',
+      options: {
+        'tsConfigFile': 'tsconfig.json'
+      }
     },
     {
       loader: 'tslint-loader',
       options: {
-        'tsConfigFile': 'tsconfig.json'
+        'configFile': 'tslint.json'
       }
     }
   ]
