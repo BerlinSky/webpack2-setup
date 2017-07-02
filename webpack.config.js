@@ -51,19 +51,22 @@ const jsRules = {
 
 const tsRules = {
   test: /\.ts(x?)$/,
-  exclude: /node_modules/,
+  // exclude: /node_modules/,
   use: [
     {
       loader: 'babel-loader',
       options: babelOptions
     },
     {
-      loader: 'ts-loader'
+      loader: 'ts-loader',
+      options: {
+        'tsConfigFile': 'tsconfig.json'
+      }
     },
     {
       loader: 'tslint-loader',
       options: {
-        'tsConfigFile': 'tsconfig.json'
+        'configFile': 'tslint.json'
       }
     }
   ]
