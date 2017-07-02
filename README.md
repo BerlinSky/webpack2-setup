@@ -38,9 +38,13 @@
 2. Add "app/app.module.ts"
 3. Add "app/app.component.ts"
 4. Add "app/app.component.html"
-5. Add "app/app.component.css"
+5. Add "app/app.component.scss"
 6. Add "app/app.component.
-7. TDDO: Change ts-loader to awesome-ts-loader
+7. TDDO: Change ts-loader to awesome-typescript-loader
+  a. Replace with awesome-typescript-loader in webpack.config.js
+  b. Uninstall ts-loader
 8. TODO: Change css to scss // import '../assets/css/styles.css';
 9. Update bg-config.json to target "dist"
+10. Add angular2-template-loader
+11. Remove "tslint-loader" from webpack.config.js
 

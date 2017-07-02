@@ -64,14 +64,18 @@ const tsRules = {
       options: babelOptions
     },
     {
-      loader: 'ts-loader'
+      // loader: 'ts-loader',
+      loader: 'awesome-typescript-loader'
     },
     {
-      loader: 'tslint-loader',
-      options: {
-        'tsConfigFile': 'tsconfig.json'
-      }
+      loader: 'angular2-template-loader'
     }
+    // {
+    //   loader: 'tslint-loader',
+    //   options: {
+    //     'tsConfigFile': 'tsconfig.json'
+    //   }
+    // }
   ]
 }
 
