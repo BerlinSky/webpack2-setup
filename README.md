@@ -26,6 +26,10 @@
 1. TODO: Remove JQuery and its reference
 2. Install runtime dependencies
 3. Install DEV dependencies
-
+4. Update tslint.json
+5. Update tsconfig.json
+6. Set up "lite-server" 
+7. Add "app/index.html"
+8. Add "polyfills.ts" 
 
 

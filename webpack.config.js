@@ -28,12 +28,13 @@ const entryConfig = {
   index: [
     path.resolve(__dirname, 'app/index.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
-  ]
+  ],
+  'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')]
 }
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: 'bundle.[name].[chunkhash].js'
+  filename: '[name].js'
 }
 
 const jsRules = {
