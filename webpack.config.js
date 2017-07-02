@@ -110,7 +110,7 @@ const pugRules = {
     { loader: 'html-loader' }, 
     { loader: 'pug-html-loader',
       options: {
-        name: '[name],[ext]'
+        name: '[name].[ext]'
       }
     }
   ]

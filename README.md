@@ -23,20 +23,9 @@
 
 ### Steps:
 
-1. Add "fontRules" to the webpack.config
-2. Import font-awesome in main.scss
-3. Include "font-awesome" folder under "app/sass" 
-
-
-1. Install exports-loader
-2. Update webpack to use the index.js to start
-3. Update webpack to use exports-loader
-4. Add a non-es6 js file to test
-5. Start the app to test
-6. Use the dev tool / console to verify the legacyLib is still in the global window space
-7. Install imports-loader
-8. Configure the imports-loader in webpack.config.
-9. Restart to verify that the legacyLib is no longer in the global window space.
+1. Remove JQuery and its reference
+2. Install runtime dependencies
+3. Install DEV dependencies
 
 
 
