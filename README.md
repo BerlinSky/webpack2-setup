@@ -33,4 +33,14 @@
 8. Add "polyfills.ts" and update webpack.config.js
 7. Add "vendor.ts" and update webpack.config.js
 
+### Start 2:
+1. Add "main.ts" 
+2. Add "app/app.module.ts"
+3. Add "app/app.component.ts"
+4. Add "app/app.component.html"
+5. Add "app/app.component.css"
+6. Add "app/app.component.
+7. TDDO: Change ts-loader to awesome-ts-loader
+8. TODO: Change css to scss // import '../assets/css/styles.css';
+9. Update bg-config.json to target "dist"
 

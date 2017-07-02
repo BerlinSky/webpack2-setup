@@ -30,6 +30,9 @@ const entryConfig = {
   index: [
     path.resolve(__dirname, 'app/index.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
+  ],
+  app: [
+    path.resolve(__dirname, 'app/ts/main.ts')
   ]
 }
 
