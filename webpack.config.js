@@ -24,12 +24,13 @@ const babelOptions = {
 }
 
 const entryConfig = {
-  vendor: ['jquery'],
+  // vendor: ['jquery'],
+  'vendor': [path.resolve(__dirname, 'app/ts/vendor.ts')],
+  'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')],
   index: [
     path.resolve(__dirname, 'app/index.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
-  ],
-  'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')]
+  ]
 }
 
 const outputConfig = {

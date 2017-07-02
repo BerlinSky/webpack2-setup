@@ -30,6 +30,7 @@
 5. Update tsconfig.json
 6. Set up "lite-server" 
 7. Add "app/index.html"
-8. Add "polyfills.ts" 
+8. Add "polyfills.ts" and update webpack.config.js
+7. Add "vendor.ts" and update webpack.config.js
 
 
