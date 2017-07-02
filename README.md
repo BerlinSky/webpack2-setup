@@ -23,7 +23,7 @@
 
 ### Steps:
 
-1. Remove JQuery and its reference
+1. TODO: Remove JQuery and its reference
 2. Install runtime dependencies
 3. Install DEV dependencies
 
