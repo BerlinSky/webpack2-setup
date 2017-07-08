@@ -8,11 +8,10 @@ $(function () {
 const adjustPageSections = () => {
   const utilityNavInfo = getUtilityNavInfo();
   const siteNavInfo = getSiteNavInfo();
-
-console.log('siteNavInfo', siteNavInfo);
+  const carouselInfo = getCarouselInfo();
 
   setSiteNav(utilityNavInfo);
-  setCarousel(utilityNavInfo, siteNavInfo)
+  setCarousel(utilityNavInfo, siteNavInfo, carouselInfo)
   setContentWrapper(utilityNavInfo, siteNavInfo, getCarouselInfo())
 }
 
@@ -23,10 +22,16 @@ const setContentWrapper = (utilityNavInfo, siteNavInfo, carouselInfo) => {
   }
 }
 
-const setCarousel = (utilityNavInfo, siteNavInfo) => {
+const setCarousel = (utilityNavInfo, siteNavInfo, getCarouselInfo) => {
   const elem = document.querySelector('.js-carousel');
   if (!!elem) {
-    elem.style.top = `${utilityNavInfo.height + siteNavInfo.height}px`;
+    if (getCarouselInfo.positionFixed) {
+      elem.style.top = `${utilityNavInfo.height + siteNavInfo.height}px`;
+      elem.style.marginTop = `${0}px`;
+    }
+    else {
+      elem.style.marginTop = `${utilityNavInfo.height + siteNavInfo.height}px`;
+    }
   }
 }
 

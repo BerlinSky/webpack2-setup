@@ -38,10 +38,12 @@ $colorOrgange: orange;
   width: 100%;
   text-align: center;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1000;
+  @include desktop() {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+  }
 }
 
 .contentWrapper {
