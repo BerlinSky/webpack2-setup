@@ -2,8 +2,32 @@
 
 $(function () {
   adjustPageSections();
+  setStickyNav();
   window.addEventListener('resize', adjustPageSections);
+  window.addEventListener('scroll', setStickyNav);
 });
+
+const setStickyNav = () => {
+  const semiNavInfo = getSemiNavInfo();
+  const contentWrapper = document.querySelector('.js-contentWrapper');
+
+  // Only invoke when semiNav is displayed:
+  if (!!semiNavInfo.displayed && !!contentWrapper) {
+
+    const utilityNavInfo = getUtilityNavInfo();
+    const siteNavInfo = getSiteNavInfo();
+    const contentWrapperTop = contentWrapper.getBoundingClientRect().top;
+    const topGap = utilityNavInfo.height + siteNavInfo.height;
+
+    // check if the scolling reaches the triger 
+    if (contentWrapperTop <= topGap) { 
+      console.log(contentWrapperTop);
+    } 
+    else {
+      console.log(contentWrapperTop);
+    }
+  }
+}
 
 const adjustPageSections = () => {
   const utilityNavInfo = getUtilityNavInfo();
@@ -53,6 +77,8 @@ const setSiteNav = (utilityNavInfo) => {
 }
 
 const getCarouselInfo = () => getElemDisplayInfo(document.querySelector('.js-carousel'));
+
+const getSemiNavInfo = () => getElemDisplayInfo(document.querySelector('.js-SemiNav'));
 
 const getSiteNavInfo = () => getElemDisplayInfo(document.querySelector('.js-siteNav'));
 

@@ -2,12 +2,13 @@ $colorTomato: #f1f1f1;
 
 body {
   background-color: $colorTomato;
+  overflow-y: auto;
 }
 
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
-@mixin tablet {
+@mixin mobile {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;
   }

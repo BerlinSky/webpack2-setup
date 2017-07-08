@@ -37,5 +37,7 @@
 3. Calcaulation: contentWrapperMarginTop = UtilityNavHeight + SiteNavHeight + CarouselHeight
 
 
+### contentWrapper: scrollup 
+1. Only takes place in the desktop mode: when semiNav.displayed: true. 
 
 
