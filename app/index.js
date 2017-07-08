@@ -25,12 +25,16 @@ const setContentWrapper = (utilityNavInfo, siteNavInfo, carouselInfo) => {
 const setCarousel = (utilityNavInfo, siteNavInfo, getCarouselInfo) => {
   const elem = document.querySelector('.js-carousel');
   if (!!elem) {
+    const heightOfElementsOnTop = utilityNavInfo.height + siteNavInfo.height;
+    const heightZero = 0;
+
     if (getCarouselInfo.positionFixed) {
-      elem.style.top = `${utilityNavInfo.height + siteNavInfo.height}px`;
-      elem.style.marginTop = `${0}px`;
+      elem.style.top = `${heightOfElementsOnTop}px`;
+      elem.style.marginTop = `${heightZero}px`;
     }
     else {
-      elem.style.marginTop = `${utilityNavInfo.height + siteNavInfo.height}px`;
+      elem.style.top = `${heightZero}px`;
+      elem.style.marginTop = `${heightOfElementsOnTop}px`;
     }
   }
 }
