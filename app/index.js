@@ -11,6 +11,14 @@ const adjustPageSections = () => {
 
   setSiteNav(utilityNavInfo);
   setCarousel(utilityNavInfo, siteNavInfo)
+  setContentWrapper(utilityNavInfo, siteNavInfo, getCarouselInfo())
+}
+
+const setContentWrapper = (utilityNavInfo, siteNavInfo, carouselInfo) => {
+  const elem = document.querySelector('.js-contentWrapper');
+  if (!!elem) {
+    elem.style.marginTop = `${utilityNavInfo.height + siteNavInfo.height + carouselInfo.height}px`;
+  }
 }
 
 const setCarousel = (utilityNavInfo, siteNavInfo) => {
@@ -27,15 +35,11 @@ const setSiteNav = (utilityNavInfo) => {
   }
 }
 
-const getSiteNavInfo = () => {
-  const elem = document.querySelector('.js-siteNav');
-  return getElemDisplayInfo(elem);
-}
+const getCarouselInfo = () => getElemDisplayInfo(document.querySelector('.js-carousel'));
 
-const getUtilityNavInfo = () => {
-  const utilityNav = document.querySelector('.js-utilityNav');
-  return getElemDisplayInfo(utilityNav);
-}
+const getSiteNavInfo = () => getElemDisplayInfo(document.querySelector('.js-siteNav'));
+
+const getUtilityNavInfo = () => getElemDisplayInfo(document.querySelector('.js-utilityNav'));
 
 const getElemDisplayInfo = (elem) => {
   if (!!elem) { 

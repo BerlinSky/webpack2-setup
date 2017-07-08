@@ -46,6 +46,13 @@
 5. On page load and window resize: reset the top of the carousel.
 6. Calculation: carouselTop = the height of the utility nav + the height of the site nav. 
 
+### contentWrapper
+
+1. Does the element exist?
+2. On page load and window resize: reset the margin top fo the content wrapper
+3. Calcaulation: contentWrapperMarginTop = UtilityNavHeight + SiteNavHeight + CarouselHeight
+
+
 
 
 
