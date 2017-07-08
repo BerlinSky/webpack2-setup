@@ -21,22 +21,23 @@
 ### Next up: add support for production
 
 
-### Steps:
+### Utility Nav:
 
-1. Add "fontRules" to the webpack.config
-2. Import font-awesome in main.scss
-3. Include "font-awesome" folder under "app/sass" 
+1. Does the element exist?
+2. Is it hidden, "display: none"?
+3. What is its height;?
+4. Obtain the info in an object
+
+### Site Nav
+
+1. Does the element exist?
+2. What is its height?
+3. What is its top position?
+4. Obtain the info in an object
 
 
-1. Install exports-loader
-2. Update webpack to use the index.js to start
-3. Update webpack to use exports-loader
-4. Add a non-es6 js file to test
-5. Start the app to test
-6. Use the dev tool / console to verify the legacyLib is still in the global window space
-7. Install imports-loader
-8. Configure the imports-loader in webpack.config.
-9. Restart to verify that the legacyLib is no longer in the global window space.
+
+
 
 
 

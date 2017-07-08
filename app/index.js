@@ -1,25 +1,17 @@
-import 'jquery';
-
-import { helpMe } from './helper';
-import { checkAsyncResult } from './use-async';
-
-// eslint-disable-next-line 
-import legachLib from 'imports-loader?window=>{}!exports-loader?legacyLib!./non-es6-lib';  
-
-const siteSetup = () => {
-  console.log("Set up ... in arrow function now")
-}
-
-const testjQuery = () => {
-  const thisBody = $('body');
-  thisBody.css({ 'color': '#fff' })
-}
+// import 'jquery';
 
 $(function () {
-  helpMe();
-  siteSetup();
-  checkAsyncResult();
-  testjQuery();
-  legachLib();
+  const utilityNav = document.querySelector('.js-utilityNav');
+
+  const info = getElemDisplayInfo(utilityNav);
+  console.log(info);
 });
 
+const getElemDisplayInfo = (elem) => {
+  if (!!elem) { 
+    const displayed = (window.getComputedStyle(elem).display === 'none') ? false : true;
+    const height = elem.offsetHeight;
+    
+    return { displayed, height }
+  }
+}
