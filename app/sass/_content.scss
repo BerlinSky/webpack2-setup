@@ -1,6 +1,7 @@
 $colorBlue: yellow;
 $colorTomato: tomato;
 $colorGreen: green;
+$colorOrgange: orange;
 
 .utilityNav {
   background-color: $colorTomato;
@@ -22,6 +23,18 @@ $colorGreen: green;
 .siteNav {
   background-color: $colorGreen;
   min-height: 90px;
+  width: 100%;
+  text-align: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.carousel {
+  background-color: $colorOrgange;
+  min-height: 150px;
   width: 100%;
   text-align: center;
 

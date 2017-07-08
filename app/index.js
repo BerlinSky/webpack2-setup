@@ -1,16 +1,35 @@
 // import 'jquery';
 
 $(function () {
-  setSiteNav();
-  window.addEventListener('resize', setSiteNav);
+  adjustPageSections();
+  window.addEventListener('resize', adjustPageSections);
 });
 
-const setSiteNav = () => {
-  const siteNav = document.querySelector('.js-sitenav');
-  if (!!siteNav) {
-    const utilityNavInfo = getUtilityNavInfo();
-    siteNav.style.top = `${utilityNavInfo.height}px`;
+const adjustPageSections = () => {
+  const utilityNavInfo = getUtilityNavInfo();
+  const siteNavInfo = getSiteNavInfo();
+
+  setSiteNav(utilityNavInfo);
+  setCarousel(utilityNavInfo, siteNavInfo)
+}
+
+const setCarousel = (utilityNavInfo, siteNavInfo) => {
+  const elem = document.querySelector('.js-carousel');
+  if (!!elem) {
+    elem.style.top = `${utilityNavInfo.height + siteNavInfo.height}px`;
   }
+}
+
+const setSiteNav = (utilityNavInfo) => {
+  const elem = document.querySelector('.js-sitenav');
+  if (!!elem) {
+    elem.style.top = `${utilityNavInfo.height}px`;
+  }
+}
+
+const getSiteNavInfo = () => {
+  const elem = document.querySelector('.js-siteNav');
+  return getElemDisplayInfo(elem);
 }
 
 const getUtilityNavInfo = () => {
