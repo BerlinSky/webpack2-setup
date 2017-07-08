@@ -18,15 +18,13 @@ const adjustPageSections = () => {
 const setContentWrapper = (utilityNavInfo, siteNavInfo, carouselInfo) => {
   const elem = document.querySelector('.js-contentWrapper');
   if (!!elem) {
-    const heightOfElementsOnTop = utilityNavInfo.height + siteNavInfo.height + carouselInfo.height;
-    const heightZero = 0;
-    
-    if (carouselInfo.positionFixed) {
-      elem.style.marginTop = `${heightOfElementsOnTop}px`;
-    }    
-    else {
-      elem.style.marginTop = `${heightZero}px`;
+    let targetMarginTop = 0;
+
+    if (carouselInfo.positionFixed || !carouselInfo.displayed) {
+      targetMarginTop = utilityNavInfo.height + siteNavInfo.height + carouselInfo.height;
     }
+  
+    elem.style.marginTop = `${targetMarginTop}px`;
   }
 }
 
