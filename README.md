@@ -1,24 +1,8 @@
-## Webpack 2 - Basic
-### Use webpack-dev-server for development
-### Use webpack.config.js
-### Generate source-map for SCSS 
-### Compile SCSS without importing it from index.js
-### Add support for eslint
-### Add support for babel preset 2017
-### Add JS source-map
-### Customize port and start webpack-dev-server
-### Use the third party library, such as jquery and Clean up the "dist" folder
-### Add support for html templating
-### Add support for images 
-### Add support for pug 
-### Add application favicon 
-### Add Webpack Tree Shaking
-### Generate multiple ouput (html) files
-### Add support to use non-es6 modules
+## Setup Conditions and Assumptions:
 
-### Next up: add support for pug (option #2)
-### Next up: add support for multiple files
-### Next up: add support for production
+1. UtilityNav, SiteNav, Carousel and ContentWrapper are layed out sequentially as sibling elements.
+2. Display UtilityNav only in the desktop mode
+3. Set Carousel as fixed only in the desktop mode to allow the page content slide over it. 
 
 
 ### Utility Nav:
@@ -51,9 +35,6 @@
 1. Does the element exist?
 2. On page load and window resize: reset the margin top fo the content wrapper
 3. Calcaulation: contentWrapperMarginTop = UtilityNavHeight + SiteNavHeight + CarouselHeight
-
-
-
 
 
 
