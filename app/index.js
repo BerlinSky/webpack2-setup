@@ -9,6 +9,8 @@ const adjustPageSections = () => {
   const utilityNavInfo = getUtilityNavInfo();
   const siteNavInfo = getSiteNavInfo();
 
+console.log('siteNavInfo', siteNavInfo);
+
   setSiteNav(utilityNavInfo);
   setCarousel(utilityNavInfo, siteNavInfo)
   setContentWrapper(utilityNavInfo, siteNavInfo, getCarouselInfo())
@@ -45,7 +47,9 @@ const getElemDisplayInfo = (elem) => {
   if (!!elem) { 
     const displayed = (window.getComputedStyle(elem).display === 'none') ? false : true;
     const height = elem.offsetHeight;
+    const marginTop = elem.style.marginTop;
+    const positionFixed = (window.getComputedStyle(elem).position === 'fixed') ? true : false;
     
-    return { displayed, height }
+    return { displayed, height, marginTop, positionFixed }
   }
 }
