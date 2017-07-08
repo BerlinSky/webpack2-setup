@@ -1,5 +1,6 @@
 $colorBlue: yellow;
 $colorTomato: tomato;
+$colorGreen: green;
 
 .utilityNav {
   background-color: $colorTomato;
@@ -16,6 +17,18 @@ $colorTomato: tomato;
   @include desktop() {
     display: block;
   }
+}
+
+.siteNav {
+  background-color: $colorGreen;
+  min-height: 90px;
+  width: 100%;
+  text-align: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .contentWrapper {

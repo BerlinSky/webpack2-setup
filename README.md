@@ -34,6 +34,8 @@
 2. What is its height?
 3. What is its top position?
 4. Obtain the info in an object
+5. On page load and window resize: reset the top of the site nav.
+6. Calculation: siteNaveTop = the height of the utility nav. 
 
 
 
