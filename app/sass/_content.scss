@@ -26,9 +26,9 @@ $colorOrgange: orange;
   text-align: center;
 
   position: fixed;
-  top: -100;
+  top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 800;
 
   @include mobile() {
     display: none;

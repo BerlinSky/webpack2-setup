@@ -19,13 +19,31 @@ const setStickyNav = () => {
     const contentWrapperTop = contentWrapper.getBoundingClientRect().top;
     const topGap = utilityNavInfo.height + siteNavInfo.height;
 
+    const utilityNav = document.querySelector('.js-utilityNav');
+
     // check if the scolling reaches the triger 
     if (contentWrapperTop <= topGap) { 
-      console.log(contentWrapperTop);
+      moveElemVertically(utilityNav, (-1) * utilityNavInfo.height);
+      // utilityNav.style.WebkitTransform = 'translate3d(0, -100px, 0)';
+      // utilityNav.style.msTransform = 'translate3d(0, -100px, 0)';
+      // utilityNav.style.transform = 'translate3d(0, -100px, 0)';
+
+      // console.log(contentWrapperTop);
     } 
     else {
-      console.log(contentWrapperTop);
+      moveElemVertically(utilityNav, 0);
+      
+      // utilityNav.style.transform = 'translate3d(0, 0, 0)';
+      // console.log(contentWrapperTop);
     }
+  }
+}
+
+const moveElemVertically = (elem, pos) => {
+  if (!!elem) {
+    elem.style.WebkitTransform = `translate3d(0, ${pos}px, 0)`;
+    elem.style.msTransform = `translate3d(0, ${pos}px, 0`;
+    elem.style.transform = `translate3d(0, ${pos}px, 0)`;
   }
 }
 
