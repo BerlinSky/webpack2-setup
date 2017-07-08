@@ -69,4 +69,7 @@ const getElemDisplayInfo = (elem) => {
     
     return { displayed, height, marginTop, positionFixed }
   }
+  else {
+    return { displayed: false, height: 0, marginTop: 0, positionFixed: false}
+  }
 }
