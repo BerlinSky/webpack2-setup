@@ -12,23 +12,31 @@ const adjustPageSections = () => {
 
   setSiteNav(utilityNavInfo);
   setCarousel(utilityNavInfo, siteNavInfo, carouselInfo)
-  setContentWrapper(utilityNavInfo, siteNavInfo, getCarouselInfo())
+  setContentWrapper(utilityNavInfo, siteNavInfo, carouselInfo)
 }
 
 const setContentWrapper = (utilityNavInfo, siteNavInfo, carouselInfo) => {
   const elem = document.querySelector('.js-contentWrapper');
   if (!!elem) {
-    elem.style.marginTop = `${utilityNavInfo.height + siteNavInfo.height + carouselInfo.height}px`;
+    const heightOfElementsOnTop = utilityNavInfo.height + siteNavInfo.height + carouselInfo.height;
+    const heightZero = 0;
+    
+    if (carouselInfo.positionFixed) {
+      elem.style.marginTop = `${heightOfElementsOnTop}px`;
+    }    
+    else {
+      elem.style.marginTop = `${heightZero}px`;
+    }
   }
 }
 
-const setCarousel = (utilityNavInfo, siteNavInfo, getCarouselInfo) => {
+const setCarousel = (utilityNavInfo, siteNavInfo, carouselInfo) => {
   const elem = document.querySelector('.js-carousel');
   if (!!elem) {
     const heightOfElementsOnTop = utilityNavInfo.height + siteNavInfo.height;
     const heightZero = 0;
 
-    if (getCarouselInfo.positionFixed) {
+    if (carouselInfo.positionFixed) {
       elem.style.top = `${heightOfElementsOnTop}px`;
       elem.style.marginTop = `${heightZero}px`;
     }
