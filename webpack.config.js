@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const extractPlugin = new ExtractTextPlugin({
-  filename: 'main.[chunkhash].css'
+  filename: 'main.css'
 });
 
 const providerPlugin = new webpack.ProvidePlugin({
@@ -24,7 +24,7 @@ const babelOptions = {
 }
 
 const entryConfig = {
-  vendor: ['jquery'],
+  // vendor: ['jquery'],
   index: [
     path.resolve(__dirname, 'app/index.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
@@ -33,7 +33,7 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: 'bundle.[name].[chunkhash].js'
+  filename: '[name].js'
 }
 
 const jsRules = {
@@ -183,14 +183,11 @@ module.exports = (env = {}) => {
         favicon: 'app/favicon.png',
         template: 'app/index.pug',
         filename: 'index.html',
-        chunk: ['vendor'],
-        chunk: ['index']
       }),
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
         template: 'app/service.pug',
         filename: 'service.html',
-        chunk: ['index']
       }),
 
       minifyPlugin
