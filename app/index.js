@@ -50,7 +50,7 @@ const adjustPageSections = () => {
   const siteNavInfo = getSiteNavInfo();
   const carouselInfo = getCarouselInfo();
 
-  setSiteNav(utilityNavInfo);
+  setSiteNav(utilityNavInfo.height);
   setCarousel(utilityNavInfo, siteNavInfo, carouselInfo)
   setContentWrapper(utilityNavInfo, siteNavInfo, carouselInfo)
 }
@@ -85,10 +85,11 @@ const setCarousel = (utilityNavInfo, siteNavInfo, carouselInfo) => {
   }
 }
 
-const setSiteNav = (utilityNavInfo) => {
-  const elem = document.querySelector('.js-sitenav');
+const setSiteNav = (targetHeight) => {
+  // const elem = document.querySelector('.js-sitenav');
+  const elem = getSiteNavInfo().elem;
   if (!!elem) {
-    elem.style.top = `${utilityNavInfo.height}px`;
+    elem.style.top = `${targetHeight}px`;
   }
 }
 

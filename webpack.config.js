@@ -183,6 +183,7 @@ module.exports = (env = {}) => {
         favicon: 'app/favicon.png',
         template: 'app/index.pug',
         filename: 'index.html',
+        chunk: ['vendor'],
         chunk: ['index']
       }),
       new HtmlWebpackPlugin({
