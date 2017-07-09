@@ -16,34 +16,32 @@ const setStickyNav = () => {
 
     const utilityNavInfo = getUtilityNavInfo();
     const siteNavInfo = getSiteNavInfo();
+    const carouselInfo = getCarouselInfo();
     const contentWrapperTop = contentWrapper.getBoundingClientRect().top;
     const topGap = utilityNavInfo.height + siteNavInfo.height;
 
-    const utilityNav = document.querySelector('.js-utilityNav');
-
     // check if the scolling reaches the triger 
     if (contentWrapperTop <= topGap) { 
-      moveElemVertically(utilityNav, (-1) * utilityNavInfo.height);
-      // utilityNav.style.WebkitTransform = 'translate3d(0, -100px, 0)';
-      // utilityNav.style.msTransform = 'translate3d(0, -100px, 0)';
-      // utilityNav.style.transform = 'translate3d(0, -100px, 0)';
-
-      // console.log(contentWrapperTop);
+      moveElemVertically(utilityNavInfo.elem, (-1) * utilityNavInfo.height, 0);
+      moveElemVertically(semiNavInfo.elem, 0, 1);
+      moveElemVertically(siteNavInfo.elem, (-3) * siteNavInfo.height, 0);
+      moveElemVertically(carouselInfo.elem, (-3) * carouselInfo.height, 0);
     } 
     else {
-      moveElemVertically(utilityNav, 0);
-      
-      // utilityNav.style.transform = 'translate3d(0, 0, 0)';
-      // console.log(contentWrapperTop);
+      moveElemVertically(utilityNavInfo.elem, 0);
+      moveElemVertically(semiNavInfo.elem, (-3) * semiNavInfo.height, 0);
+      moveElemVertically(siteNavInfo.elem, 0);
+      moveElemVertically(carouselInfo.elem, 0);
     }
   }
 }
 
-const moveElemVertically = (elem, pos) => {
+const moveElemVertically = (elem, pos, opacity = 1) => {
   if (!!elem) {
     elem.style.WebkitTransform = `translate3d(0, ${pos}px, 0)`;
     elem.style.msTransform = `translate3d(0, ${pos}px, 0`;
     elem.style.transform = `translate3d(0, ${pos}px, 0)`;
+    elem.style.opacity = opacity;
   }
 }
 
@@ -109,9 +107,9 @@ const getElemDisplayInfo = (elem) => {
     const marginTop = elem.style.marginTop;
     const positionFixed = (window.getComputedStyle(elem).position === 'fixed') ? true : false;
     
-    return { displayed, height, marginTop, positionFixed }
+    return { elem, displayed, height, marginTop, positionFixed }
   }
   else {
-    return { displayed: false, height: 0, marginTop: 0, positionFixed: false}
+    return { elem: undefined, displayed: false, height: 0, marginTop: 0, positionFixed: false}
   }
 }

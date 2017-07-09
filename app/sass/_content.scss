@@ -13,6 +13,7 @@ $colorOrgange: orange;
   top: 0;
   left: 0;
   z-index: 1000;
+  transition: opacity .5s, transform 2s;
 
   @include mobile() {
     display: none;
@@ -29,6 +30,7 @@ $colorOrgange: orange;
   top: 0;
   left: 0;
   z-index: 800;
+  transition: opacity .5s, transform 2s;
 
   @include mobile() {
     display: none;
@@ -45,6 +47,7 @@ $colorOrgange: orange;
   top: 0;
   left: 0;
   z-index: 1000;
+  transition: opacity .5s, transform 2s;
 }
 
 .carousel {
@@ -52,6 +55,7 @@ $colorOrgange: orange;
   min-height: 150px;
   width: 100%;
   text-align: center;
+  transition: opacity .5s, transform 2s;
 
   @include desktop() {
     position: fixed;
