@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --env.platform=web --progress",
-    "build": "webpack -p --env.production --env.platform=default --progress"
+    "build-K": "webpack -p --env.production --env.platform=default --progress",
+    "build": "webpack -p"
   },
   "author": "",
   "license": "ISC",
