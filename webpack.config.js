@@ -183,7 +183,7 @@ module.exports = (env = {}) => {
       new webpack.optimize.CommonsChunkPlugin({
         // name: 'vendor',
         // filename: 'vendor.js',
-        name: ['vendor']
+        name: ['vendor', 'polyfills']
       }),
 
       // Workaround for angular/angular#11580
