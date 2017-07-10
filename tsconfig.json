@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
-    "module": "es2015",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "sourceMap": true,
-    "outDir": "dist",
+    "types": ["node"],
     "target": "es5",
-    "noEmitOnError": true
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [ "es2015", "dom" ],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "../node_modules/@types/"
+    ]
   },
+  "compileOnSave": true,
   "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "app/ts/**/*.ts"
+    "node_modules/*",
+    "**/*-aot.ts"
   ]
 }
