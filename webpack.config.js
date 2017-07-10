@@ -27,9 +27,13 @@ const entryConfig = {
   // vendor: ['jquery'],
   'vendor': [path.resolve(__dirname, 'app/ts/vendor.ts')],
   'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')],
-  index: [
-    // path.resolve(__dirname, 'app/index.js'),
-    path.resolve(__dirname, 'app/ts/index.ts'),
+  // index: [
+  //   // path.resolve(__dirname, 'app/index.js'),
+  //   path.resolve(__dirname, 'app/ts/index.ts'),
+  //   path.resolve(__dirname, 'app/sass/main.scss')
+  // ],
+  app: [
+    path.resolve(__dirname, 'app/ts/main.ts'),
     path.resolve(__dirname, 'app/sass/main.scss')
   ]
 }
@@ -183,7 +187,7 @@ module.exports = (env = {}) => {
       new webpack.optimize.CommonsChunkPlugin({
         // name: 'vendor',
         // filename: 'vendor.js',
-        name: ['vendor']
+        name: ['app', 'vendor', 'polyfills']
       }),
 
       // Workaround for angular/angular#11580
