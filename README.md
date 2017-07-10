@@ -16,8 +16,8 @@
 
 ## Change Log:
 
-1. Uninstall ts-loader
-2. Install awesome-typescript-loader
+1. Add a new ts file, vendor.ts 
+2. Install angular-related packages
 3. Update webpack.config.js
-  a. Change index.ts as the entry point
-  b. Update ts rule to replace ts-loader with awesome-typescript-loader
+  a. Add vendor.ts to the entry point
+  b. Update plugin definitions
