@@ -43,6 +43,14 @@
     "webpack-dev-server": "2.4.5"
   },
   "dependencies": {
-    "jquery": "3.2.1"
+    "@angular/common": "4.2.5",
+    "@angular/compiler": "4.2.5",
+    "@angular/core": "4.2.5",
+    "@angular/http": "4.2.5",
+    "@angular/platform-browser": "4.2.5",
+    "@angular/platform-browser-dynamic": "4.2.5",
+    "@angular/router": "4.2.5",
+    "jquery": "3.2.1",
+    "rxjs": "5.4.1"
   }
 }

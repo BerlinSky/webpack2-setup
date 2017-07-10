@@ -25,6 +25,7 @@ const babelOptions = {
 
 const entryConfig = {
   // vendor: ['jquery'],
+  'vendor': [path.resolve(__dirname, 'app/ts/vendor.ts')],
   index: [
     // path.resolve(__dirname, 'app/index.js'),
     path.resolve(__dirname, 'app/ts/index.ts'),
@@ -179,9 +180,18 @@ module.exports = (env = {}) => {
       cleanWebPackPlugin,
 
       new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        filename: 'vendor.js'
+        // name: 'vendor',
+        // filename: 'vendor.js',
+        name: ['vendor']
       }),
+
+      // Workaround for angular/angular#11580
+      new webpack.ContextReplacementPlugin(
+        // The (\\|\/) piece accounts for path separators in *nix and Windows
+        /angular(\\|\/)core(\\|\/)@angular/,
+        path.resolve(__dirname, 'app/ts'),
+        {} // a map of your routes
+      ),
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
