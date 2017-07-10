@@ -1,5 +1,7 @@
 import 'jquery';
 
+import { getCarouselInfo, getSemiNavInfo, getSiteNavInfo, getUtilityNavInfo, getContentWrapperInfo } from './element-info';
+
 $(function () {
   adjustPageSections();
   setStickyNav();
@@ -9,7 +11,8 @@ $(function () {
 
 const setStickyNav = () => {
   const semiNavInfo = getSemiNavInfo();
-  const contentWrapper = document.querySelector('.js-contentWrapper');
+  // const contentWrapper = document.querySelector('.js-contentWrapper');
+  const contentWrapper = getContentWrapperInfo().elem;
 
   // Only invoke when semiNav is displayed:
   if (!!semiNavInfo.displayed && !!contentWrapper) {
@@ -52,19 +55,25 @@ const adjustPageSections = () => {
 
   setSiteNav(utilityNavInfo.height);
   setCarousel(utilityNavInfo, siteNavInfo, carouselInfo)
-  setContentWrapper(utilityNavInfo, siteNavInfo, carouselInfo)
+  setContentWrapper()
+  // setContentWrapper(utilityNavInfo, siteNavInfo, carouselInfo)
 }
 
-const setContentWrapper = (utilityNavInfo, siteNavInfo, carouselInfo) => {
-  const elem = document.querySelector('.js-contentWrapper');
+const setContentWrapper = () => {
+  const elem = getContentWrapperInfo.elem;
   if (!!elem) {
-    let targetMarginTop = 0;
 
-    if (carouselInfo.positionFixed || !carouselInfo.displayed) {
-      targetMarginTop = utilityNavInfo.height + siteNavInfo.height + carouselInfo.height;
+    const carouselInfo = getCarouselInfo();
+    const utilityNavInfo = getUtilityNavInfo();
+    const siteNavInfo = getSiteNavInfo();
+
+    if (getCarouselInfo.positionFixed || !carouselInfo.displayed) {
+      const targetMarginTop = utilityNavInfo.height + siteNavInfo.height + carouselInfo.height;
+      elem.style.marginTop = `${targetMarginTop}px`;
     }
-  
-    elem.style.marginTop = `${targetMarginTop}px`;
+    else {
+      elem.style.marginTop = `0`;
+    }
   }
 }
 
@@ -93,24 +102,3 @@ const setSiteNav = (targetHeight) => {
   }
 }
 
-const getCarouselInfo = () => getElemDisplayInfo(document.querySelector('.js-carousel'));
-
-const getSemiNavInfo = () => getElemDisplayInfo(document.querySelector('.js-SemiNav'));
-
-const getSiteNavInfo = () => getElemDisplayInfo(document.querySelector('.js-siteNav'));
-
-const getUtilityNavInfo = () => getElemDisplayInfo(document.querySelector('.js-utilityNav'));
-
-const getElemDisplayInfo = (elem) => {
-  if (!!elem) { 
-    const displayed = (window.getComputedStyle(elem).display === 'none') ? false : true;
-    const height = elem.offsetHeight;
-    const marginTop = elem.style.marginTop;
-    const positionFixed = (window.getComputedStyle(elem).position === 'fixed') ? true : false;
-    
-    return { elem, displayed, height, marginTop, positionFixed }
-  }
-  else {
-    return { elem: undefined, displayed: false, height: 0, marginTop: 0, positionFixed: false}
-  }
-}
