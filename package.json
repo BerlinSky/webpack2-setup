@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "awesome-typescript-loader": "3.2.1",
     "babel-core": "6.24.1",
     "babel-loader": "7.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
@@ -35,7 +36,6 @@
     "pug-html-loader": "1.1.4",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.1",
-    "ts-loader": "2.1.0",
     "tslint": "5.4.3",
     "tslint-loader": "3.5.3",
     "typescript": "2.3.4",

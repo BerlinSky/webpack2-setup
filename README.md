@@ -14,30 +14,10 @@
 
 ### Site Nav
 
-1. Does the element exist?
-2. What is its height?
-3. What is its top position?
-4. Obtain the info in an object
-5. On page load and window resize: reset the top of the site nav.
-6. Calculation: siteNaveTop = the height of the utility nav. 
+## Change Log:
 
-### Carousel 
-
-1. Does the element exist?
-2. What is its height?
-3. What is its marginTop?
-4. What is its postion value? Fixed?
-5. On page load and window resize: reset the top of the carousel.
-6. Calculation: carouselTop = the height of the utility nav + the height of the site nav. 
-
-### contentWrapper
-
-1. Does the element exist?
-2. On page load and window resize: reset the margin top fo the content wrapper
-3. Calcaulation: contentWrapperMarginTop = UtilityNavHeight + SiteNavHeight + CarouselHeight
-
-
-### contentWrapper: scrollup 
-1. Only takes place in the desktop mode: when semiNav.displayed: true. 
-
-
+1. Uninstall ts-loader
+2. Install awesome-typescript-loader
+3. Update webpack.config.js
+  a. Change index.ts as the entry point
+  b. Update ts rule to replace ts-loader with awesome-typescript-loader
