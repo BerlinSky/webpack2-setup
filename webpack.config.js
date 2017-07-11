@@ -17,7 +17,8 @@ const cleanWebPackPlugin = new CleanWebpackPlugin(['dist'])
 
 const babelOptions = {
   presets:  [
-    [ 'es2015', { modules: false } ],
+    // [ 'es2015', { modules: false } ],
+    [ 'es2015' ],
     [ 'es2017' ]
   ],
   plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
@@ -40,7 +41,8 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: '[name].js'
+  filename: '[name].js',
+  chunkFilename: '[id].chunk.js'
 }
 
 const jsRules = {
@@ -65,17 +67,14 @@ const tsRules = {
       loader: 'babel-loader',
       options: babelOptions
     },
-    // {
-    //   loader: 'ts-loader'
-    // },
     {
       loader: 'awesome-typescript-loader'
     },
     {
-      loader: 'tslint-loader',
-      options: {
-        'tsConfigFile': 'tsconfig.json'
-      }
+      loader: 'angular2-template-loader'
+    },
+    {
+      loader: 'tslint-loader'
     }
   ]
 }
@@ -200,14 +199,19 @@ module.exports = (env = {}) => {
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
-        template: 'app/index.pug',
-        filename: 'index.html',
+        template: 'app/index.pug'
       }),
-      new HtmlWebpackPlugin({
-        favicon: 'app/favicon.png',
-        template: 'app/service.pug',
-        filename: 'service.html',
-      }),
+
+      // new HtmlWebpackPlugin({
+      //   favicon: 'app/favicon.png',
+      //   template: 'app/index.pug',
+      //   filename: 'index.html',
+      // }),
+      // new HtmlWebpackPlugin({
+      //   favicon: 'app/favicon.png',
+      //   template: 'app/service.pug',
+      //   filename: 'service.html',
+      // }),
 
       minifyPlugin
     ],

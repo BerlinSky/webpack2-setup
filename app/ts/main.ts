@@ -1,18 +1,22 @@
-import { Component, NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { Component, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'app',
-  template: ``
+  template: `
+    <div>The First Angular 4 Component</div>
+  `
 })
-export class AppComponent{}
+export class AppComponent { }
 
 @NgModule({
   imports: [BrowserModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule{}
+export class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule);
+
+

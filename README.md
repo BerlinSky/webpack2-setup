@@ -1,12 +1,11 @@
 ## Change Log:
 
-1. Add a new ts file, polyfills.ts 
+1. Add a new ts file, main.ts 
 2. Install angular-related packages: 
-  a. zone.js
-  b. core-js
-  c. "@types/node": "8.0.7"
+  a. @types/
+  b. angular-template-loader
 3. Update webpack.config.js
-  a. Add polyfills.ts to the entry point
-  b. 
-4. Update tsconfig.json
-5. Update tslint.json
+  a. Add main.ts to the entry point
+  b. Update output
+  c. Update plugin section
+  d. Update babel options
