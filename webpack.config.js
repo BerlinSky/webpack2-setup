@@ -17,7 +17,6 @@ const cleanWebPackPlugin = new CleanWebpackPlugin(['dist'])
 
 const babelOptions = {
   presets:  [
-    // [ 'es2015', { modules: false } ],
     [ 'es2015' ],
     [ 'es2017' ]
   ],
@@ -25,15 +24,9 @@ const babelOptions = {
 }
 
 const entryConfig = {
-  // vendor: ['jquery'],
   'vendor': [path.resolve(__dirname, 'app/ts/vendor.ts')],
   'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')],
-  // index: [
-  //   // path.resolve(__dirname, 'app/index.js'),
-  //   path.resolve(__dirname, 'app/ts/index.ts'),
-  //   path.resolve(__dirname, 'app/sass/main.scss')
-  // ],
-  app: [
+  'app': [
     path.resolve(__dirname, 'app/ts/main.ts'),
     path.resolve(__dirname, 'app/sass/main.scss')
   ]
@@ -201,17 +194,6 @@ module.exports = (env = {}) => {
         favicon: 'app/favicon.png',
         template: 'app/index.pug'
       }),
-
-      // new HtmlWebpackPlugin({
-      //   favicon: 'app/favicon.png',
-      //   template: 'app/index.pug',
-      //   filename: 'index.html',
-      // }),
-      // new HtmlWebpackPlugin({
-      //   favicon: 'app/favicon.png',
-      //   template: 'app/service.pug',
-      //   filename: 'service.html',
-      // }),
 
       minifyPlugin
     ],
