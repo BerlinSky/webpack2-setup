@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { ContactModule } from './contact/contact.module';
 import { ServicesModule } from './services/services.module';
 import { HomeComponent } from './home/home.component';
-// import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   imports: [BrowserModule, ContactModule, ServicesModule.forRoot(), appRoutes],

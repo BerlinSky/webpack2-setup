@@ -1,5 +1,5 @@
 ## Change Log:
 
-1. Add a new route in app.routes for ContactComponent
-2. Use /contact to view the route output
+1. Add arouterLinks in the AppComponent
+2. Use navigation links to view the route output
 
