@@ -4,13 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import appRoutes from './app.routes';
 
 import { AppComponent } from './app.component';
-import { ContactModule } from './contact/contact.module';
 import { ServicesModule } from './services/services.module';
-import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
+import { NewsModule } from './news/news.module';
+import { TourModule } from './tour/tour.module';
+import { VideoModule } from './video/video.module';
+import { MusicModule } from './music/music.module';
 
 @NgModule({
-  imports: [BrowserModule, ContactModule, ServicesModule.forRoot(), appRoutes],
-  declarations: [AppComponent, HomeComponent],
+  imports: [
+    BrowserModule,
+    HomeModule,
+    NewsModule,
+    TourModule,
+    VideoModule,
+    MusicModule,
+    ServicesModule.forRoot(),
+    appRoutes
+  ],
+  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

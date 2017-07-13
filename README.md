@@ -1,5 +1,7 @@
 ## Change Log:
 
-1. Add arouterLinks in the AppComponent
-2. Use navigation links to view the route output
+1. Move the template code to a pug file for app.component
+2. Move the template code to a pug file for home.component
+3. Add home.module
+
 
