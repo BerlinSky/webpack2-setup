@@ -3,6 +3,13 @@ $colorTomato: tomato;
 $colorGreen: green;
 $colorOrgange: orange;
 
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 10;
+}
+
 .utilityNav {
   background-color: $colorTomato;
   min-height: 70px;

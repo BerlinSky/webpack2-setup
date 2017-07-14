@@ -64,6 +64,9 @@ const tsRules = {
       loader: 'awesome-typescript-loader'
     },
     {
+      loader: 'angular-router-loader'
+    },
+    {
       loader: 'angular2-template-loader'
     },
     {
