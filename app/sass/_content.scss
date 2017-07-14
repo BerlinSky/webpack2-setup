@@ -8,6 +8,40 @@ $colorOrgange: orange;
   width: 100%;
   top: 0px;
   z-index: 10;
+
+  .nav {
+    margin-top: -1px;
+    max-width: 100%;
+    background: #f7f7f7;
+    height: 70px;
+    padding-left: 10px;
+
+    ul, ol {
+      list-style: none;
+
+      li, a {
+        display: inline-block;
+        list-style-type: none;
+        text-decoration: none;
+        padding: 13px;
+      }
+      
+      li {
+        display: inline-block;
+        list-style-type: none;
+        text-decoration: none;
+        padding: 13px;
+
+        a {
+          background: rgba(255,255,255,0.9);
+          font: normal 500 0.9em 'brandon-grotesque', arial, sans-serif;
+          text-decoration: none;
+          color: #ccc;
+          letter-spacing: 0.1em;
+        }
+      }
+    }
+  }
 }
 
 .utilityNav {
