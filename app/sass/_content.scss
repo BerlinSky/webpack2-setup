@@ -24,6 +24,11 @@ $colorOrgange: orange;
         list-style-type: none;
         text-decoration: none;
         padding: 13px;
+
+        a.menuItem--active {
+          color: #cddead;
+          background: rgba(255,255,255,0.9);
+        }
       }
 
       li {
@@ -33,7 +38,7 @@ $colorOrgange: orange;
         padding: 13px;
 
         a {
-          background: rgba(255,255,255,0.9);
+          // background: rgba(255,255,255,0.9);
           font: normal 500 0.9em 'brandon-grotesque', arial, sans-serif;
           text-decoration: none;
           color: #ccc;
