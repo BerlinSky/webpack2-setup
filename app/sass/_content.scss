@@ -25,7 +25,7 @@ $colorOrgange: orange;
         text-decoration: none;
         padding: 13px;
       }
-      
+
       li {
         display: inline-block;
         list-style-type: none;
@@ -42,6 +42,14 @@ $colorOrgange: orange;
       }
     }
   }
+}
+
+.contentWrapper {
+  position: relative;
+  // top: 65px;
+  top: 150px;
+  width: 100%;
+  z-index: 7;
 }
 
 .utilityNav {
@@ -110,14 +118,14 @@ $colorOrgange: orange;
   background-color: $colorOrgange;
 }
 
-.contentWrapper {
-  width: 75%;
-  margin: auto;
-  padding: 50px;
-  border: 1px solid $colorBlue;
+// .contentWrapper {
+//   width: 75%;
+//   margin: auto;
+//   padding: 50px;
+//   border: 1px solid $colorBlue;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+// }
