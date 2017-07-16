@@ -4,8 +4,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const extractPlugin = new ExtractTextPlugin({
-  filename: 'main.css'
+// const extractPlugin = new ExtractTextPlugin({
+//   filename: 'main.css'
+// });
+
+const mainCssExtractPlugin = new ExtractTextPlugin({
+  filename: 'main.[chunkhash].css'
+});
+
+const cssExtractPlugin = new ExtractTextPlugin({
 });
 
 const providerPlugin = new webpack.ProvidePlugin({
@@ -75,16 +82,47 @@ const tsRules = {
   ]
 }
 
-const sassRules = {
+const sassRulesForMain = {
   test: /\.scss$/,
   exclude: /node_modules/,
-  use: extractPlugin.extract({
+  exclude: path.resolve(__dirname, 'app', 'ts'),
+
+  use: mainCssExtractPlugin.extract({
     use: [
       {
         loader: "css-loader",
         options: {
           sourceMap: true
         }
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          sourceMap: 'inline'
+        }
+      },
+      {
+        loader: "sass-loader",
+        options: {
+          sourceMap: true
+        }
+      }
+    ]
+  })
+}
+
+const sassRulesForComponent = {
+  test: /\.scss$/,
+  // exclude: /node_modules/,
+  include: path.resolve(__dirname, 'app', 'ts'),
+
+  use: cssExtractPlugin.extract({
+    use: [
+      {
+        loader: 'raw-loader'
+        // options: {
+        //   sourceMap: true
+        // }
       },
       {
         loader: "postcss-loader",
@@ -154,10 +192,10 @@ module.exports = (env = {}) => {
   // Variables set by npm scripts in package.json
   const isProduction = env.production === true
 
-  const minifyPlugin = new webpack.LoaderOptionsPlugin({
-    minimize: (isProduction) ? true : false,
-    debug: (isProduction) ? false : true
-  })
+  // const minifyPlugin = new webpack.LoaderOptionsPlugin({
+  //   minimize: (isProduction) ? true : false,
+  //   debug: (isProduction) ? false : true
+  // })
 
   return {
     entry: entryConfig,
@@ -168,7 +206,7 @@ module.exports = (env = {}) => {
     })(),
 
     module: {
-      rules: [ tsRules, jsRules, sassRules, htmlRules, pugRules, fontRules, imageRules ]
+      rules: [ tsRules, jsRules, sassRulesForMain, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
     },
 
     resolve: {
@@ -176,7 +214,8 @@ module.exports = (env = {}) => {
     },
 
     plugins: [
-      extractPlugin,
+      // extractPlugin,
+      mainCssExtractPlugin,
       providerPlugin,
       cleanWebPackPlugin,
 

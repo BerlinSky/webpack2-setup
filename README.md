@@ -1,10 +1,9 @@
 ## Change Log:
 
-1. Download google fonts
-2. Create a fonts.scss based on the fonts.css
-3. Update the fonts path
-4. Use the fonts
-
+1. Remove the "selector" from components under router
+2. Add scss files to components
+  a. install raw-loader
+  b. update webpack.config.js to bundle component scss
 
 ## TODO's
 1. Add enableProdMode()
