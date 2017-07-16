@@ -1,16 +1,17 @@
+
 .header
   .nav
     ul.menu
-      li 
+      li
         a("routerLink"="home" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact:true}") Home
-      li 
-        a("routerLink"="news" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact:true}") News
-      li 
-        a("routerLink"="tour" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact:true}") Tour
-      li 
-        a("routerLink"="video" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact: true}") Video
-      li 
-        a("routerLink"="music" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact: true}") Music
+      li
+        a("routerLink"="news" routerLinkActive="menuItem--active" [routerLinkActiveOptions]="{exact:true}") News
+      li
+        a("routerLink"="tour" routerLinkActive="menuItem--active" [routerLinkActiveOptions]="{exact:true}") Tour
+      li
+        a("routerLink"="video" routerLinkActive="menuItem--active" [routerLinkActiveOptions]="{exact: true}") Video
+      li
+        a("routerLink"="music" routerLinkActive="menuItem--active" [routerLinkActiveOptions]="{exact: true}") Music
 
 .contentWrapper
   router-outlet

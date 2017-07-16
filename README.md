@@ -1,7 +1,7 @@
 ## Change Log:
 
-1. Move the template code to a pug file for app.component
-2. Move the template code to a pug file for home.component
-3. Add home.module
+1. Install pug-ng-html-loader
+2. Update webpage.config.js
+3. Update app.component.pug to remove double quotes around square brackets
 
 
