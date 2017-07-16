@@ -198,7 +198,26 @@ module.exports = (env = {}) => {
         template: 'app/index.pug'
       }),
 
-      minifyPlugin
+      // minifyPlugin
+      new webpack.LoaderOptionsPlugin({
+        minimize: false,
+        debug: true
+      }),
+
+      new webpack.optimize.UglifyJsPlugin({
+        beautify: true,
+        sourceMap: true,
+        mangle: {
+          screw_ie8: false,
+          keep_fnames: true
+        },
+        compress: {
+          screw_ie8: false,
+          warnings: false,
+          comparisons: false
+        },
+        comments: false
+      })
     ],
 
     devServer: {
