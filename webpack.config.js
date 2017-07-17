@@ -96,6 +96,9 @@ const sassRulesForMain = {
         }
       },
       {
+        loader: "resolve-url-loader",
+      },
+      {
         loader: "postcss-loader",
         options: {
           sourceMap: 'inline'
