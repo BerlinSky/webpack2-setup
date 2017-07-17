@@ -5,6 +5,9 @@ import appRoutes from './app.routes';
 
 import { AppComponent } from './app.component';
 import { ServicesModule } from './services/services.module';
+
+import { NavbarModule } from './shared/navbar/navbar.module';
+
 import { HomeModule } from './home/home.module';
 import { NewsModule } from './news/news.module';
 import { TourModule } from './tour/tour.module';
@@ -20,6 +23,7 @@ import { MusicModule } from './music/music.module';
     VideoModule,
     MusicModule,
     ServicesModule.forRoot(),
+    NavbarModule,
     appRoutes
   ],
   declarations: [AppComponent],

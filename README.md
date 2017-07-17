@@ -1,10 +1,10 @@
 ## Change Log:
 
-1. Remove the "selector" from components under router
-2. Add scss files to components
-  a. install raw-loader
-  b. update webpack.config.js to bundle component scss
-3. Use ":host" vs "*" to target the entire component
+1. Create a share component, NavbarComponent, to house navigation bar
+2. Import navbar.module in the app.module
+3. Import routes.module in the navbar.module
+4. Move the navigation markup from the app.component template to navbar template
+
 
 
 ## TODO's
