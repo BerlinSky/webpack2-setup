@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.pug',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent {
 }
