@@ -248,7 +248,10 @@ module.exports = (env = {}) => {
 
       new WebpackCopyPlugin({
         dirs: [
-          { from: 'app/images', to: 'images' },
+          {
+            from: 'app/images',
+            to: (isProduction) ? 'dist/images'  : 'images' ,
+          },
         ],
         options: {},
       }),
