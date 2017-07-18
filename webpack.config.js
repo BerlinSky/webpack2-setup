@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackCopyPlugin = require('webpack-copy-plugin')
 
 // const extractPlugin = new ExtractTextPlugin({
 //   filename: 'main.css'
@@ -121,8 +122,14 @@ const sassRulesForComponent = {
 
   use: cssExtractPlugin.extract({
     use: [
+      // {
+      //   loader: 'raw-loader'
+      //   // options: {
+      //   //   sourceMap: true
+      //   // }
+      // },
       {
-        loader: 'raw-loader'
+        loader: 'css-to-string-loader'
         // options: {
         //   sourceMap: true
         // }
@@ -132,6 +139,9 @@ const sassRulesForComponent = {
         options: {
           sourceMap: 'inline'
         }
+      },
+      {
+        loader: 'resolve-url-loader'
       },
       {
         loader: "sass-loader",
@@ -235,6 +245,13 @@ module.exports = (env = {}) => {
         path.resolve(__dirname, 'app/ts'),
         {} // a map of your routes
       ),
+
+      new WebpackCopyPlugin({
+        dirs: [
+          { from: 'app/images', to: 'images' },
+        ],
+        options: {},
+      }),
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
