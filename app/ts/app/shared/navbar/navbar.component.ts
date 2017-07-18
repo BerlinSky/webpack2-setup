@@ -5,4 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.component.pug'
 })
 
-export class NavbarComponent { }
+export class NavbarComponent {
+  menuItems = [
+    { url: 'home', itemText: 'Home'},
+    { url: 'news', itemText: 'News'},
+    { url: 'tour', itemText: 'Tour'},
+    { url: 'video', itemText: 'Video'},
+    { url: 'music', itemText: 'Music'},
+  ];
+}
