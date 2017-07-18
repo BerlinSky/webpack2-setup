@@ -112,13 +112,25 @@ const pugRules = {
   test: /\.pug$/,
   exclude: /node_modules/,
   use: [
-    // { loader: 'html-loader' },
-    // { loader: 'pug-html-loader',
-    { loader: 'pug-ng-html-loader',
+    {
+      loader: 'html-loader',
       options: {
+        root: 'images',
+        attrs: ['img:src', 'link:href']
+      }
+    },
+    {
+      loader: 'pug-html-loader',
+      options: {
+        query: { plugins: [require('pug-plugin-ng')] },
         name: '[name],[ext]'
       }
     }
+    // { loader: 'pug-ng-html-loader',
+    //   options: {
+    //     name: '[name],[ext]'
+    //   }
+    // }
   ]
 }
 
@@ -154,10 +166,10 @@ module.exports = (env = {}) => {
   // Variables set by npm scripts in package.json
   const isProduction = env.production === true
 
-  const minifyPlugin = new webpack.LoaderOptionsPlugin({
-    minimize: (isProduction) ? true : false,
-    debug: (isProduction) ? false : true
-  })
+  // const minifyPlugin = new webpack.LoaderOptionsPlugin({
+  //   minimize: (isProduction) ? true : false,
+  //   debug: (isProduction) ? false : true
+  // })
 
   return {
     entry: entryConfig,
