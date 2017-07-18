@@ -7,6 +7,6 @@
   c. "@types/node": "8.0.7"
 3. Update webpack.config.js
   a. Add polyfills.ts to the entry point
-  b. 
+  b. Verify the plugin section
 4. Update tsconfig.json
 5. Update tslint.json
