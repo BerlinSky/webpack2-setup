@@ -1,10 +1,7 @@
 ## Change Log:
 
-1. Create a share component, NavbarComponent, to house navigation bar
-2. Import navbar.module in the app.module
-3. Import routes.module in the navbar.module
-4. Move the navigation markup from the app.component template to navbar template
-
+1. Install @angular/form
+2. Update vendor.ts to add "forms"
 
 
 ## TODO's

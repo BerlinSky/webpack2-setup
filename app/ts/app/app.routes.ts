@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'news', loadChildren: './news/news.module#NewsModule' },
   { path: 'tour', loadChildren: './tour/tour.module#TourModule' },
   { path: 'video', loadChildren: './video/video.module#VideoModule' },
-  { path: 'music', loadChildren: './music/music.module#MusicModule' }
+  { path: 'music', loadChildren: './music/music.module#MusicModule' },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
 ];
 
 export default RouterModule.forRoot(routes);

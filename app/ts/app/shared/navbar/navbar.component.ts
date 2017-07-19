@@ -12,5 +12,6 @@ export class NavbarComponent {
     { url: 'tour', itemText: 'Tour'},
     { url: 'video', itemText: 'Video'},
     { url: 'music', itemText: 'Music'},
+    { url: 'admin', itemText: 'Admin'},
   ];
 }

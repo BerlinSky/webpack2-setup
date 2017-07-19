@@ -14,6 +14,8 @@ import { TourModule } from './tour/tour.module';
 import { VideoModule } from './video/video.module';
 import { MusicModule } from './music/music.module';
 
+import { AdminModule } from './admin/admin.module';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { MusicModule } from './music/music.module';
     MusicModule,
     ServicesModule.forRoot(),
     NavbarModule,
-    appRoutes
+    appRoutes,
+    AdminModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
