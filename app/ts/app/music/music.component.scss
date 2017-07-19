@@ -2,7 +2,60 @@
 :host {
   display: block;
   background-color: #7bb9af;
-  text-align: center;
+  // text-align: center;
   min-height: 20rem;
   width: 100%;
+
+  box-sizing: border-box;
+
+  ul.songList {
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 8px 12px 40px;
+      background: #ddd;
+      font-size: 18px;
+      transition: 0.2s;
+      user-select: none;
+
+      .close {
+        position: absolute;
+        font-weight: 400;
+        color: #333;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+      }
+    }
+
+    li:nth-child(odd) {
+      background: #7bb9af;
+    }
+
+    li:hover {
+      background:#b5bebc;
+    }
+
+    li.checked {
+      background: #888;
+      color: #fff;
+      // text-decoration: line-through;
+    }
+
+    li.checked::before {
+      content: '';
+      position: absolute;
+      border-color: #fff;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      top: 10px;
+      left: 16px;
+      transform: rotate(45deg);
+      height: 15px;
+      width: 7px;
+    }
+  }
 }
