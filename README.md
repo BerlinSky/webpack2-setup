@@ -5,7 +5,7 @@
   a. no binding
   b. one-way binding
   c. two-way binding
-
+3. Update style with flexbox
 
 
 ## TODO's

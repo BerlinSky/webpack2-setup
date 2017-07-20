@@ -2,16 +2,16 @@ div Login Page
 
   .loginFormPanel
 
-    .InputAddOn
-      span.InputAddOn-item User Name
-      input(type="text" ngModel="userName").InputAddOn-field
+    .flexInput
+      span.flexInput__addOn User Name
+      input(type="text" ngModel="userName").flexInput__input
 
-    .InputAddOn
-      span.InputAddOn-item User Name
-      input(type="text" [ngModel]="userName").InputAddOn-field
+    .flexInput
+      span.flexInput__addOn User Name
+      input(type="text" [ngModel]="userName").flexInput__input
 
-    .InputAddOn
-      span.InputAddOn-item User Name
-      input(type="text" [(ngModel)]="userName").InputAddOn-field
+    .flexInput
+      span.flexInput__addOn User Name
+      input(type="text" [(ngModel)]="userName").flexInput__input
 
     p User Name captured: {{ userName }}
