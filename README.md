@@ -1,7 +1,11 @@
 ## Change Log:
 
-1. Install @angular/form
-2. Update vendor.ts to add "forms"
+1. Add "FormsModule" to the app.module.ts
+2. Add inputs on the login page to observe:
+  a. no binding
+  b. one-way binding
+  c. two-way binding
+
 
 
 ## TODO's

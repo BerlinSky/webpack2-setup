@@ -1,1 +1,17 @@
-div Login Component / Page
+div Login Page
+
+  .loginFormPanel
+
+    .InputAddOn
+      span.InputAddOn-item User Name
+      input(type="text" ngModel="userName").InputAddOn-field
+
+    .InputAddOn
+      span.InputAddOn-item User Name
+      input(type="text" [ngModel]="userName").InputAddOn-field
+
+    .InputAddOn
+      span.InputAddOn-item User Name
+      input(type="text" [(ngModel)]="userName").InputAddOn-field
+
+    p User Name captured: {{ userName }}

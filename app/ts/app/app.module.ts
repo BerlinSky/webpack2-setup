@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 
 import appRoutes from './app.routes';
 
@@ -19,6 +20,7 @@ import { AdminModule } from './admin/admin.module';
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     HomeModule,
     NewsModule,
     TourModule,
