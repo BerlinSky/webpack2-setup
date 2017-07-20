@@ -24,10 +24,10 @@ import { AdminModule } from './admin/admin.module';
     TourModule,
     VideoModule,
     MusicModule,
+    AdminModule,
     ServicesModule.forRoot(),
     NavbarModule,
-    appRoutes,
-    AdminModule
+    appRoutes
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
