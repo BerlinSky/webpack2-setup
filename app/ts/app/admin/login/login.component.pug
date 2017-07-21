@@ -2,7 +2,7 @@ div Login Page
 
   .loginFormPanel
 
-    form("#loginFormRef"="ngForm")
+    form("#loginFormRef"="ngForm" (ngSubmit)="onSubmit(loginFormRef.value)")
       .flexInput
         span.flexInput__addOn Username
         input.flexInput__input(
@@ -32,4 +32,8 @@ div Login Page
       .input.error(*ngIf="passwordRef.errors?.required && passwordRef.dirty") This is a required field.
       .input.error(*ngIf="passwordRef.errors?.minlength && passwordRef.dirty") The value must 6 characters or longer.
       .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
+
+      button([hidden]="!loginFormRef.valid" type="submit") Submit
+
+      //- p {{loginFormRef.value | json}}
 

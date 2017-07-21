@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   userName = ''
   password = ''
+
+  onSubmit(formValue: any) {
+    console.log(formValue);
+  }
 }
