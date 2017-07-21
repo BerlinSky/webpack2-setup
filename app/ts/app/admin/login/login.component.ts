@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  userName = 'ConcertGoer'
+  userName = ''
+  password = ''
 }

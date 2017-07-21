@@ -3,17 +3,28 @@ div Login Page
   .loginFormPanel
 
     .flexInput
-      span.flexInput__addOn User Name
+      span.flexInput__addOn Username
       input.flexInput__input(
         type="text"
+        placeholder="Enter Email Address"
         [(ngModel)]="userName"
         "#userNameRef"="ngModel"
         required
         minlength="5"
       )
+    .input.error(*ngIf="userNameRef.errors?.required && passwordRef.dirty") This is a required field.
+    .input.error(*ngIf="userNameRef.errors?.minlength && passwordRef.dirty") The value must 5 characters or longer.
 
-    .input.error(*ngIf="userNameRef.errors?.required") This is a required field.
-    .input.error(*ngIf="userNameRef.errors?.minlength") The value must 5 characters or longer.
+    .flexInput
+      span.flexInput__addOn Password
+      input.flexInput__input(
+        type="password"
+        placeholder="Enter Password"
+        [(ngModel)]="password"
+        "#passwordRef"="ngModel"
+        required
+        minlength="6"
+      )
+    .input.error(*ngIf="passwordRef.errors?.required && passwordRef.dirty") This is a required field.
+    .input.error(*ngIf="passwordRef.errors?.minlength && passwordRef.dirty") The value must 6 characters or longer.
 
-    //- p User Name captured: {{ userNameRef.valid }}
-    //- p User Name captured: {{ userNameRef.errors | json }}
