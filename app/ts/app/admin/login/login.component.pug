@@ -4,14 +4,16 @@ div Login Page
 
     .flexInput
       span.flexInput__addOn User Name
-      input(type="text" ngModel="userName").flexInput__input
+      input.flexInput__input(
+        type="text"
+        [(ngModel)]="userName"
+        "#userNameRef"="ngModel"
+        required
+        minlength="5"
+      )
 
-    .flexInput
-      span.flexInput__addOn User Name
-      input(type="text" [ngModel]="userName").flexInput__input
+    .input.error(*ngIf="userNameRef.errors?.required") This is a required field.
+    .input.error(*ngIf="userNameRef.errors?.minlength") The value must 5 characters or longer.
 
-    .flexInput
-      span.flexInput__addOn User Name
-      input(type="text" [(ngModel)]="userName").flexInput__input
-
-    p User Name captured: {{ userName }}
+    //- p User Name captured: {{ userNameRef.valid }}
+    //- p User Name captured: {{ userNameRef.errors | json }}
