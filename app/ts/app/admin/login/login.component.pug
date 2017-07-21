@@ -2,31 +2,34 @@ div Login Page
 
   .loginFormPanel
 
-    .flexInput
-      span.flexInput__addOn Username
-      input.flexInput__input(
-        type="text"
-        placeholder="Enter Email Address"
-        [(ngModel)]="userName"
-        "#userNameRef"="ngModel"
-        required
-        minlength="5"
-      )
-    .input.error(*ngIf="userNameRef.errors?.required && passwordRef.dirty") This is a required field.
-    .input.error(*ngIf="userNameRef.errors?.minlength && passwordRef.dirty") The value must 5 characters or longer.
-    .input.error([hidden]="userNameRef.valid || userNameRef.pristine") (The input value is invalid.)
+    form("#loginFormRef"="ngForm")
+      .flexInput
+        span.flexInput__addOn Username
+        input.flexInput__input(
+          name="userName"
+          type="text"
+          placeholder="Enter Email Address"
+          [(ngModel)]="userName"
+          "#userNameRef"="ngModel"
+          required
+          minlength="5"
+        )
+      .input.error(*ngIf="userNameRef.errors?.required && passwordRef.dirty") This is a required field.
+      .input.error(*ngIf="userNameRef.errors?.minlength && passwordRef.dirty") The value must 5 characters or longer.
+      .input.error([hidden]="userNameRef.valid || userNameRef.pristine") (The input value is invalid.)
 
-    .flexInput
-      span.flexInput__addOn Password
-      input.flexInput__input(
-        type="password"
-        placeholder="Enter Password"
-        [(ngModel)]="password"
-        "#passwordRef"="ngModel"
-        required
-        minlength="6"
-      )
-    .input.error(*ngIf="passwordRef.errors?.required && passwordRef.dirty") This is a required field.
-    .input.error(*ngIf="passwordRef.errors?.minlength && passwordRef.dirty") The value must 6 characters or longer.
-    .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
+      .flexInput
+        span.flexInput__addOn Password
+        input.flexInput__input(
+          name="password"
+          type="password"
+          placeholder="Enter Password"
+          [(ngModel)]="password"
+          "#passwordRef"="ngModel"
+          required
+          minlength="6"
+        )
+      .input.error(*ngIf="passwordRef.errors?.required && passwordRef.dirty") This is a required field.
+      .input.error(*ngIf="passwordRef.errors?.minlength && passwordRef.dirty") The value must 6 characters or longer.
+      .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
 
