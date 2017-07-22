@@ -42,6 +42,8 @@ export class UserService implements CanActivate {
   }
 
   register(email: string, password: string) {
+    console.log('password', email, password);
+
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(function(error) {
         console.log(`
@@ -52,6 +54,8 @@ export class UserService implements CanActivate {
 
   verifyUser() {
     this.authUser = firebase.auth().currentUser;
+
+    console.log('user', this.authUser);
 
     if (this.authUser) {
       console.log(`

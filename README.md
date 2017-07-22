@@ -2,7 +2,7 @@
 
 1. Add signUp method
 2. Add cancel method
-
+3. Add markup to the signup template
 
 
 ## TODO's

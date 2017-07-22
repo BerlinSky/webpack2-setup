@@ -16,6 +16,8 @@ export class SignupComponent {
   constructor(private userService: UserService, private router: Router) { }
 
   signUp() {
+    console.log('password', this.password1, this.password2);
+
     if (this.password1 !== this.password2) {
       this.passwordFail = true;
     } else {
