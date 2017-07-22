@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SearchModule } from '../Search/search.module';
+import { SearchModule } from '../search/search.module';
 
 import { ContactComponent } from './contact.component';
 
