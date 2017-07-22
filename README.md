@@ -1,9 +1,8 @@
 ## Change Log:
 
-1. Install "firebase" with "-S"
-2. Add the firebase definition to the vender.ts 
-3. Import the firebase to the user.service
-4. Configure the firebase in the constructor
+1. Add "register" method to the service
+2. Add "verfyUser" method to the service
+3. Add "login" method to the service
 
 
 
