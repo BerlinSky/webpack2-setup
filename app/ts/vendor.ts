@@ -10,4 +10,4 @@ import '@angular/forms';
 // RxJS
 import 'rxjs';
 
-import "firebase/firebase.js";
+import 'firebase/firebase.js';
