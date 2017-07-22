@@ -17,12 +17,12 @@ export class UserService implements CanActivate {
 
   constructor( private router: Router ) {
     const config = {
-      apiKey: "AIzaSyACCIkF3qnw2LFPTKY20ecMJRe0Tp-LlxY",
-      authDomain: "webpack2-angular4.firebaseapp.com",
-      databaseURL: "https://webpack2-angular4.firebaseio.com",
-      projectId: "webpack2-angular4",
-      storageBucket: "webpack2-angular4.appspot.com",
-      messagingSenderId: "557354340230"
+      apiKey: 'AIzaSyACCIkF3qnw2LFPTKY20ecMJRe0Tp-LlxY',
+      authDomain: 'webpack2-angular4.firebaseapp.com',
+      databaseURL: 'https://webpack2-angular4.firebaseio.com',
+      projectId: 'webpack2-angular4',
+      storageBucket: 'webpack2-angular4.appspot.com',
+      messagingSenderId: '557354340230'
     };
     firebase.initializeApp(config);
   }
