@@ -2,21 +2,19 @@ div Login Page
 
   .loginFormPanel
 
-    form("#loginFormRef"="ngForm" (ngSubmit)="onSubmit(loginFormRef.value)")
+    form
       .flexInput
         span.flexInput__addOn Username
         input.flexInput__input(
-          name="userName"
+          name="email"
           type="text"
           placeholder="Enter Email Address"
-          [(ngModel)]="userName"
-          "#userNameRef"="ngModel"
+          [(ngModel)]="email"
+          "#emailRef"="ngModel"
           required
           minlength="5"
         )
-      .input.error(*ngIf="userNameRef.errors?.required && passwordRef.dirty") This is a required field.
-      .input.error(*ngIf="userNameRef.errors?.minlength && passwordRef.dirty") The value must 5 characters or longer.
-      .input.error([hidden]="userNameRef.valid || userNameRef.pristine") (The input value is invalid.)
+      .input.error([hidden]="emailRef.valid || emailRef.pristine") (The input value is required.)
 
       .flexInput
         span.flexInput__addOn Password
@@ -29,11 +27,9 @@ div Login Page
           required
           minlength="6"
         )
-      .input.error(*ngIf="passwordRef.errors?.required && passwordRef.dirty") This is a required field.
-      .input.error(*ngIf="passwordRef.errors?.minlength && passwordRef.dirty") The value must 6 characters or longer.
       .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
 
-      button([hidden]="!loginFormRef.valid" type="submit") Submit
-
-      //- p {{loginFormRef.value | json}}
+      button(type="button" (click)="login()") Login
+      button(type="button" (click)="signup()") Sign Up
+      button(type="button" (click)="cancel()") Cancel
 
