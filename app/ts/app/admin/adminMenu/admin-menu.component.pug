@@ -1,1 +1,8 @@
-div admin menu Component
+div admin menu
+
+  div(*ngIf="currentUser")
+    ul
+      li
+        a(href="/" (click)="logout") Logout
+      li
+        a {{currentUser}} Logged in
