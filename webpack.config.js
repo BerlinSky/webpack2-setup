@@ -36,7 +36,7 @@ const entryConfig = {
   'polyfills': [path.resolve(__dirname, 'app/ts/polyfills.ts')],
   'app': [
     path.resolve(__dirname, 'app/ts/main.ts'),
-    path.resolve(__dirname, 'app/sass/main.scss')
+    path.resolve(__dirname, 'app/stylus/main.styl')
   ]
 }
 
@@ -81,6 +81,42 @@ const tsRules = {
       loader: 'tslint-loader'
     }
   ]
+}
+
+const stylusRulesForMain = {
+  test: /\.styl$/,
+  exclude: /node_modules/,
+  exclude: path.resolve(__dirname, 'app', 'ts'),
+
+  use: mainCssExtractPlugin.extract({
+    use: [
+      {
+        loader: "css-loader",
+        options: {
+          sourceMap: true
+        }
+      },
+      {
+        loader: "resolve-url-loader",
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          sourceMap: 'inline'
+        }
+      },
+      {
+        loader: "stylus-loader",
+        options: {
+          sourceMap: true,
+          resolve: {
+            extensions: ['.styl']
+          },
+          modulesDirectories: ['node_modules']
+        },
+      }
+    ]
+  })
 }
 
 const sassRulesForMain = {
@@ -219,7 +255,7 @@ module.exports = (env = {}) => {
     })(),
 
     module: {
-      rules: [ tsRules, jsRules, sassRulesForMain, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
+      rules: [ tsRules, jsRules, stylusRulesForMain, sassRulesForMain, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
     },
 
     resolve: {
