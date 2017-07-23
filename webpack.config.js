@@ -151,6 +151,39 @@ const sassRulesForMain = {
   })
 }
 
+const stylusRulesForComponent = {
+  test: /\.styl$/,
+  // exclude: /node_modules/,
+  include: path.resolve(__dirname, 'app', 'ts'),
+
+  use: cssExtractPlugin.extract({
+    use: [
+      {
+        loader: 'css-to-string-loader'
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          sourceMap: 'inline'
+        }
+      },
+      {
+        loader: 'resolve-url-loader'
+      },
+      {
+        loader: "stylus-loader",
+        options: {
+          sourceMap: true,
+          resolve: {
+            extensions: ['.styl']
+          },
+          modulesDirectories: ['node_modules']
+        },
+      }
+    ]
+  })
+}
+
 const sassRulesForComponent = {
   test: /\.scss$/,
   // exclude: /node_modules/,
@@ -255,7 +288,7 @@ module.exports = (env = {}) => {
     })(),
 
     module: {
-      rules: [ tsRules, jsRules, stylusRulesForMain, sassRulesForMain, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
+      rules: [ tsRules, jsRules, stylusRulesForMain, stylusRulesForComponent, sassRulesForMain, sassRulesForComponent, htmlRules, pugRules, fontRules, imageRules ]
     },
 
     resolve: {
