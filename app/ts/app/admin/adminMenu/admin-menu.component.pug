@@ -1,4 +1,9 @@
 div admin menu
+  div
+    ul
+      li
+        a([routerLink]="['/admin/blog-admin']") Manage Blog
+
 
   div(*ngIf="currentUser")
     ul
@@ -6,3 +11,5 @@ div admin menu
         a(href="/" (click)="logout") Logout
       li
         a {{currentUser}} Logged in
+
+

@@ -1,0 +1,23 @@
+div Blog admin menu
+  div
+    ul
+      li
+        a(href="/" (click)="chooseMode('add')") Add Post
+      li
+        a(*ngIf="menuChoice" href="/"  (click)="chooseMode('')") Manage Blog
+      li
+        a([routerLink]="['/admin']") Admim
+
+
+  div(*ngIf="currentUser")
+    ul
+      li
+        a(href="/" (click)="logout") Logout
+      li
+        a {{currentUser}} Logged in
+
+div([ngSwitch]="menuChoice")
+  div(*ngSwitchCase="'add'")
+    h2 Add Menu
+  div(*ngSwitchDefault)
+    h2 Default
