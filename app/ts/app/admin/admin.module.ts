@@ -8,6 +8,7 @@ import { AdminMenuComponent } from './adminMenu/admin-menu.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BlogAdminComponent } from './blogAdmin/blog-admin.component'
+import { BlogAddComponent }    from './blogAdd/blog-add.component';
 
 import { UserService } from './adminShared/user.service';
 import { BlogAdminService } from './adminShared/blog-admin.service';

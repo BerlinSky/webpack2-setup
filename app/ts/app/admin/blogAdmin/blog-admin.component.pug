@@ -1,20 +1,18 @@
-div Blog admin menu
-  div
-    ul
-      li
-        a(href="/" (click)="chooseMode('add')") Add Post
-      li
-        a(*ngIf="menuChoice" href="/"  (click)="chooseMode('')") Manage Blog
-      li
-        a([routerLink]="['/admin']") Admim
+.blockquotes
+  p Blog admin menu:
+    span(*ngIf="currentUser") {{currentUser}} Logged in
 
+.navbar
+  ul.menu
+    li
+      a(href="/" (click)="chooseMode('add')") Add Post
+    li(*ngIf="menuChoice")
+      a(href="/" (click)="chooseMode('')") Manage Blog
+    li
+      a([routerLink]="['/admin']") Admim
+    li(*ngIf="currentUser")
+      a(href="/" (click)="logout") Logout
 
-  div(*ngIf="currentUser")
-    ul
-      li
-        a(href="/" (click)="logout") Logout
-      li
-        a {{currentUser}} Logged in
 
 div([ngSwitch]="menuChoice")
   div(*ngSwitchCase="'add'")
