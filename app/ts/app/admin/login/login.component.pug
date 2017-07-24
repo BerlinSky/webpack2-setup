@@ -1,44 +1,43 @@
-
 .container
   .title Login Page
 
   .row
-  .column
-    form
-      .fieldset
-        label Username
-        input(
-          name="email"
-          type="text"
-          placeholder="Enter Email Address"
-          [(ngModel)]="email"
-          "#emailRef"="ngModel"
-          required
-          minlength="5"
-        )
+    .column
+      form
+        .fieldset
+          label Username
+          input(
+            name="email"
+            type="text"
+            placeholder="Enter Email Address"
+            [(ngModel)]="email"
+            "#emailRef"="ngModel"
+            required
+            minlength="5"
+          )
 
-        .input.error([hidden]="emailRef.valid || emailRef.pristine") (The input value is required.)
+          .input.error([hidden]="emailRef.valid || emailRef.pristine") (The input value is required.)
 
-        label Password
-        input(
-          name="password"
-          type="password"
-          placeholder="Enter Password"
-          [(ngModel)]="password"
-          "#passwordRef"="ngModel"
-          required
-          minlength="6"
-        )
+          label Password
+          input(
+            name="password"
+            type="password"
+            placeholder="Enter Password"
+            [(ngModel)]="password"
+            "#passwordRef"="ngModel"
+            required
+            minlength="6"
+          )
 
-        .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
+          .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
 
-        .row
-          .column
-          .column
-            input(type="button" value="Login" (click)="login()").button-primary
-          .column
-            input(type="button" value="Sign Up" (click)="signup()").button-primary
-          .column
-            input(type="button" value="Cancel" (click)="cancel()").button-primary
-          .column
+          .row
+            .column
+            .column
+              input(type="button" value="Login" (click)="login()").button-primary
+            .column
+              input(type="button" value="Sign Up" (click)="signup()").button-primary
+            .column
+              input(type="button" value="Cancel" (click)="cancel()").button-primary
+            .column
 

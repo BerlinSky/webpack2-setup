@@ -1,46 +1,53 @@
-div
-  h3 Sign up to register
+.container
+  .title Sign up to register
 
-  form
-    label Username
-      input(
-          type="text"
-          placeholswe="Enter emil address"
-          id="email"
-          [(ngModel)]="email"
-          name="email"
-          required
-          #emailRef="ngModel"
-        )
-      div([hidden]="emailRef.valid || emailRef.pristine") Email is required
+  .row
+    .column
+      form
+        .fieldset
+          label Username
+          input(
+              type="text"
+              placeholswe="Enter emil address"
+              id="email"
+              [(ngModel)]="email"
+              name="email"
+              required
+              #emailRef="ngModel"
+            )
+          .input.error([hidden]="emailRef.valid || emailRef.pristine") Email is required
 
-    label Password
-      input(
-          type="password"
-          placeholswe="Enter password"
-          id="password"
-          [(ngModel)]="password1"
-          name="password"
-          required
-          #passwordRef="ngModel"
-        )
-      div([hidden]="passwordRef.valid || passwordRef.pristine") Password is required
+          label Password
+          input(
+              type="password"
+              placeholswe="Enter password"
+              id="password"
+              [(ngModel)]="password1"
+              name="password"
+              required
+              #passwordRef="ngModel"
+            )
+          .input.error([hidden]="passwordRef.valid || passwordRef.pristine") Password is required
 
-    label Confirm
-      input(
-          type="password"
-          placeholswe="Enter password"
-          id="password2"
-          [(ngModel)]="password2"
-          name="password2"
-          required
-          #password2Ref="ngModel"
-        )
-      div([hidden]="password2Ref.valid || password2Ref.pristine") Confirm password
+          label Confirm
+          input(
+              type="password"
+              placeholswe="Enter password"
+              id="password2"
+              [(ngModel)]="password2"
+              name="password2"
+              required
+              #password2Ref="ngModel"
+            )
+          .input.error([hidden]="password2Ref.valid || password2Ref.pristine") Confirm password
+          .input.error(*ngIf="passwordFail") Passwords do not match
 
-    h4(*ngIf="passwordFail") Passwords do not match
-
-    button(type="button" (click)="signUp()") Sign Up
-
-    button(type="button" (click)="cancel()") Cancel
-
+          .row
+            .column
+            .column
+            .column
+              button(type="button" (click)="signUp()") Sign Up
+            .column
+              button(type="button" (click)="cancel()") Cancel
+            .column
+            .column
