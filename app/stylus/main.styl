@@ -2,4 +2,46 @@
 @import '~milligram-stylus'
 
 body
-  // background-color: tomato
+  background: #edeff0
+
+  .navbar
+    background-color: #25283D
+    color: #ffffff
+    // border-radius: 4px
+    width: 100vw
+    max-width: 820px
+    margin: 20px auto 0
+
+    .menu
+      display: flex
+      position: relative
+      background-color: #25283D
+
+    @media (max-width: 820px)
+      .menu
+        display: block
+        position: relative
+
+    .menu li
+      flex: 1
+      display: flex
+      text-align: center
+      transition: background-color 0.5s ease
+      margin: 0;
+
+      a
+        flex: 1
+        justify-content: center
+        display: inline-flex
+        color: #ffffff
+        text-decoration: none
+        padding: 20px
+        position: relative
+
+    .menu li .menuItem--active
+      background-color: #9b4dca
+
+    .menu li:hover
+      background-color: #7bb9af
+
+

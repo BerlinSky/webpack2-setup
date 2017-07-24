@@ -1,11 +1,13 @@
-div Login Page
 
-  .loginFormPanel
+.container
+  .title Login Page
 
+  .row
+  .column
     form
-      .flexInput
-        span.flexInput__addOn Username
-        input.flexInput__input(
+      .fieldset
+        label Username
+        input(
           name="email"
           type="text"
           placeholder="Enter Email Address"
@@ -14,11 +16,11 @@ div Login Page
           required
           minlength="5"
         )
-      .input.error([hidden]="emailRef.valid || emailRef.pristine") (The input value is required.)
 
-      .flexInput
-        span.flexInput__addOn Password
-        input.flexInput__input(
+        .input.error([hidden]="emailRef.valid || emailRef.pristine") (The input value is required.)
+
+        label Password
+        input(
           name="password"
           type="password"
           placeholder="Enter Password"
@@ -27,9 +29,16 @@ div Login Page
           required
           minlength="6"
         )
-      .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
 
-      button(type="button" (click)="login()") Login
-      button(type="button" (click)="signup()") Sign Up
-      button(type="button" (click)="cancel()") Cancel
+        .input.error([hidden]="passwordRef.valid || passwordRef.pristine") (The input value is invalid.)
+
+        .row
+          .column
+          .column
+            input(type="button" value="Login" (click)="login()").button-primary
+          .column
+            input(type="button" value="Sign Up" (click)="signup()").button-primary
+          .column
+            input(type="button" value="Cancel" (click)="cancel()").button-primary
+          .column
 

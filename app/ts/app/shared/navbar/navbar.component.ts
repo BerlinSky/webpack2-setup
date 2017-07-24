@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nav-bar',
+  selector: 'nav-bar.navbar',
   templateUrl: './navbar.component.pug'
 })
 

@@ -1,7 +1,6 @@
-.header
+//- .header
+//- .navBar
 
-  .nav
-    ul.menu
-      li(*ngFor="let menuItem of menuItems")
-        a([routerLink]="menuItem.url" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact:true}") {{ menuItem.itemText }}
-
+ul.menu
+  li(*ngFor="let menuItem of menuItems")
+    a([routerLink]="menuItem.url" routerLinkActive="menuItem--active" "[routerLinkActiveOptions]"="{exact:true}") {{ menuItem.itemText }}
