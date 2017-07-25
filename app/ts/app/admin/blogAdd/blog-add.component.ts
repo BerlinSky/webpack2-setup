@@ -4,7 +4,7 @@ import { BlogAdminService } from '../adminShared/blog-admin.service';
 import { Blog } from '../adminShared/blog';
 
 @Component({
-  selector: 'add-men',
+  selector: 'add-menu',
   templateUrl: './blog-add.component.pug'
 })
 export class BlogAddComponent {

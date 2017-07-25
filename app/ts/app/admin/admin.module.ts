@@ -40,7 +40,8 @@ const AdminRoutes: Routes = [
     AdminMenuComponent,
     LoginComponent,
     SignupComponent,
-    BlogAdminComponent
+    BlogAdminComponent,
+    BlogAddComponent
   ],
   providers: [
     UserService,

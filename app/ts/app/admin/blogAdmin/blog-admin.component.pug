@@ -16,6 +16,16 @@
 
 div([ngSwitch]="menuChoice")
   div(*ngSwitchCase="'add'")
-    h2 Add Menu
+    add-menu
   div(*ngSwitchDefault)
-    h2 Default
+    div(*ngIf="formDisplay")
+      div(*ngFor="let post of posts")
+        img([src]="post.img")
+        h4 {{post.title}}
+        p {{post.content}}
+        a((click)="editPost(post)") Eidt
+        a((click)="deletePost(post)") Delete
+
+    div(ngIf="!formDisplay")
+      form
+        title Edit Post

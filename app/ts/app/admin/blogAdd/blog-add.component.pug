@@ -1,0 +1,42 @@
+.container
+  .title Add a Post
+
+  .row
+    .column
+      form
+        .fieldset
+          label Post Title
+          input(
+            name="postTitle"
+            type="text"
+            [(ngModel)]="postTitle"
+            "#postTitleRef"="ngModel"
+            required
+          )
+          label Post Content
+          textarea(
+            rows="15"
+            name="postContent"
+            type="text"
+            [(ngModel)]="postContent"
+            "#postContentRef"="ngModel"
+            required
+          )
+          input(
+            type="file" (change)="fileLoad($event)"
+          )
+          img(*ngIf="imageSource" [src]="imageSource")
+
+          .row
+            .column
+            .column
+              input(
+                type="button"
+                value="Create Post"
+                (click)="createPost()"
+                [disabled]="!postTitle.valid || !postContent.valid"
+              ).button-primary
+            .column
+              input(type="button" value="Cacnel" (click)="cancel()").button-primary
+            .column
+            .column
