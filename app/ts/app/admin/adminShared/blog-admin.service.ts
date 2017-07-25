@@ -15,6 +15,8 @@ export class BlogAdminService {
         const dbRef = firebase.database().ref('blogPosts/');
         const newPost = dbRef.push();
 
+        console.log('post', post);
+
         newPost.set({
           title: post.title,
           content: post.content,

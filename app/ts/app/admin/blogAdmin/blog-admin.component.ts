@@ -41,7 +41,7 @@ export class BlogAdminComponent implements OnInit {
   }
 
   getPost() {
-    const dbRef = firebase.database().ref('blogPost/');
+    const dbRef = firebase.database().ref('blogPosts/');
     dbRef.once('value')
       .then((snapshot) => {
         const temp: string[] = snapshot.val();

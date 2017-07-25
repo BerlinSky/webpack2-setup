@@ -1,15 +1,12 @@
-div admin menu
-  div
-    ul
-      li
-        a([routerLink]="['/admin/blog-admin']") Manage Blog
+.blockquotes
+  p
+    em admin menu
+    span(*ngIf="currentUser") {{currentUser}} Logged in
 
+.navbar
+  ul.menu
+    li
+      a([routerLink]="['/admin/blog-admin']") Manage Blog
 
-  div(*ngIf="currentUser")
-    ul
-      li
-        a(href="/" (click)="logout") Logout
-      li
-        a {{currentUser}} Logged in
-
-
+    li(*ngIf="currentUser")
+      a(href="/" (click)="logout") Logout
