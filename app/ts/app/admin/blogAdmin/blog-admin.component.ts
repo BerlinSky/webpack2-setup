@@ -15,6 +15,8 @@ export class BlogAdminComponent implements OnInit {
   currentUser: string;
   menuChoice: string;
   blogPost: Blog[];
+  formDisplay: true;
+  singlePost: Blog;
 
   constructor(
     private userService: UserService,
@@ -34,6 +36,8 @@ export class BlogAdminComponent implements OnInit {
 
   chooseMode(mode: string) {
     this.menuChoice = mode;
+
+    console.log('menuChoice', this.menuChoice);
   }
 
   getPost() {

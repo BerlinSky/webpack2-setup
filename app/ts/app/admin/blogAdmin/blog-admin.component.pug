@@ -5,27 +5,16 @@
 .navbar
   ul.menu
     li
-      a(href="/" (click)="chooseMode('add')") Add Post
+      a((click)="chooseMode('add')") Add Post
     li(*ngIf="menuChoice")
-      a(href="/" (click)="chooseMode('')") Manage Blog
+      a((click)="chooseMode('')") Manage Blog
     li
       a([routerLink]="['/admin']") Admim
     li(*ngIf="currentUser")
-      a(href="/" (click)="logout") Logout
+      a((click)="logout") Logout
 
 
-div([ngSwitch]="menuChoice")
-  div(*ngSwitchCase="'add'")
-    add-menu
-  div(*ngSwitchDefault)
-    div(*ngIf="formDisplay")
-      div(*ngFor="let post of posts")
-        img([src]="post.img")
-        h4 {{post.title}}
-        p {{post.content}}
-        a((click)="editPost(post)") Eidt
-        a((click)="deletePost(post)") Delete
-
-    div(ngIf="!formDisplay")
-      form
-        title Edit Post
+.container([ngSwitch]="menuChoice")
+  .row(*ngSwitchCase="'add'")
+    .column
+      add-menu
