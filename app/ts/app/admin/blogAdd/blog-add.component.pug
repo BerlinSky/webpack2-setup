@@ -34,7 +34,7 @@
                 type="button"
                 value="Create Post"
                 (click)="createPost()"
-                [disabled]="!postTitle.valid || !postContent.valid"
+                [disabled]="!postTitleRef.valid || !postContentRef.valid"
               ).button-primary
             .column
               input(type="button" value="Cacnel" (click)="cancel()").button-primary

@@ -12,7 +12,7 @@ export class BlogAdminService {
     storageRef.child(`image/${post.imgTitle}`).putString(post.img, 'base64')
       .then((snapshot) => {
         const url = snapshot.metadata.downloadURLs[0];
-        const dbRef = firebase.database().ref('blockPosts/');
+        const dbRef = firebase.database().ref('blogPosts/');
         const newPost = dbRef.push();
 
         newPost.set({

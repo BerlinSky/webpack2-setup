@@ -11,7 +11,7 @@ export class BlogAddComponent {
   imgTitle: string;
   imageSrc: string;
   postTitle: string;
-  content: string;
+  postContent: string;
   post: Blog;
 
   constructor( private blogAdminService: BlogAdminService, private router: Router ) { }
@@ -30,13 +30,12 @@ export class BlogAddComponent {
   createPost() {
     this.post = new Blog (
       this.postTitle,
-      this.content,
+      this.postContent,
       this.imgTitle,
       this.imageSrc.substring(23)
     );
 
     this.blogAdminService.createPost(this.post);
-    console.log(`${this.postTitle} added to posts.`);
     this.router.navigate(['/admin']);
   }
 
