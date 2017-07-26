@@ -23,9 +23,11 @@
     .column(*ngIf="formDisplay")
       .row(*ngFor="let post of blogPosts")
         .column
-          img([src]="post.img")
-          h4 {{post.title}}
-          p {{post.content}}
+          .media
+            img([src]="post.img").media__figure.image
+            .media__body
+              h4.media__tile {{post.title}}
+              p {{post.content}}
 
     .column(*ngIf="!formDisplay")
       p formDisplay = false
