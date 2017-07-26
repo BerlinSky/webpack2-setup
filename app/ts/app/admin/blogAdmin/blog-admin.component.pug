@@ -29,5 +29,10 @@
               h4.media__tile {{post.title}}
               p {{post.content}}
 
+          input(type="button" value="Edit" (click)="editPost(post)").button-primary
+          input(type="button" value="Delete" (click)="deletePost(post)").button-primary
+
+
     .column(*ngIf="!formDisplay")
       p formDisplay = false
+
