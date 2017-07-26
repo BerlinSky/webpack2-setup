@@ -32,7 +32,44 @@
           input(type="button" value="Edit" (click)="editPost(post)").button-primary
           input(type="button" value="Delete" (click)="deletePost(post)").button-primary
 
-
     .column(*ngIf="!formDisplay")
-      p formDisplay = false
+      .container
+        .title Edit a Post
+
+        .row
+          .column
+            form
+              .fieldset
+                label Post Title
+                input(
+                  name="editTitle"
+                  type="text"
+                  [(ngModel)]="singlePost.title"
+                  "#postTitleRef"="ngModel"
+                  required
+                )
+                label Post Content
+                textarea(
+                  rows="15"
+                  name="editContent"
+                  type="text"
+                  [(ngModel)]="singlePost.content"
+                  "#postContentRef"="ngModel"
+                  required
+                )
+                img([src]="singlePost.img")
+
+                .row
+                  .column
+                  .column
+                    input(
+                      type="button"
+                      value="Edit Post"
+                      (click)="updatePost(post)"
+                      [disabled]="!postTitleRef.valid || !postContentRef.valid"
+                    ).button-primary
+                  .column
+                    input(type="button" value="Cacnel Edit" (click)="cancelEdit()").button-primary
+                  .column
+                  .column
 
