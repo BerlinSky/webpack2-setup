@@ -29,4 +29,39 @@ export class BlogAdminService {
         console.log(`${error} post failed`);
       });
   }
+
+  editPost(post: Blog) {
+    const dbRef = firebase.database().ref('blogPosts/').child(post.id)
+      .update({
+        title: post.title,
+        content: post.content
+      });
+
+    console.log('post updated successfully');
+  }
+
+  removePost(post: Blog) {
+    const imageRef = firebase.storage().ref().child(`images/${post.imgTitle}`)
+      .delete()
+        .then(function() {
+          console.log(`${post.imgTitle} was deleted successfully`);
+        }).catch(function(error) {
+          console.log(`${post.imgTitle} was deleted failed ${error}`);
+        })
+
+    const dbRef = firebase.database().ref('blogPosts/').child(post.id).remove();
+    console.log('post removed successfully');
+  }
+
+  getPosts() {
+    const dbRef = firebase.database().ref('blogPosts/');
+
+    return dbRef.once('value')
+      .then((snapshot) => {
+          let tmp: string[] = snapshot.val();
+          const blogPosts = Object.keys(tmp).map(key => tmp[key]);
+          return blogPosts;
+      });
+  }
 }
+

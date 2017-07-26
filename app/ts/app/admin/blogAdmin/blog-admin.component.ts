@@ -14,8 +14,8 @@ import { Blog } from '../adminShared/blog';
 export class BlogAdminComponent implements OnInit {
   currentUser: string;
   menuChoice: string;
-  blogPost: Blog[];
-  formDisplay: true;
+  blogPosts: Blog[];
+  formDisplay: boolean;
   singlePost: Blog;
 
   constructor(
@@ -24,10 +24,16 @@ export class BlogAdminComponent implements OnInit {
     private blogAdminService: BlogAdminService
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.formDisplay = true;
+
     this.currentUser = this.userService.loggedInUser;
-    this.getPost();
+
+    this.blogPosts = await this.blogAdminService.getPosts();
+    console.log('this blogPost', this.blogPosts);
   }
+
+
 
   logout() {
     this.userService.logout();
@@ -40,12 +46,27 @@ export class BlogAdminComponent implements OnInit {
     console.log('menuChoice', this.menuChoice);
   }
 
-  getPost() {
-    const dbRef = firebase.database().ref('blogPosts/');
-    dbRef.once('value')
-      .then((snapshot) => {
-        const temp: string[] = snapshot.val();
-        this.blogPost = Object.keys(temp).map(key => temp[key])
-      });
+  editPost(post: Blog) {
+    this.singlePost = post;
+    this.formDisplay = false;
+  }
+
+  cancelEdit() {
+    this.formDisplay = true;
+  }
+
+  updatePost(post: Blog) {
+    this.blogAdminService.editPost(post);
+    this.formDisplay = true;
+  }
+
+  deletePost(post: Blog) {
+    const verify = confirm(`Are you sure you want to remove this post?`);
+    if (verify) {
+      this.blogAdminService.removePost(post);
+    } else {
+      console.log('Delete request is not confirm!');
+    }
+
   }
 }

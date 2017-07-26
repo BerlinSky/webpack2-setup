@@ -18,3 +18,14 @@
   .row(*ngSwitchCase="'add'")
     .column
       add-menu
+
+  .row(*ngSwitchDefault)
+    .column(*ngIf="formDisplay")
+      .row(*ngFor="let post of blogPosts")
+        .column
+          img([src]="post.img")
+          h4 {{post.title}}
+          p {{post.content}}
+
+    .column(*ngIf="!formDisplay")
+      p formDisplay = false
