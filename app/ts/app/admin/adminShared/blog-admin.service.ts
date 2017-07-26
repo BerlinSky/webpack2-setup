@@ -9,7 +9,7 @@ export class BlogAdminService {
 
   createPost(post: Blog) {
     const storageRef = firebase.storage().ref();
-    storageRef.child(`image/${post.imgTitle}`).putString(post.img, 'base64')
+    storageRef.child(`images/${post.imgTitle}`).putString(post.img, 'base64')
       .then((snapshot) => {
         const url = snapshot.metadata.downloadURLs[0];
         const dbRef = firebase.database().ref('blogPosts/');
@@ -41,16 +41,16 @@ export class BlogAdminService {
   }
 
   removePost(post: Blog) {
+    const dbRef = firebase.database().ref('blogPosts/').child(post.id).remove();
+    console.log('post removed successfully');
+
     const imageRef = firebase.storage().ref().child(`images/${post.imgTitle}`)
       .delete()
         .then(function() {
           console.log(`${post.imgTitle} was deleted successfully`);
         }).catch(function(error) {
-          console.log(`${post.imgTitle} was deleted failed ${error}`);
+          console.log(`${post.imgTitle} was not deleted failed ${error}`);
         })
-
-    const dbRef = firebase.database().ref('blogPosts/').child(post.id).remove();
-    console.log('post removed successfully');
   }
 
   getPosts() {
