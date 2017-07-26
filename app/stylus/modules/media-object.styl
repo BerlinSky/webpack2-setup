@@ -1,0 +1,28 @@
+.media
+  display: flex
+  align-items: flex-start
+  margin-bottom: 1em
+
+  img.media__figure
+    margin-right: 1em
+
+  .media__body
+    flex: 1
+    margin-bottom: 0
+
+    .media__title
+      margin-bottom: 0
+
+  .media__body :last-child
+    margin-bottom: 0
+
+.media--center
+  align-items: center
+
+.media--reverse > .media__figure
+  order: 1
+  margin: 0 0 0 1em
+
+.image
+  width: 70px
+  height: auto;
