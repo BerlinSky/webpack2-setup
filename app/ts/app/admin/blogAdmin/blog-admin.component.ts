@@ -30,7 +30,7 @@ export class BlogAdminComponent implements OnInit {
     this.currentUser = this.userService.loggedInUser;
 
     this.blogPosts = await this.blogAdminService.getPosts();
-    console.log('this blogPost', this.blogPosts);
+    // console.log('this blogPost', this.blogPosts);
   }
 
 
