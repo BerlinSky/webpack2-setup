@@ -1,1 +1,14 @@
-div This is the News Channel component
+.container
+  .title News Items
+
+  .row(*ngFor="let post of blogPosts")
+    .column
+      .media
+        img([src]="post.img").media__figure.image
+        .media__body
+          h4.media__tile((click)="selectPost(post)") {{post.title}}
+          p {{post.content}}
+
+      //- input(type="button" value="Edit" (click)="editPost(post)").button-primary
+      //- input(type="button" value="Delete" (click)="deletePost(post)").button-primary
+
