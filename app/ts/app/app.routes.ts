@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'tour', loadChildren: './tour/tour.module#TourModule' },
   { path: 'video', loadChildren: './video/video.module#VideoModule' },
   { path: 'music', loadChildren: './music/music.module#MusicModule' },
+  { path: 'blog-detail', loadChildren: './blogDetail/blog-detail.module#BlogDetailModule' },
   { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
 ];
 

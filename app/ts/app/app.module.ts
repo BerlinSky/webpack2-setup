@@ -14,6 +14,7 @@ import { NewsModule } from './news/news.module';
 import { TourModule } from './tour/tour.module';
 import { VideoModule } from './video/video.module';
 import { MusicModule } from './music/music.module';
+import { BlogDetailModule } from './blogDetail/blog-detail.module';
 
 import { AdminModule } from './admin/admin.module';
 
@@ -26,6 +27,7 @@ import { AdminModule } from './admin/admin.module';
     TourModule,
     VideoModule,
     MusicModule,
+    BlogDetailModule,
     AdminModule,
     ServicesModule.forRoot(),
     NavbarModule,
