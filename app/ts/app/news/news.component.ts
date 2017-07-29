@@ -24,7 +24,7 @@ export class NewsComponent implements OnInit {
   }
 
   selectPost(post: Blog) {
-    this.router.navigate(['/post', post.id])
+    this.router.navigate(['/blog-detail', post.id])
   }
 }
 
