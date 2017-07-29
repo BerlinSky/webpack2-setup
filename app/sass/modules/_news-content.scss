@@ -1,0 +1,188 @@
+$tour-news-box-font-color: $color-black;
+$tour-date-font-color: $color-white;
+$tour-date-background-1: $color-iris-blue;
+$tour-date-background-2: $color-malibu;
+$news-list-item-font-color: $color-nero;
+$news-list-item-paragraph-font-color: $color-grey;
+
+$news-font-family-1: $font-primary, $font-secondary_1;
+$news-font-family-2: $font-primary_1, $font-secondary, $font-secondary_1;
+$news-font-family-3: $font-primary_2, $font-secondary_2;
+$news-font-size: $site-font-size;
+
+.contentContainer--newsContent {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+
+  width: 100%;
+  margin: 20px auto 20px auto;
+  background-color: $content-background;
+  color: $content-font-color;
+
+  @include break(md) {
+		max-width: 60rem;
+    padding: 15px;
+	}
+
+	@include break(xl) {
+		max-width: 70rem;
+    padding: 15px;
+	}
+
+  .divider {
+    display: inline-block;
+    width: 100%;
+    color: $content-divider-color;
+    height: 1px;
+    border-top-width: 1px;
+
+    &.divider--solid {
+      border-top-style: solid;
+    }
+  }
+
+  .newHeaderPanel {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    padding: 5px;
+
+    h2 {
+      font-size: $news-font-size * 1.5;
+      line-height: 1.5;
+      margin: 15px 0 0 0;
+      width: 100%;
+      text-align: left;
+      letter-spacing: 2px;
+      font-weight: normal;
+      font-family: $news-font-family-1;
+
+      @include break(md) {
+        padding: 0 5px 0 5px;
+      }
+    }
+  }
+
+  .tourNewsPanel {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+    padding: 5px;
+
+    h3 {
+      font-size: $news-font-size * 1.375;
+      font-family: $news-font-family-1;
+      font-weight: 400;
+      line-height: 1.65;
+      margin: 0 0 1em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .tourNewsBox {
+      width: 100%;
+
+      @include break(md) {
+        width: 25%;
+      }
+
+      color: $tour-news-box-font-color;
+
+      h4 {
+        font-size: $news-font-size * 1.1875;
+        font-family: $news-font-family-2;
+        font-weight: 800;
+        letter-spacing: .25em;
+        line-height: 1.65;
+        margin: 0 0 1em;
+        text-transform: uppercase;
+      }
+
+      .tourDateAndVenue {
+        display: flex;
+        // flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .tourDate, .tourLocation {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+
+        .tourDate {
+          align-items: center;
+
+          background: linear-gradient(180deg, $tour-date-background-1 0, $tour-date-background-2);
+          color: $tour-date-font-color;
+          width: 60px;
+          height: 60px;
+          line-height: 1.562rem;
+          border-radius: 0;
+        }
+
+        .tourLocation {
+          display: inline-block;
+          margin-left: 5px;
+          font-size: $news-font-size * 1.25;
+          font-family: $news-font-family-3;
+          line-height: 1.5rem;
+        }
+
+      }
+
+    }
+  }
+
+  .otherNewsPanel {
+    width: 100%;
+    padding: 5px;
+
+    h3 {
+      font-size: $news-font-size * 1.1875;
+      font-family: $news-font-family-1;
+      font-weight: 400;
+      line-height: 1.65;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .newsListItem {
+      font-size: $news-font-size * 0.875;
+      font-family: $news-font-family-1;
+      font-weight: 400;
+      letter-spacing: 2px;
+      line-height: 1.65;
+      margin: 1rem 0 1rem;
+      text-transform: uppercase;
+      color: $news-list-item-font-color;
+
+      a {
+        transition: color .2s ease, border-bottomre-color .2s ease;
+        text-decoration: none;
+        border-bottom: none;
+      }
+
+      p {
+        margin: 15px 0 30px;
+        color: $news-list-item-paragraph-font-color;
+
+        font-family: $news-font-family-1;
+        line-height: 20px;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+      }
+    }
+  }
+}

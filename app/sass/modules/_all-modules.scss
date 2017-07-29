@@ -1,0 +1,40 @@
+@import "page-header";
+@import "page-content";
+@import "page-footer";
+@import "news-content";
+@import "tour-content";
+@import "offer-content";
+@import "section-content";
+@import "signon-content";
+@import "profile-content";
+@import "media-content";
+@import "masonry-container";
+@import "discography-content";
+@import "media-photo-content";
+@import "video-player";
+@import "full-page-photo-content";
+@import "fancy-input-form";
+@import "size-selector";
+@import "slider-content";
+@import "components/image-frame";
+@import "components/site-buttons";
+
+
+// form validation
+span.inputError, ul.listError {
+  color: tomato;
+}
+
+ul.listError li {
+   list-style: disc;
+   color: tomato;
+}
+
+// end: validation
+
+.inputButton--facebook {
+  padding: 0;
+  background-color: #3b5998;
+}
+
+

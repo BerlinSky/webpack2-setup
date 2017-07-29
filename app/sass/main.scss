@@ -2,5 +2,7 @@ $fa-font-path: "font-awesome/fonts";
 @import "font-awesome/scss/font-awesome.scss";
 @import "./font-montserrat/font-montserrat.scss";
 
-@import 'base';
-@import 'content';
+@import "base/all-base";
+@import "layout/all-layouts";
+@import "modules/all-modules";
+@import "state/all-states";

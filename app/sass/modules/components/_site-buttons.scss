@@ -1,0 +1,29 @@
+$button-font-color: $color-light-gray_01;
+$button-background-color: $color-fire_brick;
+$button-border-color: $button-background-color;
+$button-font-size: $site-font-size * 0.875;
+
+.siteButton {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: $button-font-size;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.siteButton--default {
+  color: $button-font-color;
+  background-color: $button-background-color;
+  border-radius: 0;
+  border-color: $button-border-color;
+}

@@ -1,0 +1,221 @@
+$menuitem-font-color: $color-charcoal;
+$menuitem-border-color: $color-black;
+$search-background-color: $color-summer_sky;
+$toggle-menu-font-color: $color-pacific_blue;
+$search-button-font-color: $toggle-menu-font-color;
+$search-white-square-font-color: $color-white;
+$close-button-font-color: $menuitem-font-color;
+$search-input-border-color: $search-white-square-font-color;
+
+$header-font-family: $font-primary_3, $font-secondary_3, $font-secondary_4, $font-secondary_1;
+$header-font-size: $site-font-size;
+
+.pageContainer {
+
+  .pageHeader {
+    background-color: $content-background;
+    padding: 10px 20px;
+
+    .navContainer {
+      min-height: 60px;
+    }
+
+    .logoContainer {
+
+      @include break(md) {
+        padding: 10px 35px 0 0;
+      }
+
+      .imageFrame {
+        margin-top: 10px;
+        height: 80px;
+
+        @include break(md) {
+          margin: 8px .5rem 2px .5rem;
+        }
+
+        .imageResponsive {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .title {
+        margin-bottom: .5rem;
+
+        @include break(md) {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .menuWrapper {
+      padding: 5px;
+      border-top: 1px solid;
+
+      @include break(md) {
+        border: none;
+      }
+
+      .menuContainer {
+        flex: 1;
+
+        .menuList {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+
+          @include break(md) {
+            flex-direction: row;
+          }
+
+          .menuItem {
+            margin: 0;
+            padding: 0;
+
+            a {
+              display: inline-block;
+              color: $menuitem-font-color;
+              letter-spacing: 2.5px;
+
+              @include break(md) {
+                letter-spacing: 1.0px;
+              }
+
+              @include break(lg) {
+                letter-spacing: 3px;
+              }
+
+              font-size: $header-font-size * 0.875;
+              font-family: $header-font-family;
+              font-weight: 500;
+              line-height: 45px;
+              border: none;
+              padding: 0 2px;
+              text-align: center;
+              transition: all 0.3s ease-in-out;
+
+              span {
+                padding: 0 10px;
+
+                @include break(md) {
+                  padding: 5px;
+                }
+
+                @include break(lg) {
+                  padding: 15px;
+                }
+
+                white-space: nowrap;
+                border-right-width: 1px;
+                border-style: solid;
+
+                border-color: rgba($menuitem-border-color, 0.1);
+              }
+            }
+
+            a.currentSelection {
+              // background-color: #554d41;
+            }
+          }
+        }
+      }
+
+      .l-searchContainer {
+        visibility: hidden;
+
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .l-searchWrapper {
+        display: none;
+
+        .l-searchWrapper__form {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      &.showSearchPanel {
+        .l-searchContainer {
+          display: none;
+        }
+      }
+
+      &.showSearchPanel {
+        .l-searchWrapper {
+          display: block;
+        }
+      }
+
+      .searchWrapper {
+        background-color: $search-background-color;
+      }
+
+      .searchContainer {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.toggleMenuContainer {
+  padding-right: 10px;
+
+  @include break(md) {
+    display: none;
+  }
+
+  a {
+    border: none;
+    font-size: $header-font-size;
+    color: $toggle-menu-font-color;
+    opacity: 0.75;
+  }
+}
+
+.searchButton {
+  font-size: $header-font-size * 1.125;
+  text-decoration: none;
+  border: none;
+
+  line-height: 2.5rem;
+  color: $search-button-font-color;
+
+  &.searchButton--default {
+    padding: 2px 30px;
+  }
+
+  &.searchButton--whiteSquare {
+    padding: 1rem;
+    color: $search-white-square-font-color;
+  }
+}
+
+.closeButton {
+  &.closeButton--dimmedSquare {
+    padding: 1rem;
+    color: $close-button-font-color;
+    opacity: .75;
+  }
+}
+
+.searchInput {
+  flex: 1;
+
+  margin: 0;
+  box-shadow: 0 0 0;
+
+  font-size: $header-font-size;
+  padding-left: 5px;
+  background: none;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: rgba($search-input-border-color,.08);
+}

@@ -1,0 +1,235 @@
+$offer-font-color: $color-white;
+$offer-price-border-color: $offer-font-color;
+$offer-feature-list-font-color: $offer-price-border-color;
+$offer-feature-list-border-color: $offer-feature-list-font-color;
+$offer-feature-font-color: $color-gray_01;
+$offer-h2-font-color: $color-jewel;
+$offer-detail-background-color: $color-nero;
+$offer-detail-border-color: $offer-detail-background-color;
+$offer-data-entry-background-color: $offer-detail-border-color;
+$offer-data-entry-border-color: $offer-data-entry-background-color;
+$offer-purchase-background-color: $offer-feature-list-border-color;
+$offer-purchase-font-color: $offer-data-entry-border-color;
+$offer-purchase-border-color: $color-gainsboro;
+$thankyou-background-color: $offer-data-entry-border-color;
+$thankyou-font-color: $offer-purchase-background-color;
+$thankyou-border-color: $color-mine_shaft;
+
+$section-font-family: $font-primary, $font-secondary_1;
+$section-font-size: $site-font-size;
+
+.contentContainer--sectionContent {
+
+  display: flex;
+  flex-direction: column;
+  
+  .form_message { 
+      float:left;margin-bottom:30px;width:100%;height:auto;clear:both;
+   }
+   p {
+       float:left;margin-bottom:30px;width:100%;height:auto;
+   }
+        
+  @include break(md) {
+    .sectionPanel {
+      flex: 1;
+    }
+  }
+
+  .welcomePanel {
+      width:inherit;
+      .welcomeHeader, .welcomeMsg {
+         margin: 0;
+         max-width: 100%;
+         padding: 15px;
+      }
+   }
+
+
+
+	min-height: 80vh;
+
+	width: 100%;
+	margin: 20px auto 20px auto;
+	background-color: $content-background;
+	font-family: $section-font-family;
+
+    @include break(md) {
+		max-width: 60rem;
+        padding: 15px;
+	}
+
+	@include break(xl) {
+		max-width: 70rem;
+    padding: 15px;
+	}
+
+ .divider {
+		display: inline-block;
+		width: 100%;
+		color: $content-divider-color;
+		height: 1px;
+		border-top-width: 1px;
+
+		&.divider--solid {
+			border-top-style: solid;
+		}
+	}
+
+	.headerPanel {
+		h1 {
+			text-align: center;
+			font-weight: 300;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      font-size: $section-font-size * 2;
+      @include break(md) {
+        letter-spacing: 5px;
+        font-size: $section-font-size * 3.5;
+      }
+		}
+
+		h2 {
+			font-weight: 300;
+			text-align: center;
+			margin-bottom: 5px;
+			letter-spacing: 0.5px;
+			font-size: $section-font-size * 1.1875;
+      @include break(md) {
+        letter-spacing: 1.2px;
+        font-size: $section-font-size * 1.6875;
+      }
+		}
+	}
+
+	.offerPanel {
+    .imageFrame {
+      img {
+        max-width: 100%;
+        @include break(md) {
+          max-width: 460px;
+        }
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    .offerPanel__detail {
+      margin: 0;
+      max-width: 100%;
+      @include break(md) {
+        margin: 10px auto 10px auto;
+        max-width: 460px;
+      }
+      border: 1px solid $offer-detail-border-color;
+      background: $offer-detail-background-color;
+
+      h2 {
+        letter-spacing: 1.2px;
+        line-height: 3rem;
+        font-size: $section-font-size * 1.5;
+        font-weight: 300;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: $offer-h2-font-color;
+      }
+
+      .offerPrice {
+        width: 75%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 40px;
+        padding: 25px 0;
+        color: $offer-font-color;
+        border-top: 1px solid rgba($offer-price-border-color, .2);
+        border-bottom: 1px solid rgba($offer-price-border-color, .2);
+
+        .offerPrice__amount {
+          font-size: $section-font-size * 2.125;
+          font-weight: 300;
+          text-align: center;
+          span {
+            font-size: $section-font-size * 0.8125;
+          }
+        }
+      }
+
+      .purchaseButton {
+        width: 50%;
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+        color: $offer-purchase-font-color;
+        background: $offer-purchase-background-color;
+        padding: 10px 40px;
+        text-transform: uppercase;
+        border: 1px solid $offer-purchase-border-color;
+      }
+
+      ul.featureList {
+        width: 75%;
+        margin-left:auto;
+        margin-right:auto;
+        display: block;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding: 30px 0 30px 0;
+        list-style: none;
+        color: $offer-feature-list-font-color;
+        border-top: 1px solid rgba($offer-feature-list-border-color, .2);
+        border-bottom: 1px solid rgba($offer-feature-list-border-color, .2);
+
+        li {
+          color: $offer-feature-font-color;;
+          margin-bottom: 15px;
+          font-size: $section-font-size * 1.125;
+          font-weight: 300;
+          line-height: 1.5;
+        }
+      }
+    }
+	}
+
+  .noticeSection {
+    p {
+      font-family: $section-font-family;
+      font-weight: 400;
+      font-size: $section-font-size * 1.5;
+      line-height: 1.25;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .dataEntryFormContainer {
+    margin: 0;
+    max-width: 100%;
+    padding: 15px;
+
+    @include break(md) {
+      margin: 10px auto 10px auto;
+      max-width: 460px;
+    }
+
+    border: 1px solid $offer-data-entry-border-color;
+    background-color: $offer-data-entry-background-color;
+  }
+
+  .thankyouMsg {
+      background-color: $thankyou-background-color;
+      color: $thankyou-font-color;
+      border: 1px solid $thankyou-border-color;
+      border-radius: 0;
+      margin:20px;
+      padding:10px;
+  }
+  
+   .thxNewsLetterMsg {
+       margin:0 auto;
+       text-align:center;
+       padding:10px;
+  }
+  
+}

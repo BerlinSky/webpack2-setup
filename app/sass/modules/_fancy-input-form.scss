@@ -1,0 +1,294 @@
+$data-font-color: $color-white;
+$data-background-color: $color-nero;
+$data-border-color: $color-mine_shaft;
+$data-input-bordered-color: $color-nobel;
+$data-input-font-color: $data-input-bordered-color;
+$data-input-focus-color: $color-silver_chalice;
+$input-border-color: $color-sunglow;
+$input-textarea-border-color: $data-border-color;
+$input-zip-background-color: $data-font-color;
+$input-dropdown-background-color: $input-zip-background-color;
+$input-checkbox-background-color: $data-background-color;
+$input-checkbox-font-color: $input-dropdown-background-color;
+$input-checkbox-border-color: $input-textarea-border-color;
+$input-button-background-color: $input-checkbox-font-color; 
+$input-button-font-color: $input-checkbox-background-color; 
+$input-button-border-color: $color-gainsboro;
+
+$data-font-size: $site-font-size;
+
+.dataForm {
+	// padding-top: 20px;
+	// padding-bottom: 20px;
+
+	display: flex;
+	flex-direction: column;
+
+	&__section {
+		margin-top: 15px;
+		// margin-left: 35px;
+		// border: 3px solid transparent;
+		// border: 1px solid blue;
+		&--combo {
+			display: flex;
+		}
+	}
+
+	&__buttonPanel {
+
+		margin-top: 25px;
+	}
+
+}
+
+.dataInput {
+	// color: red;
+
+	background-color: $data-background-color;
+	color: $data-font-color;
+	border: 1px solid $data-border-color;
+	border-radius: 0;
+
+	width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.dataInput:invalid {
+	box-shadow: none;
+}
+
+.dataInput:-moz-submit-invalid {
+	box-shadow: none;
+}
+
+.dataInput:-moz-ui-invalid {
+	box-shadow:none;
+}
+
+input {
+
+	margin-bottom: 8px;
+	// font-size: 14px;
+	// padding: 5px;
+	// border: 0;
+	border: none;
+	// width: 620px;
+	padding: 25px 25px 10px;
+	font-size: $data-font-size * 1.125;
+	// text-transform: uppercase;
+	max-width: 100%;
+	// border: 3px solid transparent;
+	border-width: 2px;
+	border-style: inset;
+	border-color: initial;
+}
+
+input:focus, input:active {
+	outline: none;
+	border-color: $input-border-color;
+}
+
+.inputGroup {
+	position: relative;
+
+	&--country {
+		width: 45%;
+	}
+
+	&--state {
+		width: 35%;
+	}
+
+	&--zip {
+		width: 20%;
+		height: 70px;
+		margin-top: 0;
+		background-color: $input-zip-background-color;
+	}
+
+	&--textAreaWrapper {
+		border: 1px solid $input-textarea-border-color;
+		padding: 35px 10px 5px 10px;
+
+		textArea.dataInput {
+			border: none;
+			outline: none;
+		}
+		textArea + label.labelTextArea {
+			top: 25px;
+		}
+	}
+
+	.dataInput--secondary {
+		padding: 5px;
+		font-size: $data-font-size * 1.25;
+	}
+
+	.inputGroup label.dataLabel--secondary {
+		font-size: $data-font-size * 0.875;
+	}
+
+	.dataInput--bordered {
+		border: 1px solid $data-input-bordered-color;
+		border-radius: 0;
+	}
+
+	select.dataInput {
+		height: 65px;
+		padding-left: 25px;
+		padding-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	select.dataInput + label {
+		top: 30%;
+	}
+}
+
+.inputGroup label {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	transform: translateY(-50%);
+	font-style: italic;
+	// font-size: 14px;
+	font-size: $data-font-size * 1.125;
+	color: $data-input-font-color;
+	pointer-events: none;
+	transition: all 0.15s ease-out 0s;
+
+	&.dropdownlabel {
+		top: 20px;
+	}
+}
+
+.inputGroup .psudoLabel {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	transform: translateY(-50%);
+	font-style: italic;
+	// font-size: 14px;
+	font-size: $data-font-size * 1.125;
+	color: $data-input-font-color;
+	pointer-events: none;
+	transition: all 0.15s ease-out 0s;
+
+	&.dropdownlabel {
+		top: 20px;
+	}
+}
+
+.inputGroup input:focus + label,
+.inputGroup input.js-userData + label {
+	top: 20px;
+	// font-size: 12px;
+	font-size: $data-font-size;
+	color: $data-input-focus-color;
+}
+
+.dropdownPanel {
+	background-color: $input-dropdown-background-color;
+	height: 70px;
+	padding-top: 30px;
+	// padding-left: 25px;
+}
+
+.dataForm__buttonPanel--secondary {
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.dataForm__buttonPanel--tertiary {
+	margin-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.actionButton--bordered {
+	border: 1px solid;
+
+	&:hover {
+		border-bottom-color: inherit;
+	}
+}
+
+.inputCheckbox {
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	height: 70px;
+
+	background-color: $input-checkbox-background-color;
+	color: $input-checkbox-font-color;
+	border: 1px solid $input-checkbox-border-color;
+	border-radius: 0;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.checkboxInline {
+		min-height: 20px;
+		padding-left: 40px;
+		margin-bottom: 0;
+		font-weight: 400;
+		cursor: pointer;
+
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+
+		.checkboxInline__input {
+			position: absolute;
+			margin-left: -20px;
+			line-height: normal;
+		}
+
+		.checkboxInline__label {
+			font-size: $data-font-size;
+			line-height: 1.25rem;
+			margin: 0 0 10px;
+
+			p {
+				margin: 0 0 10px;
+			}
+		}
+
+	}
+}
+
+.inputButtonGroup {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+  padding: 15px;
+
+	.inputButton {
+		width: 50%;
+		display: block;
+		margin-left:auto;
+		margin-right:auto;
+		text-align: center;
+		color: $input-button-font-color;
+		background: $input-button-background-color;
+		padding: 10px 40px;
+		text-transform: uppercase;
+		border: 1px solid $input-button-border-color;
+	}
+}
+
+.inputRecatchaContainer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
