@@ -1,0 +1,89 @@
+$photo-background-color: $color-mine_shaft; 
+$icon-font-color: $color-white;
+$image-font-color: $icon-font-color;
+
+.pageContainer--fullPagePhotoContent {
+	// background-color: paleturquoise;
+  width: 100%;
+  height: 100%;
+  background-color: $photo-background-color;
+
+	display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	overflow: hidden;
+
+	img {
+		// width: 100%;
+		width: auto;
+		height: 100%;
+	}
+
+	a.navToGallaryPanel {
+		// background-color: tomato;
+		position: absolute;
+		height: 90%;
+		width: 70%;
+		top: 0;
+		left: 15%;
+		z-index: 800;
+		border: none;
+    cursor: zoom-out;
+	}
+
+	a.imageNavPanel {
+		text-decoration: none;
+	}
+
+	.imageNavPanel {
+		position: absolute;
+		height: 90%;
+		top: 0;
+		width: 15%;
+		border: none;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		i {
+			visibility: hidden;
+		}
+
+		i.fa {
+			color: $icon-font-color;
+		}
+	}
+
+	.imageNavPanel:hover {
+		cursor: pointer;
+		i {
+			visibility: visible;
+		}
+	}
+
+	.imageNavPanel--left {
+		left: 0;
+	}
+
+	.imageNavPanel--right {
+		right: 0;
+	}
+
+	.imageTitle {
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+
+		@include break(md) {
+			left: 20px;
+			width: 100%;
+			text-align: left;
+		}
+		color: $image-font-color;
+	}
+}

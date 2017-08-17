@@ -1,0 +1,229 @@
+$form-panel-background-color: $color-nero;
+$form-panel-border-color: $form-panel-background-color;
+$form-panel-h2-font-color: $color-jewel;
+$facebook-background-color: $color-mariner;
+$facebook-font-color: $color-white;
+$note-font-color: $form-panel-h2-font-color;
+$note-background-color: $form-panel-border-color;
+$register-font-color: $note-font-color;
+$register-background-color: $note-background-color;
+$forgot-password-font-color: $register-font-color;
+
+$profile-font-family: $font-primary, $font-secondary_1;
+$profile-font-size: $site-font-size;
+
+.contentContainer--profileContent {
+
+  	display: block;
+	clear: both;
+	min-height: 80vh;
+
+	width: 100%;
+	margin: 20px auto 20px auto;
+	background-color: $content-background;
+	font-family: $profile-font-family;
+
+  @include break(md) {
+		max-width: 60rem;
+    padding: 15px;
+	}
+
+	@include break(xl) {
+		max-width: 70rem;
+    padding: 15px;
+	}
+
+ .divider {
+		display: inline-block;
+		width: 100%;
+		color: $content-divider-color;
+		height: 1px;
+		border-top-width: 1px;
+
+		&.divider--solid {
+			border-top-style: solid;
+		}
+	}
+
+	.headerPanel {
+		h1 {
+			text-align: center;
+			font-weight: 300;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      font-size: 2rem;
+      @include break(md) {
+        letter-spacing: 5px;
+        font-size: $profile-font-size * 3.5;
+      }
+		}
+
+		h2 {
+			font-weight: 300;
+			text-align: center;
+			margin-bottom: 5px;
+			letter-spacing: 0.5px;
+			font-size: 1.2em;
+      @include break(md) {
+        letter-spacing: $profile-font-size * 1.1875;
+        font-size: $profile-font-size * 1.6875;
+      }
+		}
+	}
+
+  .formPanelSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include break(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    flex-wrap: nowrap;
+
+    .formPanel {
+      flex: 1;
+
+      border: 1px solid $form-panel-border-color;
+      background: $form-panel-background-color;
+      margin: 0;
+      padding-right: 15px;
+      padding-left: 15px;
+      // max-width: 100%;
+
+      @include break(md) {
+        margin: 10px auto 10px auto;
+        // max-width: 460px;
+      }
+
+      h2 {
+        letter-spacing: 1.2px;
+        font-size: $profile-font-size * 1.5;
+        line-height: 2.0rem;
+        font-weight: 300;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: $form-panel-h2-font-color;
+      }
+    }
+
+    .formPanelGap {
+      width: 100%;
+      height: 20px;
+      @include break(md) {
+        width: 10px;
+        height: 100%;
+      }
+    }
+  }
+
+
+  .noticeSection {
+    p {
+      font-family: $profile-font-family;
+      font-weight: 400;
+      font-size: $profile-font-size * 1.5;
+      line-height: 1.25;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .dataEntryFormContainer {
+    margin: 0;
+    max-width: 100%;
+    padding: 15px;
+
+    @include break(md) {
+      margin: 10px auto 10px auto;
+      max-width: 460px;
+    }
+
+    // border: 1px solid $color_log_cabin;
+    // background-color: $white;
+    .checkboxInline {
+      padding-left: 20px;
+
+      p {
+        margin-bottom: 0;
+        font-size: $profile-font-size * 0.875;
+      }
+    }
+
+    // .inputButton--facebook {
+    //   text-align: center;
+    //   text-decoration: none;
+    //   display: inline-block;
+    //   margin: 4px 2px 0;
+    //   padding: 0;
+    //   background-color: $facebook-background-color;
+    //   font-weight: 400;
+    //   font-size: $profile-font-size;
+    //   width: 100%;
+    //   color: $facebook-font-color;
+    //   border-radius: 4px;
+    //   line-height: 2.725rem;
+    //   text-transform: capitalize;
+    //   cursor: pointer;
+    // }
+
+    .note--request {
+      margin-top: 10px;
+      padding: 0;
+      color: $note-font-color;
+      background: $note-background-color;
+      font-weight: 400;
+      font-size: $profile-font-size;
+      width: 100%;
+      letter-spacing: 0.85px;
+      line-height: 1.2rem;
+      text-decoration: none;
+      border: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .inputButton--registerNow {
+      margin-top: 10px;
+      padding: 0;
+      color: $register-font-color;
+      background: $register-background-color;
+      font-weight: 400;
+      font-size: $profile-font-size;
+      width: 100%;
+      letter-spacing: 0.85px;
+      line-height: 2.725rem;
+      text-decoration: none;
+      border: none;
+      display: inline-block;
+      text-align: center;
+      // text-transform: uppercase;
+      // cursor: pointer;
+    }
+
+    .linkForgotPassword {
+      display: inline-block;
+      font-weight: 400;
+      font-size: $profile-font-size * 0.875;
+      color: $forgot-password-font-color;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+    }
+
+    .inputPanel {
+      margin-bottom: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-size: $profile-font-size * 0.875;
+      font-weight: 400;
+    }
+  }
+
+}

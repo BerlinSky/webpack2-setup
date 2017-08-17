@@ -1,0 +1,65 @@
+$button-font-color: $color-light-gray_01;
+$button-background-color: $color-fire_brick;
+$button-border-color: $button-background-color;
+$button-font-size: $site-font-size * 0.875;
+$facebook-font-color: $color-white;
+$facebook-background-color: $color-mariner;
+$facebook-hover-background-color: $color-chetwode-blue;
+
+.siteButton {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: $button-font-size;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.siteButton--default {
+  color: $button-font-color;
+  background-color: $button-background-color;
+  border-radius: 0;
+  border-color: $button-border-color;
+}
+
+.inputButton--facebook {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: $facebook-background-color;
+  font-weight: 400;
+  width: 100%;
+  color: $facebook-font-color;
+  cursor: pointer;
+  padding: 0;
+  border: none; 
+  border-radius: 0; 
+  text-transform: uppercase; 
+  font-size: 0.8rem; 
+  margin: 0.5rem; 
+  letter-spacing: 1px; 
+  line-height: 56px; 
+  padding: 0;
+  transition-duration: 0.3s;
+  transition-property: background;
+
+  .icon--facebook {
+    font-size: 1.0rem; 
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background: $facebook-hover-background-color;
+    color: $facebook-font-color;
+  }
+}
+

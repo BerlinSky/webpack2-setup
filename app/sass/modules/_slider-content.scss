@@ -1,0 +1,38 @@
+$slider-grid-nav-background-color: $color-grey;
+$slider-content-background-color: $color-black;
+
+.js-sliderContainer{
+	 overflow: hidden;
+	 position: relative;
+	 .slider-grid-nav{
+		 	position: absolute;
+		 	height: 100%;
+		 	width: 40px;
+		 	&.left{
+		 		left: 0px;
+		 	}
+		 	&.right{
+		 		right: 0px;
+		 	}
+		 	&:hover{
+		 		background-color: $slider-grid-nav-background-color;
+		 }
+	}
+}
+
+.js-sliderContent{
+	 background-color: $slider-content-background-color;
+	 margin-left: 0px;
+	 overflow: hidden;
+	 width: 10000px;
+	 
+	 .slider-grid{
+	 		height: 150px;
+	 		float: left;
+	 		margin-right: 5px;
+	 		img{
+	 			height: 100%;
+	 			width: auto;
+	 		}
+	 }
+}

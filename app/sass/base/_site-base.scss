@@ -1,0 +1,87 @@
+/* Box Model */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+body {
+  background: $body-background;
+}
+
+body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+  animation: none;
+  transition: none;
+}
+
+body, input, select, textarea {
+  color: $body-font-color;
+  font-family: $body-font-family;
+  font-size: $site-font-size;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+body {
+  padding: 0;
+}
+
+a {
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  border-bottom: dotted 1px rgba(160, 160, 160, 0.65);
+  color: inherit;
+  text-decoration: none;
+}
+
+a:before {
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: transparent;
+  color: $body-hover-color;
+}
+
+a:hover:before {
+  color: $body-hover-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $body-heading-color;
+  font-family: $body-font-family;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  line-height: 1.65;
+  margin: 0 0 1em 0;
+  text-transform: uppercase;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit;
+  border-bottom: 0;
+}
+
+h2 {
+  font-size: _headerFont('h2');
+}
+
+h3 {
+  font-size: _headerFont('h3');
+}
+
+h4 {
+  font-size: _headerFont('h4');
+}
+
+h5 {
+  font-size: _headerFont('h5');
+}
+
+h6 {
+  font-size: _headerFont('h6');
+}
+
+

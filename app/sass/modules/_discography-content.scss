@@ -1,0 +1,204 @@
+$discography-background-color: $color-white;
+$discography-image-box-color: $color-black;
+
+$discography-font-family: $font-primary, $font-secondary_1;
+$discography-font-size: $site-font-size;
+
+.contentContainer--discographyContent {
+
+  // display: block;
+  // clear: both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  box-sizing: border-box;
+
+  margin: 60px auto 10px auto;
+  padding: 5px 15px 60px 15px;
+
+  background-color: $discography-background-color;
+	font-family: $discography-font-family;
+
+	width: 100%;
+
+	@include break(md) {
+		max-width: 60rem;
+	}
+
+	@include break(xl) {
+		max-width: 70rem;
+	}
+
+  .headerPanel {
+    display: block;
+    text-align: center;
+
+    h1 {
+      font-weight: 300;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      font-size: $discography-font-size * 2.5;
+
+      @include break(md) {
+        letter-spacing: 5px;
+        font-size: $discography-font-size * 3.5;
+      }
+    }
+
+    h2 {
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+      font-size: $discography-font-size * 1.1875;
+      font-weight: 300;
+
+      @include break(md) {
+        letter-spacing: 1.2px;
+        font-size: $discography-font-size * 1.6875;
+      }
+    }
+  }
+
+  .albumSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include break(md) {
+      flex-direction: row;
+      // max-width: 75%;
+    }
+
+    .albumSection__albumInfo {
+      flex: 0 0 50%;
+      padding-right: 15px;
+      padding-left: 15px;
+      padding-bottom: 30px;
+    }
+
+    .albumSection__albumInfo--default {
+      margin-top: 15px;
+
+      .imagePanel {
+        
+        flex: 1;
+
+        padding: 0;
+        min-width: 100%;
+        max-width: 100%;
+
+        // @include break(md) {
+        //   min-width: 33.33%;
+        //   max-width: 33.33%;
+        // }
+
+         .imageFrame {
+          background: tomato;
+           
+          padding: 0 3% 20px;
+
+          .imageFrame__inner {
+            position: relative;
+
+            .imageFrame__mask {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 2;
+              box-shadow: inset 0 0 5px 2px $discography-image-box-color;
+            }
+          }
+        }
+      }
+
+    }
+
+    .albumSection__albumInfo--trackList {
+      .heading {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        display: block;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+        line-height: 1.65rem;
+      }
+
+      ol.trackList {
+        counter-reset: item;
+        list-style-type: none;
+
+        li {
+          list-style-position: inside;
+          list-style-type: decimal;
+          font-size: $discography-font-size;
+          height: 2.0rem;
+        }
+      }
+    }
+  }
+
+  .albumInfoPanel {
+    padding-top: 20px;
+    .infoLabel {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      line-height: 1.65rem;
+    }
+
+    .infoDetail {
+      font-weight: 300;
+      font-size: $discography-font-size;
+      line-height: 1.65rem;
+    }
+  }
+
+  .imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    background: none;
+
+    width: 100%;
+
+    .imageFrame {
+      padding: 0 3% 20px;
+
+      .imageFrame__inner {
+        position: relative;
+
+        .imageFrame__mask {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          box-shadow: inset 0 0 5px 2px $discography-image-box-color;
+        }
+      }
+    }
+
+    .imagePanel {
+      background: tomato;
+      
+      flex: 1;
+
+      padding: 0;
+      min-width: 50%;
+      max-width: 50%;
+
+      @include break(md) {
+        min-width: 33.33%;
+        max-width: 33.33%;
+      }
+    }
+
+  }
+}
+
