@@ -18,7 +18,7 @@ const babelOptions = {
 }
 
 const entryConfig = {
-  vendor: ['jquery', 'ramda'],
+  vendor: ['jquery', 'ramda', 'validate.js'],
   main: [
     path.resolve(__dirname, 'app/js/main.js'),
   ]
