@@ -26,7 +26,7 @@ const babelOptions = {
 const entryConfig = {
   vendor: ['jquery'],
   main: [
-    path.resolve(__dirname, 'app/index.js'),
+    path.resolve(__dirname, 'app/js/main.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
   ]
 }
@@ -188,8 +188,8 @@ module.exports = (env = {}) => {
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
-        template: 'app/site-layout.pug',
-        filename: 'site-layout.html',
+        template: 'app/site-navigation.pug',
+        filename: 'site-navigation.html',
         chunk: ['main']
       }),
 
