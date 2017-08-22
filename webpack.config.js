@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const extractPlugin = new ExtractTextPlugin({
-  filename: 'main.[chunkhash].css'
+  filename: 'main.css'
 });
 
 const providerPlugin = new webpack.ProvidePlugin({
@@ -25,7 +25,7 @@ const babelOptions = {
 
 const entryConfig = {
   vendor: ['jquery'],
-  index: [
+  main: [
     path.resolve(__dirname, 'app/index.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
   ]
@@ -33,7 +33,7 @@ const entryConfig = {
 
 const outputConfig = {
   path: path.resolve(__dirname, 'dist'),
-  filename: 'bundle.[name].[chunkhash].js'
+  filename: '[name].js'
 }
 
 const jsRules = {
@@ -75,20 +75,20 @@ const sassRules = {
   exclude: /node_modules/,
   use: extractPlugin.extract({
     use: [
-      { 
+      {
         loader: "css-loader",
         options: {
           sourceMap: true
-        } 
-      }, 
-      { 
+        }
+      },
+      {
         loader: "postcss-loader",
         options: {
           sourceMap: 'inline'
-        } 
-      }, 
-      { 
-        loader: "sass-loader", 
+        }
+      },
+      {
+        loader: "sass-loader",
         options: {
           sourceMap: true
         }
@@ -107,7 +107,7 @@ const pugRules = {
   test: /\.pug$/,
   exclude: /node_modules/,
   use: [
-    { loader: 'html-loader' }, 
+    { loader: 'html-loader' },
     { loader: 'pug-html-loader',
       options: {
         name: '[name],[ext]'
@@ -120,12 +120,12 @@ const fontRules = {
   test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
   exclude: '/app/images/',
   use: [
-    { 
+    {
       loader: 'file-loader',
       options: {
           name: '[name].[ext]',
           outputPath: 'fonts/'
-        } 
+        }
     }
   ]
 }
@@ -183,13 +183,14 @@ module.exports = (env = {}) => {
         favicon: 'app/favicon.png',
         template: 'app/index.pug',
         filename: 'index.html',
-        chunk: ['index']
+        chunk: ['main']
       }),
+
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
-        template: 'app/service.pug',
-        filename: 'service.html',
-        chunk: ['index']
+        template: 'app/site-layout.pug',
+        filename: 'site-layout.html',
+        chunk: ['main']
       }),
 
       minifyPlugin
