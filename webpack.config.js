@@ -24,7 +24,7 @@ const babelOptions = {
 }
 
 const entryConfig = {
-  vendor: ['jquery'],
+  vendor: ['jquery', 'imagesloaded', 'jquery-bridget', 'masonry-layout', 'ramda', 'validate.js'],
   main: [
     path.resolve(__dirname, 'app/js/main.js'),
     path.resolve(__dirname, 'app/sass/main.scss')
@@ -46,26 +46,6 @@ const jsRules = {
     },
     {
       loader: 'eslint-loader'
-    }
-  ]
-}
-
-const tsRules = {
-  test: /\.ts(x?)$/,
-  exclude: /node_modules/,
-  use: [
-    {
-      loader: 'babel-loader',
-      options: babelOptions
-    },
-    {
-      loader: 'ts-loader'
-    },
-    {
-      loader: 'tslint-loader',
-      options: {
-        'tsConfigFile': 'tsconfig.json'
-      }
     }
   ]
 }
@@ -162,7 +142,7 @@ module.exports = (env = {}) => {
     })(),
 
     module: {
-      rules: [ tsRules, jsRules, sassRules, htmlRules, pugRules, fontRules, imageRules ]
+      rules: [ jsRules, sassRules, htmlRules, pugRules, fontRules, imageRules ]
     },
 
     resolve: {
@@ -183,6 +163,13 @@ module.exports = (env = {}) => {
         favicon: 'app/favicon.png',
         template: 'app/index.pug',
         filename: 'index.html',
+        chunk: ['main']
+      }),
+
+      new HtmlWebpackPlugin({
+        favicon: 'app/favicon.png',
+        template: 'app/site-logo.pug',
+        filename: 'site-logo.html',
         chunk: ['main']
       }),
 

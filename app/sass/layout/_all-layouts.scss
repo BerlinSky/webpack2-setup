@@ -45,12 +45,12 @@ html, body { height:100%; }
     }
 
     .l-menuWrapper {
-      // flex: 1;
-
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
+      flex: 1;
+      display: block;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: stretch;
+      // justify-content: flex-start;
 
       @include break(md) {
         flex-direction: row;
@@ -104,9 +104,9 @@ html, body { height:100%; }
     }
 
     .contentContainer--errorMsgContent {
-        margin:0 auto;padding:15px;
+      margin:0 auto;
+      padding:15px;
     }
-
   }
 
   .l-pageFooter {
