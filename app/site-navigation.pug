@@ -2,15 +2,50 @@ doctype
 html
   head
     title Site Setup
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+    meta(http-equiv="Content-Language", content="en")
 
   body
 
     .l-pageContainer.pageContainer
       .l-pageHeader.pageHeader
-        .l-navContainer.navContainer(style="background: tomato;")
-          h2 Site Navigation
-        .l-menuWrapper.menuWrapper.js-menuWrapper(style="background: green;")
-          h2 Menu
+        .l-navContainer.navContainer
+          .l-logoContainer.logoContainer
+            div
+              svg(version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 512 512")
+                a(xlink:href="/")
+                  path(fill="#009cde" d="M399.798 8.104c-45.263 0-74.31-8.104-120.924-8.104-150.642 0-220.896 85.792-220.896 172.936 0 51.339 24.32 68.229 72.282 68.229-3.379-7.432-9.457-15.54-9.457-52.017 0-102.005 38.503-131.729 87.818-133.755 0 0-40.459 396.687-157.889 444.271v12.336h158.297l54.013-256h98.922l22.036-64h-107.454l25.972-123.095c29.723 6.078 58.771 12.158 83.766 12.158 31.074 0 59.447-9.457 74.984-81.063-18.913 6.080-39.181 8.104-61.47 8.104z")
+
+          .l-toggleMenuContainer.toggleMenuContainer
+            a(href="#").js-toggleMobileMenu
+              i.fa.fa-bars.fa-2x
+
+        .l-menuWrapper.menuWrapper.js-menuWrapper(style="background: tomato;")
+          .l-menuContainer.menuContainer.js-mobileMenuContainer
+            ul.menuList
+              li.menuItem
+                a(href='#')
+                  | News
+              li.menuItem
+                a(href='#')
+                  span Tour
+              li.menuItem
+                a(href='#')
+                  span Discography
+              li.menuItem
+                a(href='#')
+                  span Media
+              li.menuItem
+                a(href='#')
+                  span Store
+              li.menuItem
+                a(href='#')
+                  span Login
+              li.menuItem
+                a(href='#')
+                  span Join
 
       .l-pageContentWrapper.pageContentWrapper
         h2 Site Layout
