@@ -22,7 +22,7 @@ html
             a(href="#").js-toggleMobileMenu
               i.fa.fa-bars.fa-2x
 
-        .l-menuWrapper.menuWrapper.js-menuWrapper(style="background: tomato;")
+        .l-menuWrapper.menuWrapper.js-menuWrapper
           .l-menuContainer.menuContainer.js-mobileMenuContainer
             ul.menuList
               li.menuItem
@@ -48,7 +48,17 @@ html
                   span Join
 
       .l-pageContentWrapper.pageContentWrapper
-        h2 Site Layout
+        .l-contentContainer.contentContainer
+          .galleryContainer
+            .photoGallery(style="background: tomato;")
+              .title
+                span Photo Galleries
+
+              .imagePanel(style="background-image: url(http://media.slatanicwehrmacht.com/non_secure/images/temp_mastersite/galleries/130_t.jpg);")
+                .imagePanel__frame
+                  a.frammeLink(href="/media/photos/gallery/11")
+                    .frammeTitle Europe: 2017
+
 
       .l-pageFooter.contentFooterContainer
         .footerPanel.footerPanel--links
