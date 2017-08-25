@@ -1,0 +1,18 @@
+.photoGallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: $gallery-background-color-1;
+
+  .title {
+    width: 100%;
+    margin-top: 15px;
+    padding-left: 10px;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+  }
+}
