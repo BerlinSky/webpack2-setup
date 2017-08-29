@@ -168,6 +168,13 @@ module.exports = (env = {}) => {
 
       new HtmlWebpackPlugin({
         favicon: 'app/favicon.png',
+        template: 'app/video-gallery.pug',
+        filename: 'video-gallery.html',
+        chunk: ['main']
+      }),
+
+      new HtmlWebpackPlugin({
+        favicon: 'app/favicon.png',
         template: 'app/photo-gallery.pug',
         filename: 'photo-gallery.html',
         chunk: ['main']
